@@ -3,7 +3,9 @@
     "description": "Site de breaking",
     "autoload": {
         "psr-4": {
-            "Yangfu\\SiteBreaking\\": "src/model"
+            "app\\SiteBreaking\\model\\": "src/model",
+            "app\\SiteBreaking\\router\\": "src/router",
+            "app\\SiteBreaking\\controller\\": "src/controller"
         }
     },
     "authors": [
