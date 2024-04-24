@@ -1,6 +1,6 @@
 <?php
 foreach ($liste as $key => $value) {?>
-<h2><?=$value->getTitle()?></h2>
+<h2><?=$value->getNomUtilisateur()?></h2>
 
 <?php
 }

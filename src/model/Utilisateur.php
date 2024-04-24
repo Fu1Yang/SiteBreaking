@@ -10,15 +10,15 @@ class Utilisateur {
     private string $_nom_utilisateur;
     private string $_mot_de_passe;
     private string $_email;
-    private DateTime $_date_inscription;
+    private ?DateTime $_date_inscription;
 
-    public function __construct(int $id, string $nom_utilisateur, string $mot_de_passe, string $email, DateTime $date_inscription)
+    public function __construct(int $id, string $nom_utilisateur, string $mot_de_passe, string $email, ?DateTime $date_inscription = null)
     {
         $this->_id = $id;
         $this->_nom_utilisateur = $nom_utilisateur;
         $this->_mot_de_passe = $mot_de_passe;
         $this->_email = $email;
-        $this->_date_inscription = $date_inscription;
+        $this->_date_inscription = $date_inscription ?? new DateTime();
     }
 
     public function getId():int{
@@ -41,17 +41,18 @@ class Utilisateur {
         return $this->_date_inscription;
     }
 
-    public static function list():\ArrayObject{
+    public static function list(): \ArrayObject {
         $liste = new \ArrayObject();
-        $statement=Database::getInstance()->getConnexion()->prepare('select * from Utilisateur;');
+        $statement = Database::getInstance()->getConnexion()->prepare('SELECT * FROM Utilisateur;');
         $statement->execute();
-        while ($row = $statement->fetch()) {
-            $liste[] = new Utilisateur(
-                $row['id'],
+        while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) { //le résultat sous forme de tableau associatif 
+            $liste->append(new Utilisateur(
+                (int)$row['id'],
                 $row['nom_utilisateur'], 
                 $row['mot_de_passe'], 
                 $row['email'], 
-                new DateTime($row['date_inscription']));
+                new DateTime($row['date_inscription'])
+            ));
         }
         return $liste;
     }

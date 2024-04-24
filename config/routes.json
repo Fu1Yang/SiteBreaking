@@ -8,10 +8,10 @@
     }
     ,
     {
-        "path" : "/api/utilisateur",
-        "controller" : "Api",
-        "action" : "utilisateur",
+        "path" : "/",
+        "controller" : "Evenement",
+        "action" : "index",
         "method" : "GET",
-        "params" : [{"name":"id","type":"integer"},{"name":"name","type":"string"}]
+        "params" : []
     }
 ]

@@ -11,9 +11,6 @@ class ApiController extends BaseController
         $this->view('api/index');
     }
 
-    public function utilisateur(){
-        $this->addParam("liste",Utilisateur::List());
-        $this->view('api/liste_utilisateur');
-    }
+  
 }
 
