@@ -10,7 +10,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/accueil.css">
-    <link rel="stylesheet" href="./assets/css/evenement.css">
+    <link rel="stylesheet" href="./assets/css/contact.css">
   <script src="./assets/js/accueil.js"></script>
   <title>Breaking Journey</title>
 </head>
@@ -22,5 +22,5 @@
     <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/images/logo_fb.png" alt=""></a>
   </div>
   <h1>Breaking Journey</h1>
-  <button class="compteSmatrephone">Inscription/Connexion</button>
+  <button class="compteSmartephone">Inscription/Connexion</button>
 </header>

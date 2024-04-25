@@ -38,4 +38,45 @@ class Evenement {
     public function getLieu():string {
         return $this->_lieu;
     }
+    public static function create(Evenement $evenement):int{
+        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Evenement (titre, description, date_evenement, lieu) VALUE (:titre, :description, :date_evenement, :lieu)");
+        $statement->execute([
+            "titre"=>$evenement->getTitre(),
+            "description"=>$evenement->getDescription(),
+            "date_evenement"=>$evenement->getDateEvenement(),
+            "lieu"=>$evenement->getLieu(),
+        ]);
+        return (int) Database::getInstance()->getConnexion()->lastInsertId();
+    }
+
+    public static function read(int $id): ?self {
+        $statement = Database::getInstance()->getConnexion()->prepare("SELECT * FROM Evenement WHERE id=:id");
+        $statement->execute(["id"=>$id]);
+        if ($row = $statement->fetch()) {
+            $evenement = new Evenement(
+                id:$row['id'],
+                titre:$row["titre"],
+                description:$row["description"],
+                date_evenement:$row["date_evenement"],
+                lieu:$row["lieu"]
+            ); 
+            return $evenement;      
+        };
+        return null;
+    }
+
+    public static function update(Evenement $evenement):void{
+        $statemente = Database::getInstance()->getConnexion()->prepare("UPDATE Evenement SET titre=:titre, description=:description, date_evenement=:date_evenement, lieu=:lieu WHERE id=:id");
+        $statemente->execute([
+            "titre"=>$evenement->getTitre(),
+            "description"=>$evenement->getDescription(),
+            "date_evenement"=>$evenement->getDateEvenement(),
+            "lieu"=>$evenement->getLieu(),
+    ]);
+    }
+
+    public static function delete(Evenement $evenement):void{
+        $statement = Database::getInstance()->getConnexion()->prepare("DELETE FROM Evenement WHERE id=:id");
+        $statement->execute(["id"=>$evenement->getId()]);
+    }
 }

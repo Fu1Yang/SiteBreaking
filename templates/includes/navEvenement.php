@@ -4,9 +4,9 @@
       <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/images/logo_fb.png" alt=""></a>
     </div>
     <div class="menu">
-      <a href="">A propos</a>
-      <a href="">Événement</a>
-      <a href="">contact</a>
+      <a href="../apropos">A propos</a>
+      <a href="../">Accueil</a>
+      <a href="../contact">contact</a>
     </div>
-    <button class="rentrerCompte">Inscription/Connexion</button>
+    <button class="rentrerCompte"><a href="../connexion">Inscription/Connexion</a></button>
   </nav>

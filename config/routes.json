@@ -9,9 +9,40 @@
     ,
     {
         "path" : "/",
+        "controller" : "Accueil",
+        "action" : "index",
+        "method" : "GET",
+        "params" : []
+    },
+    {
+        "path" : "/evenement",
         "controller" : "Evenement",
+        "action" : "index",
+        "method" : "GET",
+        "params" : []
+    },
+    {
+        "path" : "/apropos",
+        "controller" : "Apropos",
+        "action" : "index",
+        "method" : "GET",
+        "params" : []
+    },  
+    {
+        "path" : "/contact",
+        "controller" : "Contact",
+        "action" : "index",
+        "method" : "GET",
+        "params" : []
+    },
+    {
+        "path" : "/connexion",
+        "controller" : "Connexion",
         "action" : "index",
         "method" : "GET",
         "params" : []
     }
 ]
+
+
+

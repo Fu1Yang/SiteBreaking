@@ -1,5 +1,5 @@
 <?php require_once(__DIR__ . '/../includes/headerEvenement.php'); ?>
-<?php require_once(__DIR__ . '/../includes/nav.php'); ?>
+<?php require_once(__DIR__ . '/../includes/navEvenement.php'); ?>
 
 
 <h1>Les Evenements </h1>

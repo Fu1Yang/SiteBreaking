@@ -8,11 +8,11 @@
       <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/images/logo_fb.png" alt=""></a>
     </div>
     <div class="menu">
-      <a href="">A propos</a>
-      <a href="">Événement</a>
-      <a href="">contact</a>
+      <a href="../apropos">A propos</a>
+      <a href="../evenement">Événement</a>
+      <a href="../contact">Contact</a>
     </div>
-    <button class="rentrerCompte">Inscription/Connexion</button>
+    <button class="rentrerCompte"><a href="../connexion">Inscription/Connexion</a></button>
   </nav>
 
   <div id="carouselExampleIndicators" class="carousel slide">
