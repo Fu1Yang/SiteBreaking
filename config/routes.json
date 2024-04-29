@@ -41,6 +41,20 @@
         "action" : "index",
         "method" : "GET",
         "params" : []
+    },  
+    {
+        "path" : "/inscription",
+        "controller" : "Inscription",
+        "action" : "index",
+        "method" : "GET",
+        "params" : []
+    },  
+    {
+        "path" : "/compteAdmin",
+        "controller" : "CompteAdmin",
+        "action" : "index",
+        "method" : "GET",
+        "params" : []
     }
 ]
 

@@ -22,18 +22,18 @@
     <div class="carte">
         <div><h3>Mardi</h3></div>
         <h4>Tout niveaux: Breaking.</h4>
-        <p>15h30 à 16h30: Pour les enfants de 5 ans  à 7 ans.</p>
-        <p>16h30 à 17h30: Pour les enfants de 8 ans à 12 ans. </p>
-        <p>17h30 à 18h30: A partir de 13 ans. </p>
+        <p><span>15h30 à 16h30</span>: Pour les enfants de<span> 5 ans  à 7 ans</span>.</p>
+        <p><span>16h30 à 17h30</span>: Pour les enfants de<span> 8 ans à 12 ans</span>. </p>
+        <p><span>17h30 à 18h30</span>: A partir de<span> 13 ans</span>. </p>
         <p>Salle Forge: 14 rue Eugène Pottier, 18100 Vierzon.</p>
     </div>
 
     <div class="carte">
         <div><h3>Mercredi</h3></div>
         <h4>Tout niveaux: Hiphop.</h4>
-        <p>19h30 à 20h30: A partir de 13 ans.</p>
+        <p><span>19h30 à 20h30</span>: A partir de<span> 13 ans</span>.</p>
         <p>Tout niveaux: Breaking.</p>
-        <p>20h30 à 21h30 : A partir de 13 ans</p>
+        <p><span>20h30 à 21h30</span> : A partir de<span> 13 ans</span>.</p>
         <p>Salle Forge: 14 rue Eugène Pottier, 18100 Vierzon.</p>
         
     </div>
@@ -41,8 +41,8 @@
     <div class="carte">
         <div><h3>Vendredi</h3></div>
         <h4>Tout niveaux: Breaking.</h4>
-        <p>18h30 à 19h30 : Pour les enfants de  5 ans  à 7 ans.</p>
-        <p>19h30 à 20h30 : Pour les enfants de 8 ans à 12 ans.</p>
+        <p><span>18h30 à 19h30</span> : Pour les enfants de <span> 5 ans  à 7 ans</span>.</p>
+        <p><span>19h30 à 20h30</span> : Pour les enfants de<span> 8 ans à 12 ans</span>.</p>
         <p>Salle Collier: 31 rue André Hénault, 18100 Vierzon. </p>
         
     </div>

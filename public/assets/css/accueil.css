@@ -89,13 +89,25 @@
     background-color: blue;
     color: #d9d9d9;
   }
+  nav button a {
+    text-decoration: none;
+    color: #9c3391;
+    font-size: 8px;
+  }
+  nav button:hover {
+    background-color: blue;
+    color: #d9d9d9;
+  }
+
+
   nav button {
     display: flex;
     align-items: center;
-    width: 180px;
+    justify-content: center;
+    width: 100px;
     height: 25px;
     border-radius: 15px;
-    color: #9c3391;
+    background-color: #fff;
   }
   /* .rentrerCompte {
     visibility: hidden;

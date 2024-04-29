@@ -63,11 +63,10 @@ h1 {
     box-shadow: 60px -16px rgb(246, 243, 243);
 } 
 
-
-
-
- 
-
+.carte:hover span{
+    font-weight: bolder;
+    text-decoration:underline;
+}
 
 
 

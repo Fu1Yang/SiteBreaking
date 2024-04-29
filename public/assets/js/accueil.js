@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(){
       nextSlide.classList.add('active');
     }
   
-    setInterval(nextSlide, 3000); 
+    setInterval(nextSlide, 1000); 
   
   
   // Fonction pour afficher la taille de l'écran

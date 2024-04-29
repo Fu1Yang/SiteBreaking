@@ -4,6 +4,8 @@
 
 <h1>Se connecter</h1>
 <form>
+  <fieldset>
+   
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Adresse Email</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -23,8 +25,9 @@
 </div>
 </div>
 <div class="card-footer text-center py-3">
-<div class="small"><a href="register.php">Avez vous besoin d'un compte? Enregistrez-vous!</a></div>
+<div class="small"><a href="../inscription">Avez vous besoin d'un compte? Enregistrez-vous!</a></div>
 </div>
+</fieldset>
 </form>
 
 
