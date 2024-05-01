@@ -5,16 +5,15 @@ namespace app\SiteBreaking\model;
 
 class Administrateur{
     private int $_id;
-    private string $_nom_utilisateur;
-    private string $_mot_de_passe;
+    private Utilisateur $_nom_utilisateur;
+    private Utilisateur $_utilisateur_id;
     private string $_role;
     private string $_permissions;
 
-    public function __construct(int $id, string $nom_utilisateur, string $mot_de_passe, string $role, string $permissions)
+    public function __construct(int $id, string $nom_utilisateur, string $role, string $permissions)
     {
         $this->_id = $id;
         $this->_nom_utilisateur = $nom_utilisateur;
-        $this->_mot_de_passe = $mot_de_passe;
         $this->_role = $role;
         $this->_permissions = $permissions;
 
@@ -24,13 +23,17 @@ class Administrateur{
         return $this->_id;
     }
 
-    public function getNomUtilisateur():string{
+    public function getNomUtilisateur():Utilisateur{
         return $this->_nom_utilisateur;
     }
 
-    public function getMotDepasse():string{
-        return $this->_mot_de_passe;
+    public function utilisateur_id(): ?int {
+        if ($this->_utilisateur_id instanceof Utilisateur) {
+            return $this->_utilisateur_id->getId();
+        }
+        return null;
     }
+    
 
     public function getRole():string{
         return $this->_role;
@@ -40,14 +43,14 @@ class Administrateur{
         return $this->_permissions;
     }
 
-    public static function create(Administrateur $administrateur): int {
+    public static function create(Administrateur $administrateur, Utilisateur $utilisateur): int {
         // Étape 1: Préparation de la requête SQL pour insérer un nouvel administrateur dans la base de données
-        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Administrateur(nom_utilisateur, mot_de_passe, role, permissions) VALUES (:nom_utilisateur, :mot_de_passe, :role, :permissions)");
+        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Administrateur(nom_utilisateur, role, utilisateur_id, permissions) VALUES (:nom_utilisateur, :role, :utilisateur_id, :permissions)");
     
         // Étape 2: Exécution de la requête SQL avec les valeurs de l'objet Administrateur
         $statement->execute([
             'nom_utilisateur' => $administrateur->getNomUtilisateur(),
-            'mot_de_passe' => $administrateur->getMotDepasse(),
+            'utilisateur_id' => $utilisateur->getId(),
             'role' => $administrateur->getRole(),
             'permissions' => $administrateur->getPermisions()
         ]);
@@ -70,10 +73,10 @@ class Administrateur{
             $administrateur = new Administrateur(
                 id: $row['id'],
                 nom_utilisateur: $row['nom_utilisateur'],
-                mot_de_passe: $row["mot_de_passe"],
                 role: $row['role'],
                 permissions: $row['permissions']
             );
+            $administrateur->utilisateur_id();
             // Étape 5: Retour de l'objet Administrateur
             return $administrateur;
         }
@@ -81,19 +84,19 @@ class Administrateur{
         return null;
     }
     
-    public static function update(Administrateur $administrateur):void{
-        $statement = Database::getInstance()->getConnexion()->prepare("UPDATE Administrateur SET nom_utilisateur=:nom_utilisateur, mot_de_passe=:mot_de_passe, role=:role, permissions=:permissions WHERE id=:id");
+    public static function update(Administrateur $administrateur, Utilisateur $utilisateur):void{
+        $statement = Database::getInstance()->getConnexion()->prepare("UPDATE Administrateur SET nom_utilisateur=:nom_utilisateur, utilisateur_id=:utilisateur_id, role=:role, permissions=:permissions WHERE id=:id");
         $statement->execute([
-            'nom_utilisateur'=>$administrateur->getNomUtilisateur(),
-            'mot_de_passe'=>$administrateur->getMotDepasse(),
+            'nom_utilisateur'=>$utilisateur->getNomUtilisateur(),
+            "utilisateur_id"=>$utilisateur->getId(),
             'role'=>$administrateur->getRole(),
             'permissions'=>$administrateur->getPermisions()
         ]);
     }
 
     public static function delete(Administrateur $administrateur):void{
-    $statement = Database::getInstance()->getConnexion()->prepare("DELETE  FROM Administrateur WHERE id=;id");
-    $statement->execute(['id'=>$administrateur->getId()]);
+        $statement = Database::getInstance()->getConnexion()->prepare("DELETE FROM Administrateur WHERE id=:id");
+        $statement->execute(['id'=>$administrateur->getId()]);
     }
 
 

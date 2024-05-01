@@ -10,14 +10,16 @@ class Utilisateur {
     private string $_nom_utilisateur;
     private string $_mot_de_passe;
     private string $_email;
+    private string $_role;
     private ?DateTime $_date_inscription;
 
-    public function __construct(int $id, string $nom_utilisateur, string $mot_de_passe, string $email, ?DateTime $date_inscription = null)
+    public function __construct(int $id, string $nom_utilisateur, string $mot_de_passe, string $email, string $role, ?DateTime $date_inscription = null)
     {
         $this->_id = $id;
         $this->_nom_utilisateur = $nom_utilisateur;
         $this->_mot_de_passe = $mot_de_passe;
         $this->_email = $email;
+        $this->_role = $role;
         $this->_date_inscription = $date_inscription ?? new DateTime();
     }
 
@@ -30,6 +32,7 @@ class Utilisateur {
     }
 
     public function getMotDePasse():string{
+        
         return $this->_mot_de_passe;
     }
 
@@ -37,9 +40,20 @@ class Utilisateur {
         return $this->_email;
     }
 
+    public function getRole():string{
+        return $this->_role;
+    }
+
+
     public function getDateInscription():DateTime{
         return $this->_date_inscription;
     }
+
+    public function setMotDePasse($mot_de_passe): void {
+        $mot_de_passe_hashed = password_hash($mot_de_passe, PASSWORD_DEFAULT);
+        $this->_mot_de_passe = $mot_de_passe_hashed;
+    }
+    
 
     public static function list(): \ArrayObject {
         $liste = new \ArrayObject();
@@ -51,17 +65,27 @@ class Utilisateur {
                 $row['nom_utilisateur'], 
                 $row['mot_de_passe'], 
                 $row['email'], 
+                $row["role"],
                 new DateTime($row['date_inscription'])
             ));
         }
         return $liste;
     }
 
-    public static function create(Utilisateur $utilisateur):int {
+  
+
+    public static function create(Utilisateur $utilisateur, $mot_de_passe):int {
+        //pour définir le mot de passe
+        $utilisateur->setMotDePasse($mot_de_passe);
+
         $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Utilisateur (nom_utilisateur, mot_de_passe, email, date_inscription) VALUES(:nom_utilisateur,:mot_de_passe,:email,:date_inscription);");
+        
+        //pour obtenir le mot de passe
+        $mot_de_passe = $utilisateur->getMotDePasse();
+        
         $statement->execute([
             "nom_utilisateur"=>$utilisateur->getNomUtilisateur(), 
-            "mot_de_passe"=>$utilisateur->getMotDePasse(), 
+            "mot_de_passe"=>$mot_de_passe, 
             "email"=>$utilisateur->getEmail(), 
             "date_inscription"=>$utilisateur->getDateInscription()]);
     
@@ -78,6 +102,7 @@ class Utilisateur {
                 nom_utilisateur:$row["nom_utilisateur"],
                 mot_de_passe:$row["mot_de_passe"],
                 email:$row["email"],
+                role:$row["role"],
                 date_inscription:$row["date_inscription"]);
             
             return $utilisateur;    
@@ -94,4 +119,27 @@ class Utilisateur {
         $statement = Database::getInstance()->getConnexion()->prepare("DELETE FROM Utilisateur WHERE id=:id");
         $statement->execute(["id"=>$utilisateur->getId()]);
     }
+
+
+    public function Seconnecter(string $email, string $mot_de_passe){
+        $connexion = Database::getInstance()->getConnexion()->prepare("SELECT * FROM Utilisateur WHERE email = :email ");
+        $connexion->execute(["email"=>$email]);
+
+        if ($row = $connexion->fetch()) {
+            if (password_verify($mot_de_passe,$row["mot_de_passe"])) {
+                return new Utilisateur(id:$row["id"],
+                nom_utilisateur:$row["nom_utilisateur"],
+                mot_de_passe:$row["mot_de_passe"],
+                email:$row["email"],
+                role:$row["role"],
+                date_inscription:$row["date_inscription"]);
+        }else
+            return null;
+    }
+    return null;
+}
+
+
+
+
 }
