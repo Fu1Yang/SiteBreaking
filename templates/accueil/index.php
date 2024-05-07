@@ -4,8 +4,8 @@
 
   <nav>
     <div class="logo">
-      <img class="fb1" src="./assets/images/logo.png" alt="">
-      <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/images/logo_fb.png" alt=""></a>
+      <img class="fb1" src="./assets/logo/logo.png" alt="">
+      <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/logo/logo_fb.png" alt=""></a>
     </div>
     <div class="menu">
       <a href="../apropos">A propos</a>
@@ -26,13 +26,7 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="./assets/images/dans.jpg" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="./assets/images/681224.jpg" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="./assets/images/breakdance-olympics-copy.jpg" alt="...">
+        
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -97,7 +91,7 @@
     </div>
   </div>
 
-  
+
   <div class="row">
     <div class="col-sm-8 mb-3 mb-sm-0">
       <div class="card">
@@ -137,5 +131,7 @@
       </div>
     </div>
   </div>
+  
 
+ 
   <?php require_once(__DIR__ . '/../includes/footer.php') ?>

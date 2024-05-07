@@ -4,7 +4,7 @@
 
 
 <div id="image">
-    <img src="./assets/images/logo.png" alt="logo du site">
+    <img src="./assets/logo/logo.png" alt="logo du site">
     <img src="./assets/images/_7f12db21-a2cb-44e7-ac30-86e57ac4153f.jpg" alt="photo de profile">
 </div>
 

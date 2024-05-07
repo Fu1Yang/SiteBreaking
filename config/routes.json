@@ -15,6 +15,22 @@
         "method" : "GET",
         "params" : [],
         "role": []
+    }, 
+    {
+        "path" : "/accueil",
+        "controller" : "Accueil",
+        "action" : "accueilAdmin",
+        "method" : "GET",
+        "params" : [],
+        "role": []
+    },
+    {
+        "path" : "/accueil",
+        "controller" : "Accueil",
+        "action" : "accueilPhotoCarousel",
+        "method" : "POST",
+        "params" : [],
+        "role": []
     },
     {
         "path" : "/evenement",

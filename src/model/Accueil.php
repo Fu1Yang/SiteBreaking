@@ -9,15 +9,17 @@ class Accueil {
     private int $_evenementRealiser;
     private string $_titre;
     private string $_nom;
+    private string $_text;
  
 
-    public function __construct(int $id, string $image, int $evenementRealiser, string $titre, string $nom)
+    public function __construct(int $id, string $image, int $evenementRealiser, string $titre, string $nom, string $text)
     {
         $this->_id = $id;
         $this->_image = $image;
         $this->_evenementRealiser = $evenementRealiser;
         $this->_titre = $titre;
         $this->_nom = $nom;
+        $this->_text = $text;
      
    
     }
@@ -37,14 +39,18 @@ class Accueil {
     public function getNom():string{
         return $this->_nom;
     }
+    public function getText():string{
+        return $this->_text;
+    }
     
     public static function create(Accueil $accueil):int{
-        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Accueil (image,evenementRealiser, titre,nom) VALUES (:image, :evenementRealiser, :titre, :nom) ");
+        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Accueil (image,evenementRealiser, titre,nom,text) VALUES (:image, :evenementRealiser, :titre, :nom, :text) ");
         $statement->execute([
             "image"=>$accueil->getImage(),
             "evenementRealiser"=>$accueil->getEvenementRealisateur(),
             "titre"=>$accueil->getTitre(),
             "nom"=>$accueil->getNom(),
+            "text"=>$accueil->getText(),
         ]);
         return (int) Database::getInstance()->getConnexion()->lastInsertId();
     }
@@ -61,7 +67,8 @@ class Accueil {
                 image:$row(["image"]),
                 evenementRealiser: $row['evenementRealiser'],
                 titre: $row['titre'],
-                nom: $row['nom']
+                nom: $row['nom'],
+                text: $row['text'],
             );
             // Étape 5: Retour de l'objet Administrateur
             return $accueil;
@@ -77,6 +84,7 @@ class Accueil {
             "evenementRealiser"=>$accueil->getEvenementRealisateur(),
             "titre"=>$accueil->getTitre(),
             "nom"=>$accueil->getNom(),
+            "text"=>$accueil->getText(),
         ]);
     }
 

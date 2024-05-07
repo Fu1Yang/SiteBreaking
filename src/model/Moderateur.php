@@ -59,7 +59,7 @@ class Moderateur {
         if ($row = $statement->fetch()) {
             $moderateur = new Moderateur(
                 id:$row["id"],
-                utilisateur_id:$row(["utilisateur_id"]),
+                utilisateur_id:$row["utilisateur_id"],
                 nom_utilisateur:$row["nom_utilisateur"],   
                 prenom_utilisateur:$row["prenom_utilisateur"],
                 permissions:$row["permissions"]

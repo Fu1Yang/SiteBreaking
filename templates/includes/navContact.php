@@ -1,7 +1,7 @@
 <nav>
     <div class="logo">
-      <img class="fb1" src="./assets/images/logo.png" alt="">
-      <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/images/logo_fb.png" alt=""></a>
+      <img class="fb1" src="./assets/logo/logo.png" alt="">
+      <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/logo/logo_fb.png" alt=""></a>
     </div>
     <div class="menu">
       <a href="../apropos">A propos</a>
