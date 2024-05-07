@@ -47,5 +47,16 @@ use app\SiteBreaking\router\ViewNotFoundException;
         {
             $this->_params[$name] = $value;
         }
+
+        public function getParams()
+        {
+            return $this->_params;
+        }
+
+        public function redirectTo(string $route)
+        {
+            header("Location: $route");
+            die();
+        }
     
     }

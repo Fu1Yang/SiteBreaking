@@ -5,6 +5,6 @@ namespace app\SiteBreaking\controller;
 
 class AproposController extends BaseController {
     public function index():void {
-        $this->view("Apropos/index");
+        $this->view("apropos/index");
     }
 }

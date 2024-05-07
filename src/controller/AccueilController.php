@@ -5,7 +5,7 @@ namespace app\SiteBreaking\controller;
 
 class AccueilController extends BaseController {
     public function index():void {
-        $this->view("Accueil/index");
+        $this->view("accueil/index");
     }
 }
 

@@ -11,7 +11,7 @@ class Evenement {
     private DateTime $_date_evenement;
     private string $_lieu;
 
-    public function __construct(int $id, string $titre, string $description, DateTime $date_evenement, string $lieu){
+    public function __construct(int $id, string $titre, string $description, ?DateTime $date_evenement, string $lieu){
         $this->_id = $id;
         $this->_titre = $titre;
         $this->_description = $description;
@@ -31,7 +31,7 @@ class Evenement {
         return $this->_description;
     }
 
-    public function getDateEvenement():DateTime {
+    public function getDateEvenement():\DateTime {
         return $this->_date_evenement;
     }
 
@@ -52,12 +52,13 @@ class Evenement {
     public static function read(int $id): ?self {
         $statement = Database::getInstance()->getConnexion()->prepare("SELECT * FROM Evenement WHERE id=:id");
         $statement->execute(["id"=>$id]);
+        $date_inscription = new DateTime('2024-05-02 14:20:00');
         if ($row = $statement->fetch()) {
             $evenement = new Evenement(
                 id:$row['id'],
                 titre:$row["titre"],
                 description:$row["description"],
-                date_evenement:$row["date_evenement"],
+                date_evenement: $date_inscription,
                 lieu:$row["lieu"]
             ); 
             return $evenement;      

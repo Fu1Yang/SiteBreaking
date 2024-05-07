@@ -6,16 +6,16 @@ namespace app\SiteBreaking\model;
 class Moderateur {
 
     private int $_id;
-    private Utilisateur $_nom_utilisateur;
     private Utilisateur $_utilisateur_id;
-    private string $_role;
+    private Utilisateur $_nom_utilisateur;
+    private Utilisateur $_prenom_utilisateur;
     private string $_permissions;
 
-    public function __construct(int $id, string $nom_utilisateur, string $role, string $permissions){
+    public function __construct(Utilisateur $utilisateur_id, Utilisateur $nom_utilisateur, Utilisateur $prenom_utilisateur, string $permissions = null, int $id = 0){
         $this->_id = $id;
+        $this->_utilisateur_id = $utilisateur_id;
         $this->_nom_utilisateur = $nom_utilisateur;
-      ;
-        $this->_role = $role;
+        $this->_prenom_utilisateur = $prenom_utilisateur;
         $this->_permissions = $permissions;
     }
 
@@ -27,7 +27,7 @@ class Moderateur {
         return $this->_nom_utilisateur;
     }
 
-    public function utilisateur_id(): ?int {
+    public function getUtilisateurId(): ?int {
         if ($this->_utilisateur_id instanceof Utilisateur) {
             return $this->_utilisateur_id->getId();
         }
@@ -35,20 +35,20 @@ class Moderateur {
     }
     
 
-    public function getRole():string{
-        return $this->_role;
+    public function getPrenomUtilisateur():Utilisateur{
+        return $this->_prenom_utilisateur;
     }
 
     public function getPermissions():string{
         return $this->_permissions;
     }
 
-    public static function create(Moderateur $moderateur, Utilisateur $utilisateur):int {
-        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Moderateur (nom_utilisateur, mot_de_passe, role, permissions) VALUE (:nom_utilisateur,:mot_de_passe,:role,:permissions)");
+    public static function create(Moderateur $moderateur):int {
+        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Moderateur (nom_utilisateur, mot_de_passe, prenom_utilisateur, permissions) VALUE (:nom_utilisateur,:mot_de_passe,:prenom_utilisateur,:permissions)");
         $statement->execute([
             "nom_utilisateur"=>$moderateur->getNomUtilisateur(),
-            'utilisateur_id' => $utilisateur->getId(),
-            "role"=>$moderateur->getRole(),
+            'utilisateur_id' => $moderateur->getUtilisateurId(),
+            "prenom_utilisateur"=>$moderateur->getPrenomUtilisateur(),
             "permissions"=>$moderateur->getPermissions()]);
         return (int) Database::getInstance()->getConnexion()->lastInsertId();
     }
@@ -59,22 +59,22 @@ class Moderateur {
         if ($row = $statement->fetch()) {
             $moderateur = new Moderateur(
                 id:$row["id"],
+                utilisateur_id:$row(["utilisateur_id"]),
                 nom_utilisateur:$row["nom_utilisateur"],   
-                role:$row["role"],
+                prenom_utilisateur:$row["prenom_utilisateur"],
                 permissions:$row["permissions"]
             );
-            $moderateur->utilisateur_id();
             return $moderateur;
         }
         return null;
     }
 
-    public static function update(Moderateur $moderateur, Utilisateur $utilisateur):void{
+    public static function update(Moderateur $moderateur):void{
         $statement = Database::getInstance()->getConnexion()->prepare("UPDATE Moderateur SET nom_utilisateur=:nom_utilisateur,mot_de_passe=:mot_de_passe,role=:role;permissions=:permissions WHERE id=:id");
         $statement->execute([ 
-            "nom_utilisateur"=>$utilisateur->getNomUtilisateur(),
-            "utilisateur_id"=>$utilisateur->getId(),
-            "role"=>$moderateur->getRole(),
+            "nom_utilisateur"=>$moderateur->getNomUtilisateur(),
+            "utilisateur_id"=>$moderateur->getUtilisateurId(),
+            "prenom_utilisateur"=>$moderateur->getPrenomUtilisateur(),
             "permissions"=>$moderateur->getPermissions()]);
     }
 

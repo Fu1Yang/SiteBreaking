@@ -5,6 +5,6 @@ namespace app\SiteBreaking\controller;
 
 class ContactController extends BaseController {
     public function index():void {
-        $this->view("Contact/index");
+        $this->view("contact/index");
     }
 }

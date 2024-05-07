@@ -5,7 +5,8 @@ class Database {
     private ?\PDO $_connexion = null;
     //constructeur privé pour empêcher l'instanciation directe
     private function __construct(){
-        $this->_connexion = new \PDO("mysql:host=mysql-srv;dbname=SiteBreaking","root", "password");
+        $this->_connexion = new \PDO("mysql:host=".Config::getInstance()->getDbHost().';dbname='.Config::getInstance()->getDbName(),Config::getInstance()->getDbUserName(),Config::getInstance()->getDbUserPassword
+        ());
 
     }
 

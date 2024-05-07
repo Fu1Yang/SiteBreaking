@@ -81,4 +81,36 @@ public static function delete(Message $message):void{
 }
 
 
+
+public static function findByUserId(int $userId): array {
+    // Initialise un tableau pour stocker les messages trouvés
+    $messages = [];
+
+    // Prépare une requête SQL pour sélectionner les messages où l'expéditeur ou le destinataire est égal à $userId
+    $statement = Database::getInstance()->getConnexion()->prepare("SELECT * FROM Message WHERE expediteur_id = :userId OR destinataire_id = :userId");
+
+    // Exécute la requête SQL en passant $userId en tant que valeur pour le paramètre :userId
+    $statement->execute(["userId" => $userId]);
+
+    // Parcourt les résultats de la requête et crée des objets Message pour chaque ligne de résultat
+    while ($row = $statement->fetch()) {
+        // Crée un nouvel objet Message en utilisant les données de la ligne de résultat
+        $message = new Message(
+            id: $row["id"], // Identifiant du message
+            contenu: $row["contenu"], // Contenu du message
+            date_envoi: new DateTime($row["date_envoi"]), // Date d'envoi du message (convertie en objet DateTime)
+            expediteur_id: $row["expediteur_id"], // Identifiant de l'expéditeur
+            destinataire_id: $row["destinataire_id"] // Identifiant du destinataire
+        );
+
+        // Ajoute l'objet Message créé au tableau $messages
+        $messages[] = $message;
+    }
+
+    // Retourne le tableau de messages
+    return $messages;
+}
+
+
+
 }   

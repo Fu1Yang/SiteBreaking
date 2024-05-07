@@ -23,9 +23,13 @@ namespace app\SiteBreaking\router;
         {
             // le parametre $route est issu d'une route trouvée depuis le mixed généré par json_decode. chaque sous élément est un objet de la classe stdClass
             $patternParams="";
+            if ($route->method=="GET")
             foreach($route->params as $params)
             {
-                $patternParams.='/\d';
+                if ($params->type =="integer")
+                    $patternParams.='/\d';
+                else
+                    $patternParams.='/(.*?)';
             }
             return $patternParams;
         }

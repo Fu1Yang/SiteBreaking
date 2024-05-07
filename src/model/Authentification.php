@@ -24,4 +24,18 @@ class Authentification {
         $_SESSION["UTILISATEUR_RANK"]=$utilisateur->getRole();
     }
 
+    public function logout()
+    {
+        unset($_SESSION['UTILISATEUR_ID']);
+        unset($_SESSION['UTILISATEUR_RANK']);
+        session_destroy();
+    }
+    public function getUtilisateurConnecte():?Utilisateur
+    {
+        if (isset($_SESSION['UTILISATEUR_ID'])&&is_numeric($_SESSION['UTILISATEUR_ID']))
+        {
+            return Utilisateur::read($_SESSION['UTILISATEUR_ID']);
+        }
+        return null;
+    }
 }

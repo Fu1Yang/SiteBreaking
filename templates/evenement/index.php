@@ -4,17 +4,9 @@
 
 <h1>Les Evenements </h1>
 
-<article>
-    <div  class="description">
-    <h2>Les Jeux Olympiques de 2024</h2>
-    <p>Les épreuve de breaking de Paris 2024 se déroule le 9 et 10 Août.</p>
-    <ul>
-        <li>Battle B-girls(femmes)</li>
-        <li>Battle B-boys (hommes)</li>
-    </ul> 
-    </div>
-    <img src="./assets/images/breakdance-olympics-copy.jpg" alt="">   
-</article>
+
+    <?php require_once(__DIR__ . '/../compteAdmin/affichage/listeEvenement.php');?>
+
 
 
 

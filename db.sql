@@ -20,7 +20,8 @@ CREATE TABLE Visiteur (
 CREATE TABLE Utilisateur (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom_utilisateur VARCHAR(50) UNIQUE NOT NULL,
-    mot_de_passe VARCHAR(50) NOT NULL,
+    prenom_utilisateur VARCHAR(50) UNIQUE NOT NULL,
+    mot_de_passe VARCHAR(255) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     role VARCHAR(50), -- Ajout de l'attribut "role"
     date_inscription TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -31,6 +32,7 @@ CREATE TABLE Administrateur (
     id INT AUTO_INCREMENT PRIMARY KEY,
     utilisateur_id INT UNIQUE, -- Utilisation d'une contrainte UNIQUE pour garantir qu'un utilisateur ne peut être qu'un seul administrateur
     nom VARCHAR(50), -- Ajout du nom de l'administrateur
+    prenom VARCHAR(50), -- Ajout du prenom de l'administrateur
     FOREIGN KEY (utilisateur_id) REFERENCES Utilisateur(id) ON DELETE CASCADE, -- Supprimer automatiquement l'administrateur associé si l'utilisateur est supprimé
     permissions TEXT
 );
@@ -40,6 +42,7 @@ CREATE TABLE Moderateur (
     id INT AUTO_INCREMENT PRIMARY KEY,
     utilisateur_id INT UNIQUE, -- Utilisation d'une contrainte UNIQUE pour garantir qu'un utilisateur ne peut être qu'un seul modérateur
     nom VARCHAR(50), -- Ajout du nom du modérateur
+    prenom VARCHAR(50), -- Ajout du prenom du modérateur
     FOREIGN KEY (utilisateur_id) REFERENCES Utilisateur(id) ON DELETE CASCADE, -- Supprimer automatiquement le modérateur associé si l'utilisateur est supprimé
     permissions TEXT
 );
@@ -52,6 +55,32 @@ CREATE TABLE Evenement (
     date_evenement DATETIME,
     lieu VARCHAR(100)
 );
+-- Table pour stocker les informations de la page d'accueil
+CREATE TABLE Accueil (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    image TEXT,
+    evenementRealiser INT,
+    titre VARCHAR(100),
+    nom VARCHAR(100)
+);
+
+-- Table pour stocker les informations de la page "À Propos"
+CREATE TABLE Apropos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    logo TEXT,
+    description TEXT,
+    nosPartenaires TEXT
+);
+
+-- Table pour stocker les informations de la page de contact
+CREATE TABLE Contact (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    adresse VARCHAR(255),
+    numeroDeTel VARCHAR(20),
+    email VARCHAR(100),
+    horaire VARCHAR(100)
+);
+
 
 -- Table pour stocker les messages
 CREATE TABLE Message (
@@ -72,22 +101,22 @@ CREATE TABLE Messagerie (
 );
 
 -- Remplissage de la table Utilisateur
-INSERT INTO Utilisateur (nom_utilisateur, mot_de_passe, email, role) VALUES
-    ('nicolas', 'nicolas1234', 'nicolas@gmail.com', 'admin'),
-    ('valerie', 'valerie1234', 'valerie@gmail.com', 'utilisateur'),
-    ('fabien', 'fabien1234', 'fabien@gmail.com', 'moderateur'),
-    ('julie', 'julie1234', 'julie@gmail.com', 'utilisateur'),
-    ('ludivine', 'ludivine1234', 'ludivine@gmail.com', 'utilisateur');
+INSERT INTO Utilisateur (nom_utilisateur, prenom_utilisateur, mot_de_passe, email, role) VALUES
+    ('nicolas', "turcan", 'nicolas1234', 'nicolas@gmail.com', 'admin'),
+    ('valerie', "jolie",'valerie1234', 'valerie@gmail.com', 'utilisateur'),
+    ('fabien', "lemal",'fabien1234', 'fabien@gmail.com', 'moderateur'),
+    ('julie', "bouler",'julie1234', 'julie@gmail.com', 'utilisateur'),
+    ('ludivine', "boul",'ludivine1234', 'ludivine@gmail.com', 'utilisateur');
 
 -- Remplissage de la table Administrateur
-INSERT INTO Administrateur (utilisateur_id, nom, permissions) VALUES
-    (1, 'Nicolas', 'all_permissions'),
-    (2, 'Valerie', 'limited_permissions');
+INSERT INTO Administrateur (utilisateur_id, nom,prenom, permissions) VALUES
+    (1, 'Nicolas',"turcan", 'all_permissions'),
+    (2, 'Valerie',"jolie", 'limited_permissions');
 
 -- Remplissage de la table Moderateur
-INSERT INTO Moderateur (utilisateur_id, nom, permissions) VALUES
-    (3, 'Fabien', 'limited_permissions'),
-    (4, 'Julie', 'limited_permissions');
+INSERT INTO Moderateur (utilisateur_id, nom,prenom, permissions) VALUES
+    (3, 'Fabien',"lemal", 'limited_permissions'),
+    (4, 'Julie',"bouler", 'limited_permissions');
 
 -- Remplissage de la table Evenement
 INSERT INTO Evenement (titre, description, date_evenement, lieu) VALUES

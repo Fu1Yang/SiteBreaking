@@ -4,7 +4,8 @@
         "controller" : "Api",
         "action" : "index",
         "method" : "GET",
-        "params" : []
+        "params" : [],
+        "role": []
     }
     ,
     {
@@ -12,50 +13,82 @@
         "controller" : "Accueil",
         "action" : "index",
         "method" : "GET",
-        "params" : []
+        "params" : [],
+        "role": []
     },
     {
         "path" : "/evenement",
         "controller" : "Evenement",
         "action" : "index",
         "method" : "GET",
-        "params" : []
+        "params" : [],
+        "role": []
     },
     {
         "path" : "/apropos",
         "controller" : "Apropos",
         "action" : "index",
         "method" : "GET",
-        "params" : []
+        "params" : [],
+        "role": []
     },  
     {
         "path" : "/contact",
         "controller" : "Contact",
         "action" : "index",
         "method" : "GET",
-        "params" : []
+        "params" : [],
+        "role": []
     },
     {
         "path" : "/connexion",
         "controller" : "Connexion",
         "action" : "index",
         "method" : "GET",
-        "params" : []
+        "params" : [],
+        "role": []
     },  
+    {
+        "path" : "/connexion",
+        "controller" : "Connexion",
+        "action" : "connecter",
+        "method" : "POST",
+        "params" : [{"name":"email","type":"email"},{"name":"mot_de_passe","type":"password","lenght":5}],
+        "role": []
+    }, 
     {
         "path" : "/inscription",
         "controller" : "Inscription",
         "action" : "index",
         "method" : "GET",
-        "params" : []
-    },  
+        "params" : [],
+        "role": []
+    }, 
+    {
+        "path" : "/inscription",
+        "controller" : "Inscription",
+        "action" : "inscription",
+        "method" : "POST",
+        "params" : [{"name":"nom_utilisateur","type":"text"},{"name":"prenom_utilisateur","type":"text"},{"name":"password","type":"password","lenght":5},{"name":"confirmePassword","type":"password","lenght":5},{"name":"email","type":"email"}],
+        "role": []
+    }, 
     {
         "path" : "/compteAdmin",
         "controller" : "CompteAdmin",
         "action" : "index",
         "method" : "GET",
-        "params" : []
+        "params" : [],
+        "role": []
+    }, 
+    {
+        "path": "/compteAdmin",
+        "controller": "CompteAdmin",
+        "action": "delete",
+        "method": "POST",
+        "params": [{"name": "id", "type": "int"}],
+        "role": []
     }
+    
 ]
 
 
