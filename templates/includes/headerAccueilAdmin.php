@@ -13,16 +13,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap" rel="stylesheet">
-  <script src="./assets/js/accueil.js"></script>
+  <script src="./assets/js/accueilAdmin.js"></script>
   <title>Breaking Journey</title>
 </head>
 
 <body>
-  <header>
-  <div class="logo1">
-    <img  src="./assets/logo/logo.png" alt="">
-    <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/logo/logo_fb.png" alt=""></a>
-  </div>
-  <h1>Breaking Journey</h1>
-  <button class="compteSmartephone">Inscription/Connexion</button>
-</header>

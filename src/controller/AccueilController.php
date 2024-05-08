@@ -32,7 +32,7 @@ class AccueilController extends BaseController {
             // Déplacer le fichier téléchargé vers le répertoire de destination
             move_uploaded_file($_FILES['photos']["tmp_name"], $path . $photoName);
           
-            echo "Réussir ";
+            header("location:compteAdmin");
         } 
         else {
             $message = "La photo doit être de type jpeg, jpg, png ou pdf";
