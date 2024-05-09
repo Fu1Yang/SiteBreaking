@@ -25,9 +25,17 @@
         "role": []
     },
     {
-        "path" : "/accueil",
+        "path" : "/photo-carousel",
         "controller" : "Accueil",
         "action" : "accueilPhotoCarousel",
+        "method" : "POST",
+        "params" : [],
+        "role": []
+    },
+    {
+        "path" : "/accueil-carte",
+        "controller" : "Accueil",
+        "action" : "accueilCarte",
         "method" : "POST",
         "params" : [],
         "role": []
