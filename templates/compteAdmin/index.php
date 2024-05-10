@@ -205,15 +205,94 @@
                                     </thead>
                     
                                     <?php require_once(__DIR__ . '/../compteAdmin/affichage/listeUtilisateur.php');?>
-                                    </tfoot>
-                                 
-                                    </tbody>
+                                   
                                 </table>
                             </div>
                         </div>
 
                     </div>
                 </main>
+
+                <main>
+                    <div class="container-fluid px-4">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Tableau des Evenement
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <tbody>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>Titre</th>
+                                            <th>Description</th>
+                                            <th>Date des evenements</th>
+                                            <th>Le lieux</th>
+                                            <th>Photo</th>
+                                            <th>action</th>
+                                        </tr>
+                                    </thead>
+                                        <?php require_once(__DIR__ . '/../compteAdmin/affichage/affichageDesEvenements.php');?>
+                                </table>
+                            </div>
+                        </div>
+                    </div>  
+                </main>
+
+                <main>
+                <div class="container-fluid px-4">
+                    <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Tableau des photos
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <tbody>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>nom</th>
+                                            <th>action</th>
+                                        </tr>
+                                    </thead>
+                    
+                                    <?php require_once(__DIR__ . '/../compteAdmin/affichage/listePhotosCarousel.php');?>
+                                   
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>   
+
+                <main>
+                <div class="container-fluid px-4">
+                    <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Mes coordonnées
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <tbody>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>adresse</th>
+                                            <th>numeroDeTel</th>
+                                            <th>email</th>
+                                            <th>horaire</th>
+                                            <th>action</th>
+                                        </tr>
+                                    </thead>
+                    
+                                    <?php require_once(__DIR__ . '/../compteAdmin/affichage/afficherMesCoordonnées.php');?>
+                                   
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>  
+                
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
@@ -241,3 +320,5 @@
 
 
 
+
+         

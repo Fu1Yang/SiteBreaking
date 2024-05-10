@@ -40,12 +40,6 @@ class AccueilController extends BaseController {
         }
     
     
-    }
-
-
-    
-    
-    
 }
 
-
+}
