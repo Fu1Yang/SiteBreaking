@@ -43,17 +43,18 @@ class Accueil {
         return $this->_text;
     }
     
-    public static function create(Accueil $accueil):int{
-        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Accueil (image,evenementRealiser, titre,nom,text) VALUES (:image, :evenementRealiser, :titre, :nom, :text) ");
+    public static function create(array $data): int {
+        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Accueil (image, evenementRealiser, titre, nom, text) VALUES (:image, :evenementRealiser, :titre, :nom, :text) ");
         $statement->execute([
-            "image"=>$accueil->getImage(),
-            "evenementRealiser"=>$accueil->getEvenementRealisateur(),
-            "titre"=>$accueil->getTitre(),
-            "nom"=>$accueil->getNom(),
-            "text"=>$accueil->getText(),
+            "image" => $data["image"],
+            "evenementRealiser" => $data["evenementRealiser"],
+            "titre" => $data["titre"],
+            "nom" => $data["nom"],
+            "text" => $data["text"],
         ]);
         return (int) Database::getInstance()->getConnexion()->lastInsertId();
     }
+    
 
     public static function read(int $id):?self{
         $statement = Database::getInstance()->getConnexion()->prepare("SELECT * FROM Accueil WHERE id=:id");

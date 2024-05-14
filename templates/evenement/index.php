@@ -5,7 +5,7 @@
 <h1>Les Evenements </h1>
 
 
-    <?php require_once(__DIR__ . '/../compteAdmin/affichage/listeEvenement.php');?>
+    <?php require_once(__DIR__ . '/../compteAdmin/liste/listeEvenement.php');?>
 
 
 

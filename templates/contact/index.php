@@ -4,7 +4,7 @@
 
 
 <div id="profil">
-    <img src="./assets/images/_7f12db21-a2cb-44e7-ac30-86e57ac4153f.jpg" alt="photo de profile">
+    <img src="./assets/logo/_7f12db21-a2cb-44e7-ac30-86e57ac4153f.jpg" alt="photo de profile">
 </div>
 
 

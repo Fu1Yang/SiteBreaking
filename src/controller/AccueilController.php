@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace app\SiteBreaking\controller;
 use app\SiteBreaking\model\Photo;
+use app\SiteBreaking\model\Accueil;
+use app\SiteBreaking\model\Database;
+
 class AccueilController extends BaseController {
     public function index():void {
         $this->view("accueil/index");
@@ -40,6 +43,46 @@ class AccueilController extends BaseController {
         }
     
     
-}
+    }
+
+    public function  accueilCarte(){
+        $message = "La photo doit être de type jpeg, jpg, png ou pdf";
+        try {
+          
+            if(isset($_POST["envoyer"])){
+                $evenementRealiser = $_POST["evenementRealiser"];
+                $titre = $_POST["titre"];
+                $nom = $_POST["nom"];
+                $image = $_FILES['image']['name'];
+                $text = $_POST["text"];
+              
+                  // Créer un tableau avec les données
+                $accueil = [
+                    "evenementRealiser"=> $evenementRealiser,
+                    "titre"=> $titre,
+                    "nom"=> $nom,
+                    "image"=> $image,
+                    "text"=> $text
+                ];
+
+        
+                
+            if(isset($_FILES['image']) && preg_match("#jpeg|jpg|png|pdf#", $_FILES['image']['type'])) {
+                $path = "./assets/logo/";
+                $photoName = $_FILES['image']['name'];
+                // Déplacer le fichier téléchargé vers le répertoire de destination
+                move_uploaded_file($_FILES['image']["tmp_name"], $path . $photoName);
+            
+                
+            } 
+            Accueil::create($accueil);     
+            header("location:compteAdmin");
+            }
+        } catch (\Throwable ) {
+            echo $message;
+        }
+    
+    }
+  
 
 }

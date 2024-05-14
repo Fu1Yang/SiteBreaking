@@ -93,9 +93,9 @@
                                     </a>
                                     <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
+                                            <a class="nav-link" href="./assets/html/401.html">401 Page</a>
+                                            <a class="nav-link" href="./assets/html/404.html">404 Page</a>
+                                            <a class="nav-link" href="./assets/html/500.html">500 Page</a>
                                         </nav>
                                     </div>
                                 </nav>
@@ -204,7 +204,7 @@
                                         </tr>
                                     </thead>
                     
-                                    <?php require_once(__DIR__ . '/../compteAdmin/affichage/listeUtilisateur.php');?>
+                                    <?php require_once(__DIR__ . '/../compteAdmin/affichage/afficherUtilisateur.php');?>
                                    
                                 </table>
                             </div>
@@ -257,13 +257,43 @@
                                         </tr>
                                     </thead>
                     
-                                    <?php require_once(__DIR__ . '/../compteAdmin/affichage/listePhotosCarousel.php');?>
+                                    <?php require_once(__DIR__ . '/../compteAdmin/affichage/afficherPhotosCarousel.php');?>
                                    
                                 </table>
                             </div>
                         </div>
                     </div>
                 </main>   
+
+                
+                <main>
+                <div class="container-fluid px-4">
+                    <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                               Accueil
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <tbody>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>evenementRealiser</th>
+                                            <th>titre</th>
+                                            <th>nom</th>
+                                            <th>image</th>
+                                            <th>text</th>
+                                            <th>action</th>
+                                        </tr>
+                                    </thead>
+                    
+                                    <?php require_once(__DIR__ . '/../compteAdmin/affichage/afficherAccueil.php');?>
+                                   
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>  
 
                 <main>
                 <div class="container-fluid px-4">
@@ -281,6 +311,34 @@
                                             <th>numeroDeTel</th>
                                             <th>email</th>
                                             <th>horaire</th>
+                                            <th>action</th>
+                                        </tr>
+                                    </thead>
+                    
+                                    <?php require_once(__DIR__ . '/../compteAdmin/affichage/afficherMesCoordonnées.php');?>
+                                   
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>  
+
+                
+                <main>
+                <div class="container-fluid px-4">
+                    <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Apropos
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <tbody>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>logo</th>
+                                            <th>description</th>
+                                            <th>nosPartenaire</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>

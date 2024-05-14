@@ -297,7 +297,7 @@
   }
   .card-body img {
     display: flex;
-    width: auto;
+    width: 350px;
     height: 350px;
   }
   .card-text {

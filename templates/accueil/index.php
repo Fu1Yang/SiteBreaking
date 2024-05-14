@@ -41,55 +41,9 @@
     </button>
   </div>
 
-  <div class="evenementEffectuer">
-    <div id="h1">
-      <h1>Les événement effectué du puits sa création</h1>
-    </div>
-    <div id="paragraphe">
-      <p>20</p>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-sm-8 mb-3 mb-sm-0">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">Le Lorem Ipsum est simplement du faux texte employé dans la composition
- 
-            et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard
-            
-            de l'imprimerie depuis les années 1500,
-            
-            Le Lorem Ipsum est simplement du faux texte employé dans la composition
-             
-            et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard
-            
-             de l'imprimerie depuis les années 1500,Le Lorem Ipsum est simplement du faux texte employé dans la composition
- 
-             et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard
-             
-             de l'imprimerie depuis les années 1500,
-             
-             Le Lorem Ipsum est simplement du faux texte employé dans la composition
-              
-             et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard
-             
-              de l'imprimerie depuis les années 1500,</p>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Nom de la personne</h5>
-          <img src="./assets/images/_7f12db21-a2cb-44e7-ac30-86e57ac4153f.jpg" alt="">
-        
-        </div>
-      </div>
-    </div>
-  </div>
+
+  <?php require_once(__DIR__ . '/../compteAdmin/liste/listeAccueil.php');?>
 
 
   <div class="row">
