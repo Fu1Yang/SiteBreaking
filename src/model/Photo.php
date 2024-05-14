@@ -53,11 +53,11 @@ class Photo {
         $statement->execute(array("id" => $photo->getId(), "nom" => $photo->getNom()));
     }
 
-    public static function delete(Photo $photo):void{
+    public static function delete(Photo $photo): bool {
         $statement = Database::getInstance()->getConnexion()->prepare("DELETE FROM Photos WHERE id=:id");
-        $statement->execute(array('id'=>$photo->getId()));
-
+        return $statement->execute(array('id' => $photo->getId()));
     }
+    
 }
 
 

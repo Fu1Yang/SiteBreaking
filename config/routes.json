@@ -41,6 +41,14 @@
         "role": []
     },
     {
+        "path": "/accueil-deletePhoto",
+        "controller": "Accueil",
+        "action": "deletePhoto",
+        "method": "POST",
+        "params": [{"name": "id", "type": "int"}],
+        "role": []
+    },
+    {
         "path" : "/evenement",
         "controller" : "Evenement",
         "action" : "index",

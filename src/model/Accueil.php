@@ -65,7 +65,7 @@ class Accueil {
             // Étape 4: Création d'un nouvel objet Administrateur avec les données récupérées de la base de données
             $accueil = new Accueil(
                 id: $row['id'],
-                image:$row(["image"]),
+                image:$row["image"],
                 evenementRealiser: $row['evenementRealiser'],
                 titre: $row['titre'],
                 nom: $row['nom'],

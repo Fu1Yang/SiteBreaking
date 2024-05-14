@@ -19,7 +19,7 @@ function afficherAccueil(){
         echo "<span class='glyphicon glyphicon-align-left' aria-hidden='true'></span> Modifier";
         echo "</button>";
         echo "</form>";
-        echo "<form method='POST' action='/compteAdmin'>";
+        echo "<form method='POST' action='/accueil-delete'>";
         echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
         echo "<button type='submit' name='action' value='delete' class='btn btn-danger'>";
         echo "<span class='glyphicon glyphicon-remove'></span> Supprimer";

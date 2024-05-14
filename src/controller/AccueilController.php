@@ -83,6 +83,58 @@ class AccueilController extends BaseController {
         }
     
     }
-  
+
+    public function delete($id) {
+        // Vérifier si un ID est passé en POST
+        if (!empty($_POST["id"])) {
+            // Récupérer l'ID de l'utilisateur à supprimer
+            $userId = intval($_POST["id"]); // Convertir en entier
+    
+            // Supprimer l'accueil qui est égale a id
+            $accueil = Accueil::read($userId);
+            if ($accueil) {
+                $accueil->delete($accueil);
+            } else {
+                echo "l'élément qui corresponde a l'accueil non trouvé.";
+            }
+    
+            // Rediriger vers la page du compte admin après la suppression
+            $this->redirectTo("/compteAdmin");
+        }  
+}
+
+public function deletePhoto($id) {
+    // Vérifier si un ID est passé en POST
+    if (!empty($_POST["id"])) {
+        // Récupérer l'ID de la photo à supprimer
+        $photoId = intval($_POST["id"]); // Convertir en entier
+
+        // Récupérer les informations sur la photo à supprimer
+        $photo = Photo::read($photoId);
+
+        // Vérifier si la photo existe
+        if ($photo) {
+            // Supprimer le fichier de la photo du répertoire
+            $photoFilePath = './assets/images/' . $photo->getNom();
+            if (file_exists($photoFilePath)) {
+                if (unlink($photoFilePath)) {
+                    // Supprimer la photo de la base de données
+                    if ($photo->delete($photo)) {
+                        // Rediriger vers la page du compte admin après la suppression réussie
+                        $this->redirectTo("/compteAdmin");
+                    } else {
+                        return "Erreur lors de la suppression de la photo de la base de données.";
+                    }
+                } else {
+                    return 'Erreur lors de la suppression du fichier ' . $photoFilePath . '.';
+                }
+            } else {
+                return 'Le fichier ' . $photoFilePath . ' n\'existe pas.';
+            }
+        } else {
+            return "L'élément qui correspond à la photo n'a pas été trouvé.";
+        }
+    }
+}
 
 }

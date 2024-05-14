@@ -7,34 +7,6 @@ document.addEventListener("DOMContentLoaded", function(){
     const evenementEffectuer = document.querySelector(".evenementEffectuer");
     const carousel_item = document.querySelector(".carousel-item");
 
-  let listImages = ["./assets/images/dans.jpg","./assets/images/681224.jpg","./assets/images/breakdance-olympics-copy.jpg","./assets/images/681224.jpg"];
-
-  let index = 0;
-
-  setInterval( ()=>{
-    console.log(index);
-    if (index < listImages.length) {
-     
-      carousel_item.innerHTML = '<img src="'+listImages[index] +'" alt=""></img>' ;
-    }
-    else {
-      index = 0; 
-      carousel_item.innerHTML = '<img src="'+listImages[index] +'" alt=""></img>' ;
-      console.log(listImages[index]);
-    }
-    index++
-  },1000)
- 
-
-
- 
-
-
- 
-  // index++
-  // console.log(index);
- 
-
    function nextSlide() {
       const carousel = document.getElementById('carouselExampleIndicators');
       const currentSlide = carousel.querySelector('.carousel-item.active');
@@ -77,8 +49,58 @@ document.addEventListener("DOMContentLoaded", function(){
   }
   
   
-  
-  
+
+///////////////////////////////////////////////////////////    AJAX       ////////////////////
+
+
+  function displayCarousel(images) {
+    let imageList = []; // Crée une liste vide pour stocker les images
+    
+    // Boucle à travers les images pour les traiter
+    images.forEach(function(image) {
+    
+        // imageList.push(image); // Ajoutez l'image à la liste si nécessaire
+        imageList.push(image); // Ajoute simplement l'image à la liste sans traitement supplémentaire
+    });
+    
+    // Retourne la liste complète des images après traitement
+    return imageList;
+}
+
+
+
+let index = 0
+// Appel AJAX pour récupérer la liste des images depuis PHP
+fetch('./get_images.php')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Une erreur s\'est produite lors de la récupération des images.');
+        }
+        return response.json();
+    })
+    .then(images => {
+        const listImages = displayCarousel(images); // Appelle displayCarousel pour traiter les images
+
+          setInterval( ()=>{
+    // console.log(index);
+    if (index < listImages.length) {
+     
+      carousel_item.innerHTML = '<img src="'+listImages[index] +'" alt=""></img>' ;
+    }
+    else {
+      index = 0; 
+      carousel_item.innerHTML = '<img src="'+listImages[index] +'" alt=""></img>' ;
+      // console.log(listImages[index]);
+    }
+    index++
+  },1000)
+      
+    })
+    .catch(error => {
+        console.error(error.message);
+    });
+
+
   });
       
   

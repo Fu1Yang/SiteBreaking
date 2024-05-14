@@ -10,6 +10,7 @@ class CompteAdminController extends BaseController {
     public function index():void {
         $this->view("compteAdmin/index");
     }
+    
     public function delete($id) {
         // Vérifier si un ID est passé en POST
         if (!empty($_POST["id"])) {
