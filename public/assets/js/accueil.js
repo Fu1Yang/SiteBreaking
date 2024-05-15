@@ -4,21 +4,11 @@ document.addEventListener("DOMContentLoaded", function(){
     const rentrerCompte = document.querySelector(".rentrerCompte");
     const logo = document.querySelector('.logo');
     const fb1 = document.querySelector('.fb1');
+    const button_next = document.querySelector(".carousel-control-next-icon");
+    const button_prev = document.querySelector(".carousel-control-prev-icon");
     const evenementEffectuer = document.querySelector(".evenementEffectuer");
     const carousel_item = document.querySelector(".carousel-item");
 
-   function nextSlide() {
-      const carousel = document.getElementById('carouselExampleIndicators');
-      const currentSlide = carousel.querySelector('.carousel-item.active');
-      const nextSlide = currentSlide.nextElementSibling || carousel.querySelector('.carousel-item:first-child');
-      
-  
-      currentSlide.classList.remove('active');
-      nextSlide.classList.add('active');
-    }
-  
-    setInterval(nextSlide, 1000); 
-  
   
   // Fonction pour afficher la taille de l'écran
   function afficherTailleEcran(largeurEcran, hauteurEcran ) {
@@ -53,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function(){
 ///////////////////////////////////////////////////////////    AJAX       ////////////////////
 
 
-  function displayCarousel(images) {
+function displayCarousel(images) {
     let imageList = []; // Crée une liste vide pour stocker les images
     
     // Boucle à travers les images pour les traiter
@@ -93,12 +83,47 @@ fetch('./get_images.php')
       // console.log(listImages[index]);
     }
     index++
-  },1000)
+    },2000)
+
+
+    let numb = 1
+    button_next.addEventListener("click",()=>{
+    
+      if (numb > listImages.length) {
+        numb = 0
+        carousel_item.innerHTML = '<img src="'+listImages[numb] +'" alt=""></img>' ;
+      }else{
+        carousel_item.innerHTML = '<img src="'+listImages[numb] +'" alt=""></img>' ;
+        console.log(numb);
+      }
+      listImages[numb++] 
+   
+    })
+
+
+    button_prev.addEventListener("click",()=>{
+    
+      if (numb < 1) {
+        numb = listImages.length
+        carousel_item.innerHTML = '<img src="'+listImages[numb] +'" alt=""></img>' ;
+      }else{
+        console.log(numb);
+        carousel_item.innerHTML = '<img src="'+listImages[numb] +'" alt=""></img>' ;
+      }
+      listImages[numb--] 
+   
+    })
       
     })
     .catch(error => {
         console.error(error.message);
     });
+
+
+
+
+
+
 
 
   });

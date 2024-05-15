@@ -191,7 +191,7 @@
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
-                                    <tbody>
+                                    <thead>
                                         <tr>
                                             <th>id</th>
                                             <th>nom_utilisateur</th>
@@ -221,18 +221,16 @@
                                 Tableau des Evenement
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <tbody>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Titre</th>
-                                            <th>Description</th>
-                                            <th>Date des evenements</th>
-                                            <th>Le lieux</th>
-                                            <th>Photo</th>
-                                            <th>action</th>
-                                        </tr>
-                                    </thead>
+                                <table id="datatablesSimple=1">
+                                    <tr>
+                                        <th>id</th>
+                                        <th>Titre</th>
+                                        <th>Description</th>
+                                        <th>Date des evenements</th>
+                                        <th>Le lieux</th>
+                                        <th>Photo</th>
+                                        <th>action</th>
+                                    </tr>
                                         <?php require_once(__DIR__ . '/../compteAdmin/affichage/affichageDesEvenements.php');?>
                                 </table>
                             </div>
@@ -248,7 +246,7 @@
                                 Tableau des photos
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                                <table id="datatablesSimple2">
                                     <tbody>
                                         <tr>
                                             <th>id</th>
@@ -274,7 +272,7 @@
                                Accueil
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                                <table id="datatablesSimple3">
                                     <tbody>
                                         <tr>
                                             <th>id</th>
@@ -303,7 +301,7 @@
                                 Mes coordonnées
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                                <table id="datatablesSimple4">
                                     <tbody>
                                         <tr>
                                             <th>id</th>
@@ -332,7 +330,7 @@
                                 Apropos
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                                <table id="datatablesSimple5">
                                     <tbody>
                                         <tr>
                                             <th>id</th>

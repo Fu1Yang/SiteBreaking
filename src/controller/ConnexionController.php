@@ -17,5 +17,8 @@ class ConnexionController extends BaseController {
             Authentification::getInstance()->login($utilisateur);
             $this->redirectTo("/compteAdmin");
         }
+        else{
+            $this->redirectTo("./connexion");
+        }
     }
 }
