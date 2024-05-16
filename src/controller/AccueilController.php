@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace app\SiteBreaking\controller;
 use app\SiteBreaking\model\Photo;
 use app\SiteBreaking\model\Accueil;
-use app\SiteBreaking\model\Database;
+
 
 class AccueilController extends BaseController {
     public function index():void {
@@ -101,6 +101,9 @@ class AccueilController extends BaseController {
             // Rediriger vers la page du compte admin après la suppression
             $this->redirectTo("/compteAdmin");
         }  
+        else{
+            return "Votre Id est vide";
+        }
 }
 
 public function deletePhoto($id) {

@@ -49,11 +49,43 @@
         "role": []
     },
     {
+        "path": "/accueil-delete",
+        "controller": "Accueil",
+        "action": "delete",
+        "method": "POST",
+        "params": [{"name": "id", "type": "int"}],
+        "role": []
+    },
+    {
         "path" : "/evenement",
         "controller" : "Evenement",
         "action" : "index",
         "method" : "GET",
         "params" : [],
+        "role": []
+    },
+    {
+        "path" : "/evenementAdmin",
+        "controller" : "Evenement",
+        "action" : "evenementAdmin",
+        "method" : "GET",
+        "params" : [],
+        "role": []
+    },
+    {
+        "path" : "/evenementCreer",
+        "controller" : "Evenement",
+        "action" : "nouvelleEvenement",
+        "method" : "POST",
+        "params" : [],
+        "role": []
+    },
+    {
+        "path" : "/evenementDelete",
+        "controller" : "Evenement",
+        "action" : "delete",
+        "method" : "POST",
+        "params" : [{"name": "id", "type": "int"}],
         "role": []
     },
     {
@@ -79,7 +111,15 @@
         "method" : "GET",
         "params" : [],
         "role": []
-    },  
+    },   
+    {
+        "path" : "/deconnexion",
+        "controller" : "Connexion",
+        "action" : "deconnexion",
+        "method" : "GET",
+        "params" : [],
+        "role": []
+    }, 
     {
         "path" : "/connexion",
         "controller" : "Connexion",

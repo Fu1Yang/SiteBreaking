@@ -1,8 +1,4 @@
-<?php
-use app\SiteBreaking\model\Database;
-use app\SiteBreaking\model\Evenement;
 
-?>
 <?php require_once(__DIR__ . '/../includes/headerAccueilAdmin.php'); ?>
 <h1>Page d'accueil Administrateur</h1>
 
@@ -30,7 +26,7 @@ use app\SiteBreaking\model\Evenement;
 <input type="text" name="nom" id="nom" placeholder="Donne un nom">
 
 
-<label for="image">Inserez vos photos</label>
+<label for="image">Inserez vos photos de présentation</label>
 <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
 <input type="file" name="image" id="image">
 

@@ -42,7 +42,7 @@
                         <li><a class="dropdown-item" href="#!">Paramètres</a></li>
                         <li><a class="dropdown-item" href="#!">Journal des activités</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Déconnexion</a></li>
+                        <li><a class="dropdown-item" href="../deconnexion">Déconnexion</a></li>
                     </ul>
                 </li>
             </ul>
@@ -138,7 +138,7 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Modifier evenement</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Voir les détails</a>
+                                        <a class="small text-white stretched-link" href="../evenementAdmin">Voir les détails</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>

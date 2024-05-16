@@ -10,15 +10,15 @@ class Evenement {
     private string $_description;
     private DateTime $_date_evenement;
     private string $_lieu;
-    private  $_photo = null;
+    private  $_image = null;
 
-    public function __construct(int $id, string $titre, string $description, ?DateTime $date_evenement, string $lieu, string $photo = null){
+    public function __construct(int $id, string $titre, string $description, ?DateTime $date_evenement, string $lieu, string $image = null){
         $this->_id = $id;
         $this->_titre = $titre;
         $this->_description = $description;
         $this->_date_evenement = $date_evenement;
         $this->_lieu = $lieu;
-        $this->_photo = $photo;
+        $this->_image = $image;
     }
 
     public function getId():int {
@@ -42,17 +42,17 @@ class Evenement {
     }
 
     public function getPhoto():?string {
-        return $this->_photo;
+        return $this->_image;
     }
 
-    public static function create(Evenement $evenement):int{
-        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Evenement (titre, description, date_evenement, lieu, photo) VALUE (:titre, :description, :date_evenement, :lieu, :photo)");
+    public static function create(array $evenement):int{
+        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Evenement (titre, description, date_evenement, lieu, image) VALUE (:titre, :description, :date_evenement, :lieu, :image)");
         $statement->execute([
-            "titre"=>$evenement->getTitre(),
-            "description"=>$evenement->getDescription(),
-            "date_evenement"=>$evenement->getDateEvenement(),
-            "lieu"=>$evenement->getLieu(),
-            "photo"=>$evenement->getPhoto(),
+            "titre"=>$evenement['titre'],
+            "description"=>$evenement['description'],
+            "date_evenement"=>$evenement["date_evenement"],
+            "lieu"=>$evenement['lieu'],
+            "image"=>$evenement['image'],
         ]);
         return (int) Database::getInstance()->getConnexion()->lastInsertId();
     }
@@ -68,7 +68,7 @@ class Evenement {
                 description:$row["description"],
                 date_evenement: $date_evenement,
                 lieu:$row["lieu"],
-                photo:$row["photo"],
+                image:$row["image"],
             ); 
             return $evenement;      
         };

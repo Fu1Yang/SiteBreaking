@@ -17,7 +17,7 @@ echo '<p>Le: '.$row["date_evenement"].'</p>';
 echo '<p>Le lieux: '.$row["lieu"].'</p>';
 echo '</div>';
 
-echo '<img src="./assets/images/breakdance-olympics-copy.jpg" alt="">';
+echo '<img src="./assets/imageEvenement/'.$row["image"].'" alt="">';
 echo '</article>';
 
 }

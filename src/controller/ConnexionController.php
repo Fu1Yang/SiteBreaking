@@ -21,4 +21,15 @@ class ConnexionController extends BaseController {
             $this->redirectTo("./connexion");
         }
     }
+
+    public function deconnexion(){
+        $message = "Vous étes deconnecter de votre compte ";
+        session_start();
+        session_unset();
+        session_destroy();
+        echo "<script>alert('$message');</script>";
+        sleep(2);
+        $this->view('connexion/index');
+
+    }
 }

@@ -15,12 +15,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap" rel="stylesheet">
   <script src="./assets/js/accueil.js"></script>
   <title>Breaking Journey</title>
+  <link style="width: 30px;" rel="icon" href="../assets/logo/icon.ico" type="image/ico">
 </head>
 
 <body>
   <header>
   <div class="logo1">
-    <img  src="./assets/logo/logo.png" alt="">
+    <img  src="./assets/logo/logo.png" alt="logo-du-site">
     <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/logo/logo_fb.png" alt=""></a>
   </div>
   <h1>Breaking Journey</h1>

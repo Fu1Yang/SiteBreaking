@@ -2,7 +2,8 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>Titre de la page</title>
+        <title>Breaking Journey</title>
+        <link style="width: 30px;" rel="icon" href="../assets/logo/icon.ico" type="image/ico">
     </head>
     <body>
         <?= $content; ?>

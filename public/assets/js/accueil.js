@@ -48,9 +48,9 @@ function displayCarousel(images) {
     
     // Boucle à travers les images pour les traiter
     images.forEach(function(image) {
-    
-        // imageList.push(image); // Ajoutez l'image à la liste si nécessaire
-        imageList.push(image); // Ajoute simplement l'image à la liste sans traitement supplémentaire
+
+      imageList.push(image); // Ajoute l'image à la liste 
+      
     });
     
     // Retourne la liste complète des images après traitement
