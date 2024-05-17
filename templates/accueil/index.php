@@ -45,46 +45,7 @@
   <?php require_once(__DIR__ . '/../compteAdmin/liste/listeAccueil.php');?>
 
 
-  <div class="row">
-    <div class="col-sm-8 mb-3 mb-sm-0">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">Le Lorem Ipsum est simplement du faux texte employé dans la composition
- 
-            et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard
-            
-            de l'imprimerie depuis les années 1500,
-            
-            Le Lorem Ipsum est simplement du faux texte employé dans la composition
-             
-            et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard
-            
-             de l'imprimerie depuis les années 1500,Le Lorem Ipsum est simplement du faux texte employé dans la composition
- 
-             et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard
-             
-             de l'imprimerie depuis les années 1500,
-             
-             Le Lorem Ipsum est simplement du faux texte employé dans la composition
-              
-             et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard
-             
-              de l'imprimerie depuis les années 1500,</p>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Nom de la personne</h5>
-          <img src="./assets/images/_0af36055-6dfd-48a7-8476-8704042d0705.jpg" alt="">
-        </div>
-      </div>
-    </div>
-  </div>
-  
+
 
  
   <?php require_once(__DIR__ . '/../includes/footer.php') ?>

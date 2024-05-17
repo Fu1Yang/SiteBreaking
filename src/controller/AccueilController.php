@@ -18,7 +18,7 @@ class AccueilController extends BaseController {
     public function accueilPhotoCarousel() {
      
 
-        if (isset($_FILES['photos']) && preg_match("#jpeg|jpg|png|pdf#", $_FILES['photos']['type'])) {
+        if (isset($_FILES['photos']) && preg_match("#jpeg|jpg|png|avif|pdf#", $_FILES['photos']['type'])) {
          
             $path = "./assets/images/";
           
@@ -38,7 +38,7 @@ class AccueilController extends BaseController {
             header("location:compteAdmin");
         } 
         else {
-            $message = "La photo doit être de type jpeg, jpg, png ou pdf";
+            $message = "La photo doit être de type jpeg, jpg, png, avif ou pdf";
           echo $message;
         }
     
@@ -46,7 +46,7 @@ class AccueilController extends BaseController {
     }
 
     public function  accueilCarte(){
-        $message = "La photo doit être de type jpeg, jpg, png ou pdf";
+        $message = "La photo doit être de type jpeg, jpg, png, avif ou pdf";
         try {
           
             if(isset($_POST["envoyer"])){
@@ -67,7 +67,7 @@ class AccueilController extends BaseController {
 
         
                 
-            if(isset($_FILES['image']) && preg_match("#jpeg|jpg|png|pdf#", $_FILES['image']['type'])) {
+            if(isset($_FILES['image']) && preg_match("#jpeg|jpg|png|avif|pdf#", $_FILES['image']['type'])) {
                 $path = "./assets/logo/";
                 $photoName = $_FILES['image']['name'];
                 // Déplacer le fichier téléchargé vers le répertoire de destination

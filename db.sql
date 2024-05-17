@@ -137,5 +137,5 @@ INSERT INTO Messagerie (utilisateur_id) VALUES
 
 INSERT INTO Contact (adresse, numeroDeTel, email, horaire) VALUES
     ('54 Bis Jules Louis Breton 18100 Vierzon, 18100 Vierzon', '0749523881', 'associationbjs@gmail.com', NULL),
-    ('Salle Forge: 14 rue Eugène Pottier, 18100 Vierzon', '0749523881', 'associationbjs@gmail.com', '16h30 à 17h30'),
+    ('Salle Forge: 14 rue Eugène Pottier, 18100 Vierzon', '0749523881', 'associationbjs@gmail.com', '15h30 à 16h30: Pour les enfants de 5 ans à 7 ans, 16h30 à 17h30: Pour les enfants de 8 ans à 12 ans'),
     ('Salle Collier: 31 rue André Hénault, 18100 Vierzon', '0749523881', 'associationbjs@gmail.com', '19h30 à 20h30');
