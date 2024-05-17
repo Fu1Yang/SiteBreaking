@@ -10,12 +10,12 @@ document.addEventListener("DOMContentLoaded", function(){
     const carousel_item = document.querySelector(".carousel-item");
 
   
-  // Fonction pour afficher la taille de l'écran
+    // afficher la taille de l'écran
   function afficherTailleEcran(largeurEcran, hauteurEcran ) {
-    // Obtenir la largeur de l'écran
+    // la largeur de l'écran
     largeurEcran = window.innerWidth;
   
-    // Obtenir la hauteur de l'écran
+    // la hauteur de l'écran
    hauteurEcran = window.innerHeight;
   
     // Afficher la taille de l'écran dans la console
@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function(){
       hauteur: hauteurEcran
   }
   }
+
   const screnSize = afficherTailleEcran();
   console.log(`largeur de l'écran :${screnSize.largeur} et la hauteur de l'écran :${screnSize.hauteur}`);
   
@@ -60,16 +61,16 @@ function displayCarousel(images) {
 
 
 let index = 0
-// Appel AJAX pour récupérer la liste des images depuis PHP
+// AJAX pour récupérer la liste des images depuis PHP
 fetch('./get_images.php')
     .then(response => {
         if (!response.ok) {
-            throw new Error('Une erreur s\'est produite lors de la récupération des images.');
+            throw new Error("Une erreur s'est produite lors de la récupération des images.");
         }
         return response.json();
     })
     .then(images => {
-        const listImages = displayCarousel(images); // Appelle displayCarousel pour traiter les images
+        const listImages = displayCarousel(images); // displayCarousel pour traiter les images
 
           setInterval( ()=>{
     // console.log(index);
@@ -118,11 +119,6 @@ fetch('./get_images.php')
     .catch(error => {
         console.error(error.message);
     });
-
-
-
-
-
 
 
 

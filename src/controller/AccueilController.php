@@ -24,7 +24,7 @@ class AccueilController extends BaseController {
           
             $photoName = $_FILES['photos']['name'];
         
-            // Créer une instance de la classe Photo avec les données nécessaires
+            // une instance de la classe Photo avec les données nécessaires
             $photo = new Photo($photoName);
           
             $photo->setNom($photoName);

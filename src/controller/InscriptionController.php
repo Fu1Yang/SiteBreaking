@@ -14,8 +14,8 @@ class InscriptionController extends BaseController {
     public function inscription(string $nom_utilisateur, string $prenom_utilisateur, string $password, string $email, string $confirmePassword): void {
         // Vérification de la correspondance des mots de passe
         if ($password !== $confirmePassword) {
-            echo "La confirmation du mot de passe a échoué";
-            return; // Arrête l'exécution de la fonction si la confirmation du mot de passe échoue
+            echo "La confirmation du mot de passe a échoué ";
+            $this->view("inscription/index"); 
         }
         // Création d'un objet DateTime pour la date d'inscription
         $date_inscription = new DateTime();

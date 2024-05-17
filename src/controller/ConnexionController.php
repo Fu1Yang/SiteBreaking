@@ -28,7 +28,6 @@ class ConnexionController extends BaseController {
         session_unset();
         session_destroy();
         echo "<script>alert('$message');</script>";
-        sleep(2);
         $this->view('connexion/index');
 
     }
