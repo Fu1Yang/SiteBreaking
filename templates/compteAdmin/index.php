@@ -335,6 +335,7 @@
                                         <tr>
                                             <th>id</th>
                                             <th>logo</th>
+                                            <th>image</th>
                                             <th>description</th>
                                             <th>nosPartenaire</th>
                                             <th>action</th>

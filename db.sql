@@ -65,11 +65,31 @@ CREATE TABLE Accueil (
 );
 
 -- Table pour stocker les informations de la page "À Propos"
-CREATE TABLE Apropos (
+-- Table Images
+CREATE TABLE Images (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    logo TEXT,
-    description TEXT,
-    nosPartenaires TEXT
+    image_url VARCHAR(255) NOT NULL,
+    description TEXT
+);
+
+-- Table Logos
+CREATE TABLE Logos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    logo_url VARCHAR(255) NOT NULL,
+    description TEXT
+);
+
+-- Table Descriptions
+CREATE TABLE Descriptions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    content TEXT NOT NULL
+);
+
+-- Table Partners
+CREATE TABLE Partners (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    partner_name VARCHAR(255) NOT NULL,
+    partner_url VARCHAR(255) NOT NULL
 );
 
 -- Table pour stocker les informations de la page de contact

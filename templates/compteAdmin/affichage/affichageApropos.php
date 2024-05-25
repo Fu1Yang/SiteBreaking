@@ -8,11 +8,13 @@ function affichageApropos(){
         echo "<tr>";
         echo "<td>".$row["id"]."</td>";
         echo "<td>".$row["logo"]."</td>";
+        echo "<td>".$row['images']."</td>";
         echo "<td>".$row["description"]."</td>";
         echo "<td>".$row["nosPartenaire"]."</td>";
 
         // Vérifier si la colonne "photo" est vide
         $photo = !empty($row["logo"]) ? $row["logo"] : null;
+        $image = !empty($row['images']) ? $row['images'] : null;
         echo "<td>".$photo."</td>";
         echo "<td width=300px>";
         echo "<form method='POST' action='update.php'>";

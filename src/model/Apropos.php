@@ -3,93 +3,105 @@
 declare(strict_types=1);
 namespace app\SiteBreaking\model;
 
+
 class Apropos {
-    private int $_id;
-    private string $_logo;
-    private string $_description;
-    private string $_nosPartenaire;
-    private string $_images;
-  
+    private $_conn;
 
-    public function __construct(int $id, string $logo, int $description, string $nosPartenaire, string $images)
-    {
-        $this->_id = $id;
-        $this->_logo = $logo;
-        $this->_description = $description;
-        $this->_nosPartenaire = $nosPartenaire;
-        $this->_images = $images;
-     
-     
-   
+    // Constructeur pour initialiser la _connexion à la base de données via la classe Database
+    public function __construct() {
+        $this->_conn = Database::getInstance()->getconnexion();
     }
 
-    public function getId():int{
-        return $this->_id;
-    }
-    public function getLogo():string{
-        return $this->_logo;
-    }
-    public function getDescription():string{
-        return $this->_description;
-    }
-    public function getNosPartenaire():string{
-        return $this->_nosPartenaire;
-    }
-    public function getImages():string{
-        return $this->_images;
-    }
-    
-    public function setLogo($logo){
-        $this->_logo = $logo;
-    }
-    
-    public static function create(array $apropos):int{
-        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Apropos (logo,description, nosPartenaire, images) VALUES (:logo, :description, :nosPartenaire, :images) ");
-        $statement->execute([
-            "logo"=>$apropos['logo'],
-            "description"=>$apropos['description'],
-            "nosPartenaire"=>$apropos['Nos'],
-            "images"=>$apropos["images"],
-            
-        ]);
-        return (int) Database::getInstance()->getConnexion()->lastInsertId();
-    }
-
-    public static function read(int $id):?self{
-        $statement = Database::getInstance()->getConnexion()->prepare("SELECT * FROM Apropos WHERE id=:id");
-        $statement->execute(['id'=>$id]);
-
-          // Étape 3: Vérification si une ligne de résultat a été retournée
-          if ($row = $statement->fetch()) {
-            // Étape 4: Création d'un nouvel objet Administrateur avec les données récupérées de la base de données
-            $apropos = new Apropos(
-                id: $row['id'],
-                logo:$row(["logo"]),
-                description: $row['description'],
-                nosPartenaire: $row['nosPartenaire'],
-                images: $row['images'],
-            );
-            // Étape 5: Retour de l'objet Administrateur
-            return $apropos;
-        }
-        // Étape 6: Retour de null si aucun administrateur correspondant n'a été trouvé
-        return null;
-    }
-
-    public static function update(Apropos $apropos):void{
-        $statement = Database::getInstance()->getConnexion()->prepare("UPDATE Accueil SET logo=:logo, description=:description, nosPartenaire=:nosPartenaire, images=:images WHERE id=:id");
-        $statement->execute([
-            "logo"=>$apropos->getLogo(),
-            "description"=>$apropos->getDescription(),
-            "nosPartenaire"=>$apropos->getNosPartenaire(),
-            "images"=>$apropos->getImages(),
-        ]);
-    }
-
-    public static function delete(Apropos $apropos):void{
-        $statement = Database::getInstance()->getConnexion()->prepare("DELETE FROM Apropos WHERE id=:id");
-        $statement->execute(['id'=>$apropos->getId()]);
+    // Méthodes CRUD pour les Images
+    public function createImage($url_image, $description) {
+        $stmt = $this->_conn->prepare("INSERT INTO Images (image_url, description) VALUES (?, ?)");
+        return $stmt->execute([$url_image, $description]);
     }
 
 
+    public function readImageParId($id) {
+        $stmt = $this->_conn->prepare("SELECT * FROM Images WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function updateImage($id, $url_image, $description) {
+        $stmt = $this->_conn->prepare("UPDATE Images SET image_url = ?, description = ? WHERE id = ?");
+        return $stmt->execute([$url_image, $description, $id]);
+    }
+
+    public function deleteImage($id) {
+        $stmt = $this->_conn->prepare("DELETE FROM Images WHERE id = ?");
+        return $stmt->execute([$id]);
+    }
+
+    // Méthodes CRUD pour les Logos
+    public function reateLogo($url_logo, $description) {
+        $stmt = $this->_conn->prepare("INSERT INTO Logos (logo_url, description) VALUES (?, ?)");
+        return $stmt->execute([$url_logo, $description]);
+    }
+
+
+    public function readLogoParId($id) {
+        $stmt = $this->_conn->prepare("SELECT * FROM Logos WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function updateLogo($id, $url_logo, $description) {
+        $stmt = $this->_conn->prepare("UPDATE Logos SET logo_url = ?, description = ? WHERE id = ?");
+        return $stmt->execute([$url_logo, $description, $id]);
+    }
+
+    public function deleteLogo($id) {
+        $stmt = $this->_conn->prepare("DELETE FROM Logos WHERE id = ?");
+        return $stmt->execute([$id]);
+    }
+
+    // les Descriptions
+    public function createDescription($contenu) {
+        $stmt = $this->_conn->prepare("INSERT INTO Descriptions (content) VALUES (?)");
+        return $stmt->execute([$contenu]);
+    }
+
+
+    public function readDescriptionParId($id) {
+        $stmt = $this->_conn->prepare("SELECT * FROM Descriptions WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function updateDescription($id, $contenu) {
+        $stmt = $this->_conn->prepare("UPDATE Descriptions SET content = ? WHERE id = ?");
+        return $stmt->execute([$contenu, $id]);
+    }
+
+    public function deleteDescription($id) {
+        $stmt = $this->_conn->prepare("DELETE FROM Descriptions WHERE id = ?");
+        return $stmt->execute([$id]);
+    }
+
+    //  les Partenaires
+    public function createPartenaire($nom_partenaire, $url_partenaire) {
+        $stmt = $this->_conn->prepare("INSERT INTO Partners (partner_name, partner_url) VALUES (?, ?)");
+        return $stmt->execute([$nom_partenaire, $url_partenaire]);
+    }
+
+
+    public function readPartenaireParId($id) {
+        $stmt = $this->_conn->prepare("SELECT * FROM Partners WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function updatePartenaire($id, $nom_partenaire, $url_partenaire) {
+        $stmt = $this->_conn->prepare("UPDATE Partners SET partner_name = ?, partner_url = ? WHERE id = ?");
+        return $stmt->execute([$nom_partenaire, $url_partenaire, $id]);
+    }
+
+    public function deletePartenaire($id) {
+        $stmt = $this->_conn->prepare("DELETE FROM Partners WHERE id = ?");
+        return $stmt->execute([$id]);
+    }
 }
+

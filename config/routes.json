@@ -103,6 +103,14 @@
         "method" : "GET",
         "params" : [],
         "role": []
+    }, 
+    {
+        "path" : "/logoApropos",
+        "controller" : "Apropos",
+        "action" : "logoApropos",
+        "method" : "POST",
+        "params" : [],
+        "role": []
     },  
     {
         "path" : "/contact",
