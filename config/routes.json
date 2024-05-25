@@ -95,6 +95,14 @@
         "method" : "GET",
         "params" : [],
         "role": []
+    }, 
+    {
+        "path" : "/aproposAdmin",
+        "controller" : "Apropos",
+        "action" : "aproposAdmin",
+        "method" : "GET",
+        "params" : [],
+        "role": []
     },  
     {
         "path" : "/contact",

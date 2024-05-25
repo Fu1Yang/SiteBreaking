@@ -22,7 +22,7 @@
   <header>
   <div class="logo1">
     <img  src="./assets/logo/logo.png" alt="logo-du-site">
-    <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/logo/logo_fb.png" alt=""></a>
+    <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/logo/logo_fb.png" alt="logo de l'association "></a>
   </div>
   <h1>Breaking Journey</h1>
   <button class="compteSmartephone">Inscription/Connexion</button>

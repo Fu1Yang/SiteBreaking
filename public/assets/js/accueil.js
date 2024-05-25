@@ -79,7 +79,7 @@ fetch('./get_images.php')
       carousel_item.innerHTML = '<img src="'+listImages[index] +'" alt=""></img>' ;
     }
     else {
-      index = 0; 
+      index = 1; 
       carousel_item.innerHTML = '<img src="'+listImages[index] +'" alt=""></img>' ;
       // console.log(listImages[index]);
     }
@@ -91,7 +91,7 @@ fetch('./get_images.php')
     button_next.addEventListener("click",()=>{
     
       if (numb > listImages.length) {
-        numb = 0
+        numb = 1
         carousel_item.innerHTML = '<img src="'+listImages[numb] +'" alt=""></img>' ;
       }else{
         carousel_item.innerHTML = '<img src="'+listImages[numb] +'" alt=""></img>' ;

@@ -156,7 +156,7 @@
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">Modifier apropos</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Voir les détails</a>
+                                        <a class="small text-white stretched-link" href="../aproposAdmin">Voir les détails</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -187,7 +187,7 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Tableau des Utilisateur
+                                Tableau des Utilisateurs
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -218,7 +218,7 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Tableau des Evenement
+                                Tableau des Evenements
                             </div>
                             <div class="card-body">
                                 <table class="datatable-table">

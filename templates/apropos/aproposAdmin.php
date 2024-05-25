@@ -8,35 +8,31 @@ use app\SiteBreaking\model\Evenement;
 
 <form class="photoCarousel" action="/photo-carousel" method="POST" enctype="multipart/form-data">
     <fieldset>
-    <legend>Ajouter une Photo a votre carrousel</legend>
-        <label for="photos">Insérez vos photos</label>
+    <legend>Ajouter votre logo</legend>
+        <label for="logo">Insérez vos logos</label>
         <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
-        <input type="file" name="photos" id="photos">
-        <div class="d-grid"><input type="submit" name="insererPhoto" value="Insérez vos photos" class="btn btn-primary btn-block"></div>
+        <input type="file" name="logo" id="logo">
+        <div class="d-grid"><input type="submit" name="logo" value="Insérez votre logo" class="btn btn-primary btn-block"></div>
+    </fieldset>
+</form>
+
+<form class="photoCarousel" action="/photo-carousel" method="POST" enctype="multipart/form-data">
+    <fieldset>
+    <legend>Ajouter une Photo</legend>
+        <label for="images">Insérez vos photos</label>
+        <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
+        <input type="file" name="images" id="photos">
+        <div class="d-grid"><input type="submit" name="images" value="Insérez votre photo" class="btn btn-primary btn-block"></div>
     </fieldset>
 </form>
 
 
-<form class="presentation" action="/accueil-carte" method="POST" enctype="multipart/form-data">
-<legend>Modifiez vos cartes de présentation</legend>
-<label for="evenementRealiser">Le nombre d'événements réalisés</label>
-<input type="text" name="evenementRealiser" id="evenementRealiser" placeholder="Le nombre d'événements réalisesr">
-
-<label for="titre">Le titre</label>
-<input type="text" name="titre" id="titre" placeholder="Donner un titre">
-
-<label for="nom">Le nom de la photo</label>
-<input type="text" name="nom" id="nom" placeholder="Donne un nom">
-
-
-<label for="photoIdentiter">Inserez vos photos</label>
-<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
-<input type="file" name="photoIdentiter" id="photoIdentiter">
-<div class="d-grid"><input type="submit" name="inscription" value="Inserez vos photos" class="btn btn-primary btn-block"></div>
-
-<label for="text">Ecrire le text ici</label>
-<textarea type="text" name="text" id="text" rows="4" cols="50" placeholder="Ecrire le text ici"></textarea>
-
-<input type="submit" name="envoyer" id="envoyer" value="Transmettre les information">
+<form class="aproposAdm" action="/accueil-carte" method="POST" enctype="multipart/form-data">
+    <fieldset>
+        <legend>Présentation</legend>
+        <label for="text">Description de l'association</label>
+        <textarea type="text" name="text" id="text" rows="4" cols="50" placeholder="Ecrire le text ici"></textarea>
+    </fieldset>
+    <input type="submit" name="envoyer" id="envoyer" value="Transmettre les information">
 </form>
 

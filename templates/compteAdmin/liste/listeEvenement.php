@@ -8,7 +8,7 @@ function afficherImages(){
 
  
 
-echo "<article>";
+echo "<article id='num1'>";
 
 echo '<div  class="description">';
 echo '<h2>'.$row["titre"].'</h2>';

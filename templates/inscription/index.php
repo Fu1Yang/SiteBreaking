@@ -9,13 +9,13 @@
         <legend>Inscription</legend>
 
         <div>
-            <label for="nom">Votre Nom</label>
-            <input type="text" name="nom_utilisateur" id="nom" placeholder="Votre nom" required>
+            <label for="nom_utilisateur">Votre Nom</label>
+            <input type="text" name="nom_utilisateur" id="nom_utilisateur" placeholder="Votre nom" required>
         </div>
 
         <div>
-            <label for="prenom">Votre Prénom</label>
-            <input type="text" name="prenom_utilisateur" id="prenom" placeholder="Votre prenom" required>
+            <label for="prenom_utilisateur">Votre Prénom</label>
+            <input type="text" name="prenom_utilisateur" id="prenom_utilisateur" placeholder="Votre prenom" required>
         </div>
 
         <div>

@@ -1,6 +1,6 @@
 <?php require_once(__DIR__ . '/../includes/headerAccueilAdmin.php'); ?>
 
-<h1>Page d'evenement Administrateur</h1>
+<h1>Page d'événement Administrateur</h1>
 
 <form class="presentation" action="/evenementCreer" method="POST" enctype="multipart/form-data">
 <legend>Ajouter un événement</legend>
@@ -11,7 +11,7 @@
 <label for="description">La description de votre événement</label>
 <textarea type="text" name="description" id="description" rows="4" cols="50" placeholder="Ecrire le text ici"></textarea>
 
-<label for="dateEvenement">Date de l'événement année/mois/jour est l'heure</label>
+<label for="dateEvenement">Date de l'événement exemple: 2024-04-17 09:11:00</label>
 <input type="text" name="dateEvenement" id="dateEvenement" placeholder="Date de l'événement exemple 2024-05-01 20:00:00">
 
 <label for="lieux">Le lieux de votre événement</label>

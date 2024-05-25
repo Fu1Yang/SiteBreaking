@@ -8,14 +8,16 @@ class Apropos {
     private string $_logo;
     private string $_description;
     private string $_nosPartenaire;
+    private string $_images;
   
 
-    public function __construct(int $id, string $logo, int $description, string $nosPartenaire)
+    public function __construct(int $id, string $logo, int $description, string $nosPartenaire, string $images)
     {
         $this->_id = $id;
         $this->_logo = $logo;
         $this->_description = $description;
         $this->_nosPartenaire = $nosPartenaire;
+        $this->_images = $images;
      
      
    
@@ -33,14 +35,21 @@ class Apropos {
     public function getNosPartenaire():string{
         return $this->_nosPartenaire;
     }
- 
+    public function getImages():string{
+        return $this->_images;
+    }
     
-    public static function create(Apropos $apropos):int{
-        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Apropos (logo,description, nosPartenaire) VALUES (:logo, :description, :nosPartenaire,) ");
+    public function setLogo($logo){
+        $this->_logo = $logo;
+    }
+    
+    public static function create(array $apropos):int{
+        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Apropos (logo,description, nosPartenaire, images) VALUES (:logo, :description, :nosPartenaire, :images) ");
         $statement->execute([
-            "logo"=>$apropos->getLogo(),
-            "description"=>$apropos->getDescription(),
-            "nosPartenaire"=>$apropos->getNosPartenaire(),
+            "logo"=>$apropos['logo'],
+            "description"=>$apropos['description'],
+            "nosPartenaire"=>$apropos['Nos'],
+            "images"=>$apropos["images"],
             
         ]);
         return (int) Database::getInstance()->getConnexion()->lastInsertId();
@@ -58,6 +67,7 @@ class Apropos {
                 logo:$row(["logo"]),
                 description: $row['description'],
                 nosPartenaire: $row['nosPartenaire'],
+                images: $row['images'],
             );
             // Étape 5: Retour de l'objet Administrateur
             return $apropos;
@@ -67,11 +77,12 @@ class Apropos {
     }
 
     public static function update(Apropos $apropos):void{
-        $statement = Database::getInstance()->getConnexion()->prepare("UPDATE Accueil SET logo=:logo, description=:description, nosPartenaire=:nosPartenaire WHERE id=:id");
+        $statement = Database::getInstance()->getConnexion()->prepare("UPDATE Accueil SET logo=:logo, description=:description, nosPartenaire=:nosPartenaire, images=:images WHERE id=:id");
         $statement->execute([
             "logo"=>$apropos->getLogo(),
             "description"=>$apropos->getDescription(),
             "nosPartenaire"=>$apropos->getNosPartenaire(),
+            "images"=>$apropos->getImages(),
         ]);
     }
 
