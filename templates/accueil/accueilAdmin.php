@@ -5,9 +5,9 @@
 <form class="photoCarousel" action="/photo-carousel" method="POST" enctype="multipart/form-data">
     <fieldset>
     <legend>Ajouter une Photo a votre carrousel</legend>
-        <label for="photos">Insérez vos photos</label>
+        <label for="PhotosCarrousel">Insérez vos photos</label>
         <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
-        <input type="file" name="photos" id="photos">
+        <input type="file" name="PhotosCarrousel" id="PhotosCarrousel">
         <div class="d-grid"><input type="submit" name="insererPhoto" value="Insérez vos photos" class="btn btn-primary btn-block"></div>
     </fieldset>
 </form>

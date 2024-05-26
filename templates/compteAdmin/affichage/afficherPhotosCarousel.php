@@ -3,7 +3,7 @@ use app\SiteBreaking\model\Database;
 use app\SiteBreaking\model\Evenement;
 
 function afficherListeDesPhotos(){
-    $statement = Database::getInstance()->getConnexion()->query("SELECT * FROM Photos");
+    $statement = Database::getInstance()->getConnexion()->query("SELECT * FROM PhotosCarrousel");
     while ($row = $statement->fetch()) {
         echo "<tr>";
         echo "<td>".$row["id"]."</td>";

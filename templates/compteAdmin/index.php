@@ -337,12 +337,11 @@
                                             <th>logo</th>
                                             <th>image</th>
                                             <th>description</th>
-                                            <th>nosPartenaire</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>
                     
-                                    <?php require_once(__DIR__ . '/../compteAdmin/affichage/afficherMesCoordonnées.php');?>
+                                    <?php require_once(__DIR__ . '/../compteAdmin/affichage/affichageApropos.php');?>
                                    
                                 </table>
                             </div>

@@ -105,7 +105,7 @@
         "role": []
     }, 
     {
-        "path" : "/logoApropos",
+        "path" : "/aproposPage",
         "controller" : "Apropos",
         "action" : "logoApropos",
         "method" : "POST",

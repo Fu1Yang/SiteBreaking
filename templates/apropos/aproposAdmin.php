@@ -6,39 +6,29 @@ use app\SiteBreaking\model\Evenement;
 <?php require_once(__DIR__ . '/../includes/headerAccueilAdmin.php'); ?>
 <h1>Page Apropos Administrateur</h1>
 
-<form class="photoCarousel" action="/logoApropos" method="POST" enctype="multipart/form-data">
+<form class="aproposAdm" action="/aproposPage" method="POST" enctype="multipart/form-data">
     <fieldset>
-    <legend>Ajouter votre logo</legend>
-        <label for="logo">Insérez vos logos</label>
+    <legend>Page Apropos</legend>
+
+        <label for="logo">Insérez un logo</label>
         <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
         <input type="file" name="logo" id="logo">
-        <div class="d-grid"><input type="submit" name="envoyer" value="Insérez votre logo" class="btn btn-primary btn-block"></div>
-    </fieldset>
-</form>
 
-<form class="photoCarousel" action="/photo-carousel" method="POST" enctype="multipart/form-data">
-    <fieldset>
-    <legend>Ajouter une Photo</legend>
-        <label for="images">Insérez vos photos</label>
+        <label for="images">Insérez une photo</label>
         <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
-        <input type="file" name="images" id="photos">
-        <div class="d-grid"><input type="submit" name="images" value="Insérez votre photo" class="btn btn-primary btn-block"></div>
-    </fieldset>
-</form>
+        <input type="file" name="images" id="images">
 
-
-<form class="aproposAdm" action="/accueil-carte" method="POST" >
-    <fieldset>
-        <legend>Présentation</legend>
         
-        <label for="text">Description de l'association</label>
-        <textarea type="text" name="text" id="text" rows="4" cols="50" placeholder="Ecrire le text ici"></textarea>
+        <label for="description">Description de l'association</label>
+        <textarea type="text" name="description" id="description" rows="15" cols="50" placeholder="Ecrire le text ici"></textarea>
+
+        <div class="d-grid"><input type="submit" name="envoyer" value="envoyer" class="btn btn-primary btn-block"></div>
     </fieldset>
-    <input type="submit" name="envoyer" id="envoyer" value="Transmettre les information">
+
 </form>
 
 
-<form class="aproposAdm" action="/accueil-carte" method="POST" enctype="multipart/form-data">
+<form class="aproposPartenaire" action="/accueil-carte" method="POST" enctype="multipart/form-data">
     <fieldset>
         <legend>Ajouter un Partenaire</legend>
         <label for="leLien">Ajouter le lien vers le site du partenaire</label>

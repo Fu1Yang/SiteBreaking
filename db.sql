@@ -63,28 +63,18 @@ CREATE TABLE Accueil (
     titre VARCHAR(100),
     nom VARCHAR(100)
 );
-
+-- Table pour stocker les informations de la table PhotosCarrousel
+CREATE TABLE PhotosCarrousel (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL
+);
 -- Table pour stocker les informations de la page "À Propos"
--- Table Images
-CREATE TABLE Images (
+CREATE TABLE Apropos (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    image_url VARCHAR(255) NOT NULL,
+    logo TEXT,
+    images TEXT,
     description TEXT
 );
-
--- Table Logos
-CREATE TABLE Logos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    logo_url VARCHAR(255) NOT NULL,
-    description TEXT
-);
-
--- Table Descriptions
-CREATE TABLE Descriptions (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    content TEXT NOT NULL
-);
-
 -- Table Partners
 CREATE TABLE Partners (
     id INT AUTO_INCREMENT PRIMARY KEY,

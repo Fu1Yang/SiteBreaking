@@ -30,13 +30,13 @@ class Photo {
 
 
     public static function create(Photo $photo): int {
-        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Photos ( nom) VALUES ( :nom)");
+        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO PhotosCarrousel ( nom) VALUES ( :nom)");
         $statement->execute(array("nom"=>$photo->getNom()));
         return (int) Database::getInstance()->getConnexion()->lastInsertId();
     }
 
     public static function read(int $id):?self{
-        $statement = Database::getInstance()->getConnexion()->prepare("SELECT * FROM Photos WHERE id=:id");
+        $statement = Database::getInstance()->getConnexion()->prepare("SELECT * FROM PhotosCarrousel WHERE id=:id");
         $statement->execute(array('id'=>$id));
         if ($row = $statement->fetch()) {
             $photo = new Photo( 
@@ -49,12 +49,12 @@ class Photo {
     }
 
     public static function update(Photo $photo): void {
-        $statement = Database::getInstance()->getConnexion()->prepare("UPDATE Photos SET nom=:nom WHERE id=:id");
+        $statement = Database::getInstance()->getConnexion()->prepare("UPDATE PhotosCarrousel SET nom=:nom WHERE id=:id");
         $statement->execute(array("id" => $photo->getId(), "nom" => $photo->getNom()));
     }
 
     public static function delete(Photo $photo): bool {
-        $statement = Database::getInstance()->getConnexion()->prepare("DELETE FROM Photos WHERE id=:id");
+        $statement = Database::getInstance()->getConnexion()->prepare("DELETE FROM PhotosCarrousel WHERE id=:id");
         return $statement->execute(array('id' => $photo->getId()));
     }
     

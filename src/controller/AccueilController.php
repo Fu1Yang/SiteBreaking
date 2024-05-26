@@ -18,11 +18,11 @@ class AccueilController extends BaseController {
     public function accueilPhotoCarousel() {
      
 
-        if (isset($_FILES['photos']) && preg_match("#jpeg|jpg|png|avif|pdf#", $_FILES['photos']['type'])) {
+        if (isset($_FILES['PhotosCarrousel']) && preg_match("#jpeg|jpg|png|avif|pdf#", $_FILES['PhotosCarrousel']['type'])) {
          
             $path = "./assets/images/";
           
-            $photoName = $_FILES['photos']['name'];
+            $photoName = $_FILES['PhotosCarrousel']['name'];
         
             // une instance de la classe Photo avec les données nécessaires
             $photo = new Photo($photoName);
@@ -33,7 +33,7 @@ class AccueilController extends BaseController {
             Photo::create($photo);
           
             // Déplacer le fichier téléchargé vers le répertoire de destination
-            move_uploaded_file($_FILES['photos']["tmp_name"], $path . $photoName);
+            move_uploaded_file($_FILES['PhotosCarrousel']["tmp_name"], $path . $photoName);
           
             header("location:compteAdmin");
         } 

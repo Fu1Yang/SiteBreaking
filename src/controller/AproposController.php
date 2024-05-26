@@ -19,17 +19,32 @@ class AproposController extends BaseController {
         try {
           
             if(isset($_POST["envoyer"])){
-                $logo = $_POST["logo"];
+                $logo = $_FILES["logo"]['name'];
+                $images = $_FILES["images"]['name'];
+                $description = $_POST["description"];
                  
                   // Créer un tableau avec les données
                 $apropos = [
                     "logo"=> $logo,              
-                ];         
-            if(isset($_FILES['image']) && preg_match("#jpeg|jpg|png|avif|pdf#", $_FILES['image']['type'])) {
-                $path = "./assets/logo/";
-                $photoName = $_FILES['images']['name'];
+                    "images"=> $images,              
+                    "description"=> $description,              
+                ];  
+
+            if(isset($_FILES['logo']) && preg_match("#jpeg|jpg|png|avif|pdf#", $_FILES['logo']['type'])) {
+                $path = "./assets/logoApropos/";
+                $photoName = $_FILES['logo']['name'];
                 // Déplacer le fichier téléchargé vers le répertoire de destination
-                move_uploaded_file($_FILES['images']["tmp_name"], $path . $photoName);         
+                move_uploaded_file($_FILES['logo']["tmp_name"], $path . $photoName);  
+                    
+               
+            } 
+    
+
+            if(isset($_FILES['images']) && preg_match("#jpeg|jpg|png|avif|pdf#", $_FILES['images']['type'])) {
+                $path = "./assets/imageApropos/";
+                $photoNameImage = $_FILES['images']['name'];
+                // Déplacer le fichier téléchargé vers le répertoire de destination
+                move_uploaded_file($_FILES['images']["tmp_name"], $path . $photoNameImage);         
             } 
             Apropos::create($apropos);     
             header("location:compteAdmin");
@@ -39,4 +54,8 @@ class AproposController extends BaseController {
         }
     
     }
+
+
+
+    
 }
