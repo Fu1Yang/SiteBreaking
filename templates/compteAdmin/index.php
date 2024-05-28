@@ -348,6 +348,33 @@
                         </div>
                     </div>
                 </main>  
+
+                        
+                <main>
+                <div class="container-fluid px-4">
+                    <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Apropos
+                            </div>
+                            <div class="card-body">
+                                <table class="datatable-table">
+                                    <tbody>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>logo</th>
+                                            <th>le lien</th>
+                                            <th>action</th>
+                                        </tr>
+                                    </thead>
+                    
+                                    <?php require_once(__DIR__ . '/../compteAdmin/affichage/affichagePartenaire.php');?>
+                                   
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>  
                 
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">

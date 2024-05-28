@@ -113,6 +113,14 @@
         "role": []
     },  
     {
+        "path" : "/aproposPartenairesPage",
+        "controller" : "Apropos",
+        "action" : "partenairesApropos",
+        "method" : "POST",
+        "params" : [],
+        "role": []
+    }, 
+    {
         "path" : "/contact",
         "controller" : "Contact",
         "action" : "index",

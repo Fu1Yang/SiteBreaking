@@ -1,6 +1,6 @@
 <?php
 use app\SiteBreaking\model\Database;
-use app\SiteBreaking\model\Apropos;
+
 
 function afficherApropos(){
     $statement = Database::getInstance()->getConnexion()->query("SELECT * FROM Apropos");

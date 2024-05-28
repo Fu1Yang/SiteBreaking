@@ -2,20 +2,17 @@
 use app\SiteBreaking\model\Database;
 
 
-function affichageApropos(){
-    $statement = Database::getInstance()->getConnexion()->query("SELECT * FROM Apropos");
+function affichagePartenaire(){
+    $statement = Database::getInstance()->getConnexion()->query("SELECT * FROM Partners");
     while ($row = $statement->fetch()) {
         echo "<tr>";
         echo "<td>".$row["id"]."</td>";
-        echo "<td>".$row["logo"]."</td>";
-        echo "<td>".$row['images']."</td>";
-        echo "<td>".$row["description"]."</td>";
-
+        echo "<td>".$row["partner_name"]."</td>";
+        echo "<td>".$row['partner_url']."</td>";
+   
         // Vérifier si la colonne "photo" est vide
-        $photo = !empty($row["logo"]) ? $row["logo"] : null;
-        $image = !empty($row['images']) ? $row['images'] : null;
+        $photo = !empty($row["partners_name"]) ? $row["partners_name"] : null;
         echo "<td>".$photo."</td>";
-        echo "<td>".$image."</td>";
         echo "<td width=300px>";
         echo "<form method='POST' action='update.php'>";
         echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
@@ -33,4 +30,4 @@ function affichageApropos(){
         echo "</tr>";
     }
 }
-affichageApropos();
+affichagePartenaire();
