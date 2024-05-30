@@ -127,36 +127,36 @@
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Modifier accueil</div>
+                                    <div class="card-body">Ajouter des éléments dans la page accueil</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="../accueil">Voir les détails</a>
+                                        <a class="small text-white stretched-link" href="../accueil">Ajouter</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Modifier evenement</div>
+                                    <div class="card-body">Ajouter des éléments dans la page evenement</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="../evenementAdmin">Voir les détails</a>
+                                        <a class="small text-white stretched-link" href="../evenementAdmin">Ajouter</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Modifier contact</div>
+                                    <div class="card-body">Ajouter des éléments dans la page contact</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Voir les détails</a>
+                                        <a class="small text-white stretched-link" href="#">Ajouter</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Modifier apropos</div>
+                                    <div class="card-body">Ajouter des éléments dans la page apropos</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="../aproposAdmin">Voir les détails</a>
+                                        <a class="small text-white stretched-link" href="../aproposAdmin">Ajouter</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -280,7 +280,7 @@
                                             <th>titre</th>
                                             <th>nom</th>
                                             <th>image</th>
-                                            <th>text</th>
+                                            <th>description</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>
@@ -355,7 +355,7 @@
                     <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Apropos
+                               Partenaire
                             </div>
                             <div class="card-body">
                                 <table class="datatable-table">
@@ -363,7 +363,7 @@
                                         <tr>
                                             <th>id</th>
                                             <th>logo</th>
-                                            <th>le lien</th>
+                                            <th>le lien url des partenaires</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>

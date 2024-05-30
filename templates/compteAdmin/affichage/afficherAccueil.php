@@ -13,7 +13,7 @@ function afficherAccueil(){
         echo "<td>".$row["image"]."</td>";
         echo "<td>".$row["text"]."</td>";
         echo "<td width=300px>";
-        echo "<form method='POST' action='update.php'>";
+        echo "<form method='POST' action='/accueil-update'>";
         echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
         echo "<button type='submit' name='action' value='update' class='btn btn-primary'>";
         echo "<span class='glyphicon glyphicon-align-left' aria-hidden='true'></span> Modifier";

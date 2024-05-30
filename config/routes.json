@@ -57,6 +57,14 @@
         "role": []
     },
     {
+        "path": "/accueil-update",
+        "controller": "Accueil",
+        "action": "update",
+        "method": "POST",
+        "params": [{"name": "id", "type": "int"}],
+        "role": []
+    },
+    {
         "path" : "/evenement",
         "controller" : "Evenement",
         "action" : "index",

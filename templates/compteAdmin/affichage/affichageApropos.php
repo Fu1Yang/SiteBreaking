@@ -5,17 +5,14 @@ use app\SiteBreaking\model\Database;
 function affichageApropos(){
     $statement = Database::getInstance()->getConnexion()->query("SELECT * FROM Apropos");
     while ($row = $statement->fetch()) {
+        $photo = !empty($row["logo"]) ? $row["logo"] : null;  // Vérifier si la colonne "photo" est vide
+        $image = !empty($row['images']) ? $row['images'] : null;
         echo "<tr>";
         echo "<td>".$row["id"]."</td>";
-        echo "<td>".$row["logo"]."</td>";
-        echo "<td>".$row['images']."</td>";
-        echo "<td>".$row["description"]."</td>";
-
-        // Vérifier si la colonne "photo" est vide
-        $photo = !empty($row["logo"]) ? $row["logo"] : null;
-        $image = !empty($row['images']) ? $row['images'] : null;
         echo "<td>".$photo."</td>";
-        echo "<td>".$image."</td>";
+        echo "<td>".$image."</td>"; "<td>".$row['images']."</td>";
+        echo "<td>".$row["description"]."</td>";
+      
         echo "<td width=300px>";
         echo "<form method='POST' action='update.php'>";
         echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";

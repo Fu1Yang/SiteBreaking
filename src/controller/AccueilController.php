@@ -106,6 +106,10 @@ class AccueilController extends BaseController {
         }
 }
 
+public function update($id) {
+    $this->view("compteAdmin/modifier/modifierAccueil");
+}
+
 public function deletePhoto($id) {
     // Vérifier si un ID est passé en POST
     if (!empty($_POST["id"])) {
