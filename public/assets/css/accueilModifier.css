@@ -1,0 +1,15 @@
+body{
+    margin: 5%;
+    background-color: blue;
+   
+}
+form {
+    background-color: white;
+    padding: 5%;
+
+}
+
+form fieldset {
+    display: flex;
+    flex-direction: column;
+}
