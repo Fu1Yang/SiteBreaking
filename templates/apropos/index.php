@@ -7,13 +7,13 @@
 
 
 
-<div class="associative">;
-        <div id="h1"><h1>Nos partenaire</h1></div>;
+<div class="associative">
+        <div id="h1"><h1>Nos partenaire</h1></div>
         <div id="nosPartenaires">
         <?php require_once(__DIR__ . '/../compteAdmin/liste/listePartenaire.php');?>
-        </div>;
+        </div>
     
-</div>;
+</div>
 
 
 <?php require_once(__DIR__ . '/../includes/footer.php'); ?>

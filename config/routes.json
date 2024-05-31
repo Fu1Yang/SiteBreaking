@@ -65,6 +65,14 @@
         "role": []
     },
     {
+        "path": "/accueil-modifier",
+        "controller": "Accueil",
+        "action": "updateAccueil",
+        "method": "POST",
+        "params": [{"name": "id", "type": "int"}],
+        "role": []
+    },
+    {
         "path" : "/evenement",
         "controller" : "Evenement",
         "action" : "index",

@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace app\SiteBreaking\controller;
 use app\SiteBreaking\model\Photo;
 use app\SiteBreaking\model\Accueil;
+use app\SiteBreaking\model\Database;
 
 
 class AccueilController extends BaseController {
@@ -108,6 +109,34 @@ class AccueilController extends BaseController {
 
 public function update($id) {
     $this->view("compteAdmin/modifier/modifierAccueil");
+}
+
+public function updateAccueil($id) {
+    if (isset($_POST["evenementRealiser"]) && isset($_POST["titre"]) && isset($_POST["nom"]) && isset($_POST["text"])) {
+        $evenementRealiser = $_POST["evenementRealiser"];
+        $titre = $_POST["titre"];
+        $nom = $_POST["nom"];
+        $text = $_POST["text"];
+        $id_client = $_POST["id"];
+    
+        $db = Database::getInstance()->getConnexion();
+        $requete = $db->prepare("UPDATE Accueil SET evenementRealiser=:evenementRealiser, titre=:titre, nom=:nom, text=:text WHERE id=:id");
+    
+        $requete->bindValue(":evenementRealiser", $evenementRealiser);
+        $requete->bindValue(':titre', $titre);
+        $requete->bindValue(':nom', $nom);
+        $requete->bindValue(':text', $text);
+        $requete->bindValue(':id', $id_client);
+    
+        $result = $requete->execute();
+        if (!$result) {
+            echo "Un problème est survenu, les modifications n'ont pas été faites!";
+        } else {
+            $this->redirectTo("/compteAdmin");
+        }
+    } else {
+        echo "Modifier vos coordonnées";
+    }
 }
 
 public function deletePhoto($id) {

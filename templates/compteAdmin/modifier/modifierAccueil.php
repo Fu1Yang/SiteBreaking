@@ -31,7 +31,7 @@ if (!isset($_POST["modif"])) {
   <link style="width: 30px;" rel="icon" href="../assets/logo/icon.ico" type="image/ico">
 </head>
 
-<form action="modifierAccueil.php" method="post" enctype="multipart/form-data">
+<form action="accueil-modifier" method="post" enctype="multipart/form-data">
     <fieldset>
     <legend>Modifiez vos information de la page Accueil</legend>
         
@@ -44,11 +44,12 @@ if (!isset($_POST["modif"])) {
     <label for="nom">Le nom de la photo</label>
     <input type="text" name="nom" id="nom" value="<?= htmlspecialchars($row["nom"]) ?>" placeholder="Donne un nom">
 
-    <label for="image">Insérez vos photos de présentation</label>
+    <label for="image">Modifiez votre photos de présentation</label>
+    <p>Le nom du fichier image: <?= htmlspecialchars($row["image"]) ?></p>
     <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
     <input type="file" name="image" id="image">
 
-    <label for="text">Ecrire le texte ici</label>
+    <label for="text">Ecrire la description ici</label>
     <textarea name="text" id="text" rows="4" cols="50" placeholder="Ecrire le texte ici"><?= htmlspecialchars($row["text"]) ?></textarea>
 
     <input type="submit" name="envoyer" id="envoyer" value="Modifier les informations">
@@ -59,30 +60,5 @@ if (!isset($_POST["modif"])) {
 <?php
     }
     $statement->closeCursor();
-} elseif (isset($_POST["evenementRealiser"]) && isset($_POST["titre"]) && isset($_POST["nom"]) && isset($_POST["text"])) {
-    $evenementRealiser = $_POST["evenementRealiser"];
-    $titre = $_POST["titre"];
-    $nom = $_POST["nom"];
-    $text = $_POST["text"];
-    $id_client = $_POST["id"];
-
-    $db = Database::getInstance()->getConnexion();
-    $requete = $db->prepare("UPDATE Accueil SET evenementRealiser=:evenementRealiser, titre=:titre, nom=:nom, text=:text WHERE id=:id");
-
-    $requete->bindValue(":evenementRealiser", $evenementRealiser);
-    $requete->bindValue(':titre', $titre);
-    $requete->bindValue(':nom', $nom);
-    $requete->bindValue(':text', $text);
-    $requete->bindValue(':id', $id_client);
-
-    $result = $requete->execute();
-    if (!$result) {
-        echo "Un problème est survenu, les modifications n'ont pas été faites!";
-    } else {
-        echo "Vos modifications ont été bien effectuées";
-        header("location:gestionClients.php");
-    }
-} else {
-    echo "Modifier vos coordonnées";
-}
+} 
 ?>
