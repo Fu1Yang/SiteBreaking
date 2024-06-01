@@ -13,6 +13,8 @@ function afficherDb(){
         echo "<td>".$row["email"]."</td>";
         echo "<td>".$row["role"]."</td>";
         echo "<td>".$row["date_inscription"]."</td>";
+        echo "<td>".$row["token"]."</td>";
+        echo "<td>".$row["validation_email"]."</td>";
         echo "<td width=300px>";
         echo "<form method='POST' action='update.php'>";
         echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";

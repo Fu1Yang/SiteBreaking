@@ -181,7 +181,15 @@
         "controller" : "Inscription",
         "action" : "inscription",
         "method" : "POST",
-        "params" : [{"name":"nom_utilisateur","type":"text"},{"name":"prenom_utilisateur","type":"text"},{"name":"password","type":"password","lenght":5},{"name":"confirmePassword","type":"password","lenght":5},{"name":"email","type":"email"}],
+        "params" : [],
+        "role": []
+    }, 
+    {
+        "path" : "/inscriptionVerif",
+        "controller" : "Inscription",
+        "action" : "inscriptionVerification",
+        "method" : "POST",
+        "params" : [],
         "role": []
     }, 
     {

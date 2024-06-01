@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace app\SiteBreaking\controller;
 use app\SiteBreaking\model\Database;
 use app\SiteBreaking\model\Utilisateur;
+use app\SiteBreaking\model\MailService;
 use DateTime;
 use app\core\EmailService;
 
@@ -13,18 +14,17 @@ class InscriptionController extends BaseController {
     }
 
     public function inscription(): void {
-        $monEmail = 'yang.fu@live.fr';
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $nom = $_POST['nom_utilisateur'];
-            $prenom = $_POST['prenom_utilisateur'];
-            $password = $_POST['password'];
-            $confirmePassword = $_POST['confirmePassword'];
-            $email = $monEmail;
-
+            $nom_utilisateur = $_POST['nom_utilisateur'] ?? null;
+            $prenom = $_POST['prenom_utilisateur'] ?? null;
+            $password = $_POST['password'] ?? null;
+            $confirmePassword = $_POST['confirmePassword'] ?? null;
+            $email = $_POST['email'] ?? null;
+ 
             // Vérifications
             if (empty($prenom) || !ctype_alpha($prenom)) {
                 $message = "Votre prénom doit être une chaîne de caractères alphabétiques !";
-            } elseif (empty($nom) || !ctype_alpha($nom)) {
+            } elseif (empty($nom_utilisateur) || !ctype_alpha($nom_utilisateur)) {
                 $message = "Votre nom doit être une chaîne de caractères alphabétiques !";
             } elseif (empty($password) || $password !== $confirmePassword) {
                 $message = "Entrez un mot de passe valide !";
@@ -35,40 +35,77 @@ class InscriptionController extends BaseController {
                 $db = Database::getInstance()->getConnexion();
 
                 // Vérifiez si l'utilisateur existe déjà
-                $req1 = $db->prepare("SELECT * FROM SiteBreaking.Utilisateur WHERE email_utilisateur = :email");
+                $req1 = $db->prepare("SELECT * FROM SiteBreaking.Utilisateur WHERE email = :email");
                 $req1->bindValue(":email", $email);
                 $req1->execute();
                 $result = $req1->fetch();
-
+               
                 if ($result) {
                     $message = "Un compte existe déjà avec cet email";
                 } else {
-                    $token = token_random_string(25);
+                    require_once(__DIR__ . '/../../public/token.php');
 
                     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-
-                    $requete = $db->prepare('INSERT INTO SiteBreaking.Utilisateur(nom_utilisateur, prenom_utilisateur, email_utilisateur, password_utilisateur, token_utilisateur) VALUES (:nom, :prenom, :email, :password, :token)');
-                    $requete->bindValue(':nom', $nom);
+                    $requete = $db->prepare('INSERT INTO SiteBreaking.Utilisateur (nom_utilisateur, prenom_utilisateur, email, role, mot_de_passe, token) VALUES (:nom, :prenom, :email, :role, :mot_de_passe, :token)');
+                    $requete->bindValue(':nom', $nom_utilisateur);
                     $requete->bindValue(':prenom', $prenom);
                     $requete->bindValue(':email', $email);
-                    $requete->bindValue(':password', $passwordHash);
+                    $requete->bindValue(':role', 'utilisateur');
+                    $requete->bindValue(':mot_de_passe', $passwordHash);
                     $requete->bindValue(':token', $token);
 
-             
-
                     $requete->execute();
-                    $emailService = new EmailService();
-                    $emailService->sendEmail($email, "Bienvenue sur notre site", "Merci de vous être inscrit sur notre site.");
-
+                    $monEmail = 'yang.fu@live.fr';
+                    // Envoi de l'email de bienvenue
+                    $emailService = new MailService();
+                    $emailService->sendEmail($monEmail, "Bienvenue sur notre site", "Merci de vous être inscrit sur notre site.");
+                    // Redirection vers la page de connexion
                     $this->redirectTo("/connexion");
+                    return;
                 }
             }
 
             if (isset($message)) {
                 echo $message;
-                $this->view("inscription/index");
             }
+            $this->view("inscription/index");
         }
     }
+
+    public function inscriptionVerification(){
+  
+    if (isset($_GET["email"]) && !empty($_GET["email"]) && isset($_GET["token"]) && !empty($_GET["token"])) {
+
+        $email = $_GET["email"];
+        $token = $_GET["token"];
+        $db = Database::getInstance()->getConnexion();
+        $requete = $db->prepare('SELECT * FROM SiteBreaking.Utilisateur WHERE email=:email AND token=:token');
+
+        $requete->bindValue(":email", $email);
+        $requete->bindValue(":token", $token);
+
+        $requete->execute();
+
+        $nombre = $requete->rowCount();
+        if ($nombre == 1) {
+
+            $update = $db->prepare("UPDATE SiteBreaking.Utilisateur SET validation_email=:validation, token=:token WHERE email=:email");
+
+            $update->bindValue(":email", $email);
+            $update->bindValue(":token", "EmailValide");
+            $update->bindValue(":validation",1);
+
+            $resultUpdate = $update->execute();
+
+            if($resultUpdate){
+                    echo "<script type=\"text/javascript\">alert('Votre adresse email est confirmée!');";
+                    echo "document.location.href='login.php';</script>";
+        
+                
+            }
+        }
+    };
+    }
 }
+
 ?>

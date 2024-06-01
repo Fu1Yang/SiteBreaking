@@ -14,7 +14,7 @@ class Utilisateur {
     private string $_role;
     private ?DateTime $_date_inscription;
 
-    public function __construct(string $nom_utilisateur, string $prenom_utilisateur, string $mot_de_passe, string $email, string $role, ?DateTime $date_inscription = null, int $id=0)
+    public function __construct(string $nom_utilisateur, string $prenom_utilisateur, string $mot_de_passe, string $email, string $role = 'utilisateur', ?DateTime $date_inscription = null, int $id=0)
     {
         $this->_id = $id;
         $this->_nom_utilisateur = $nom_utilisateur;

@@ -200,6 +200,8 @@
                                             <th>email</th>
                                             <th>role</th>
                                             <th>date_inscription</th>
+                                            <th>token</th>
+                                            <th>validation_email</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>

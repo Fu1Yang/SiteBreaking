@@ -1,16 +1,16 @@
 <?php
-namespace app\core;
+namespace app\SiteBreaking\model;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-class EmailService {
+class MailService {
     protected $mailer;
 
     public function __construct() {
-        $config = require __DIR__ . '/../config/email_config.php';
+        $config = require __DIR__ . '/../../config/email_config.php';
 
         $this->mailer = new PHPMailer(true);
         $this->mailer->isSMTP();
@@ -22,12 +22,13 @@ class EmailService {
         $this->mailer->Port = $config['port'];
     }
 
-    public function sendEmail($to, $subject, $body) {
+    public function sendEmail($to, $subject, $token) {
         try {
-            $this->mailer->setFrom('votre_email@example.com', 'Votre Nom');
+            require_once(__DIR__ . '/../../public/token.php');
+            $this->mailer->setFrom('yang.fu@live.fr', 'YANG FU');
             $this->mailer->addAddress($to);
             $this->mailer->Subject = $subject;
-            $this->mailer->Body = $body;
+            $this->mailer->Body = 'Afin de valider votre inscription, mercie de cliquer sur le lien suivant:<a href="http://localhost/inscriptionVerif?token='.$token.'&email='.$_POST["email"].'">Confirmation de votre email</a>';
             $this->mailer->isHTML(true);
 
             $this->mailer->send();
