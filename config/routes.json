@@ -188,7 +188,7 @@
         "path" : "/inscriptionVerif",
         "controller" : "Inscription",
         "action" : "inscriptionVerification",
-        "method" : "POST",
+        "method" : "GET",
         "params" : [],
         "role": []
     }, 

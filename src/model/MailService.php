@@ -21,10 +21,10 @@ class MailService {
         $this->mailer->SMTPSecure = $config['encryption'];
         $this->mailer->Port = $config['port'];
     }
-
+  
     public function sendEmail($to, $subject, $token) {
+        require_once(__DIR__ . '/../../public/token.php');
         try {
-            require_once(__DIR__ . '/../../public/token.php');
             $this->mailer->setFrom('yang.fu@live.fr', 'YANG FU');
             $this->mailer->addAddress($to);
             $this->mailer->Subject = $subject;
