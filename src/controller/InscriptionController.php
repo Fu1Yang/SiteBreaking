@@ -58,7 +58,7 @@ class InscriptionController extends BaseController {
                     $monEmail = 'yang.fu@live.fr';
                     // Envoi de l'email de bienvenue
                     $emailService = new MailService();
-                    $emailService->sendEmail($monEmail, "Bienvenue sur notre site", "Merci de vous être inscrit sur notre site.");
+                    $emailService->sendEmail($monEmail, "Bienvenue sur notre site", $token, $email);
                     // Redirection vers la page de connexion
                     $this->redirectTo("/connexion");
                     return;
@@ -100,7 +100,6 @@ class InscriptionController extends BaseController {
             if($resultUpdate){
                     echo "<script type=\"text/javascript\">alert('Votre adresse email est confirmée!');";
                     echo "document.location.href='login.php';</script>";
-        
                 
             }
         }

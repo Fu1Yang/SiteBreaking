@@ -22,13 +22,13 @@ class MailService {
         $this->mailer->Port = $config['port'];
     }
   
-    public function sendEmail($to, $subject, $token) {
-        require_once(__DIR__ . '/../../public/token.php');
+    public function sendEmail($to, $subject, $token, $email) {
+      
         try {
-            $this->mailer->setFrom('yang.fu@live.fr', 'YANG FU');
+            $this->mailer->setFrom('yang.fu@live.fr', 'SiteBreaking');
             $this->mailer->addAddress($to);
             $this->mailer->Subject = $subject;
-            $this->mailer->Body = 'Afin de valider votre inscription, mercie de cliquer sur le lien suivant:<a href="http://localhost/inscriptionVerif?token='.$token.'&email='.$_POST["email"].'">Confirmation de votre email</a>';
+            $this->mailer->Body = 'Afin de valider votre inscription, merci de cliquer sur le lien suivant: <a href="http://localhost/inscriptionVerif?token='.urlencode($token).'&email='.$email.'">Confirmation de votre email</a>';
             $this->mailer->isHTML(true);
 
             $this->mailer->send();

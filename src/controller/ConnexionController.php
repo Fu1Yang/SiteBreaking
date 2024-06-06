@@ -19,22 +19,12 @@ class ConnexionController extends BaseController {
             Authentification::getInstance()->login($utilisateur);
             // Supposons que tu as déjà inclus le fichier de configuration et la classe Database
 
-            // Préparation de la requête pour sélectionner les utilisateurs avec un rôle spécifique
-            $stmt = Database::getInstance()->getConnexion()->prepare("SELECT * FROM Utilisateur WHERE role = :role");
-            $role = 'administrateur';
-            $stmt->bindParam(':role', $role);
-            $stmt->execute();
-
-            // Vérification si un utilisateur avec le rôle administrateur existe
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-          
-            if ($user) {
-               
-                // Si un utilisateur avec le rôle administrateur est trouvé, redirection vers la page d'administration
-                $this->redirectTo("./compteAdmin");
+           // Vérifier le rôle de l'utilisateur connecté
+           if ($utilisateur->getRole() === 'administrateur') {
+            // Rediriger vers la page d'administration si l'utilisateur est un administrateur
+            $this->redirectTo("./compteAdmin");
             } else {
-                // Sinon, tu peux rediriger vers une autre page ou afficher un message d'erreur
-                // $this->redirectTo("/unauthorized"); // Par exemple
+              
                 echo "Accès refusé";
             }
         }

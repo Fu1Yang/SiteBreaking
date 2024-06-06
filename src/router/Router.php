@@ -37,7 +37,7 @@ namespace app\SiteBreaking\router;
         public function findRoute(HttpRequest $httpRequest):Route
         {
             $routeFound = array_filter($this->_listRoute,function($route) use ($httpRequest){
-                return preg_match("#^" . $route->path .$this->_buildParamsPattern($route)."$#", $httpRequest->getUri()) && $route->method == $httpRequest->getMethod();
+                return preg_match("#^".$route->path .$this->_buildParamsPattern($route)."$#", $httpRequest->getUri()) && $route->method == $httpRequest->getMethod();
             });
             $numberRoute = count($routeFound);
             if($numberRoute > 1)

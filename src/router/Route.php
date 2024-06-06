@@ -1,10 +1,11 @@
 <?php
 # src/router/Route.php
 declare(strict_types=1);
-namespace app\SiteBreaking\controller;
+
 namespace app\SiteBreaking\router;
 
 use app\SiteBreaking\model\Authentification;
+
 
 class Route
 {

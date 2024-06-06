@@ -185,13 +185,13 @@
         "role": []
     }, 
     {
-        "path" : "/inscriptionVerif",
-        "controller" : "Inscription",
-        "action" : "inscriptionVerification",
-        "method" : "GET",
-        "params" : [],
+        "path": "/inscriptionVerif",
+        "controller": "Inscription",
+        "action": "inscriptionVerification",
+        "method": "GET",
+        "params": [{"name": "token", "type": "string"}, {"name": "email", "type": "email"}],
         "role": []
-    }, 
+    },
     {
         "path" : "/compteAdmin",
         "controller" : "CompteAdmin",
