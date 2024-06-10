@@ -185,7 +185,7 @@
         "role": []
     }, 
     {
-        "path": "/inscriptionVerif",
+        "path": "/inscriptionVerif/{token}/{email}",
         "controller": "Inscription",
         "action": "inscriptionVerification",
         "method": "GET",

@@ -93,13 +93,13 @@ class InscriptionController extends BaseController {
 
             $update->bindValue(":email", $email);
             $update->bindValue(":token", "EmailValide");
-            $update->bindValue(":validation",1);
+            $update->bindValue(":validation_email",1);
 
             $resultUpdate = $update->execute();
 
             if($resultUpdate){
                     echo "<script type=\"text/javascript\">alert('Votre adresse email est confirmée!');";
-                    echo "document.location.href='login.php';</script>";
+                    $this->redirectTo("/connexion");
                 
             }
         }

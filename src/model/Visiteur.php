@@ -77,4 +77,29 @@ class Visiteur {
         $statement->execute(["id"=>$visiteur->getId()]);
     }
 
+    public function cookie(){
+    // Vérification du cookie d'identification du visiteur
+    if (!isset($_COOKIE['id'])) {
+        // Génération d'un nouvel identifiant unique pour le visiteur
+        $visiteur_id = uniqid();
+        // Création d'un cookie pour stocker l'identifiant unique du visiteur
+        setcookie('id', $visiteur_id, time() + 3600 * 24 * 365); // valable pendant un an
+        // Enregistrement du nouveau visiteur dans la base de données
+        $stmt = Database::getInstance()->getConnexion()->prepare("INSERT INTO Visiteur (id,session_id) VALUES (?, 1)");
+        $stmt->execute([$visiteur_id]);
+    } else {
+        // Récupération de l'identifiant du visiteur à partir du cookie
+        $visiteur_id = $_COOKIE['visiteur_id'];
+        // Mise à jour du compteur de visites dans la base de données
+        $stmt = Database::getInstance()->getConnexion()->prepare("UPDATE Visiteur SET session_id = session_id + 1 WHERE id = ?");
+        $stmt->execute([$visiteur_id]);
+    }
+
+    // Affichage du nombre total de visites
+    $stmt = Database::getInstance()->getConnexion()->query("SELECT SUM(session_id) FROM Visiteur");
+    $total_visites = $stmt->fetchColumn();
+    echo "Total des visites : " . $total_visites;
+    }
+
+
 }

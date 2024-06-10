@@ -1,3 +1,17 @@
+<?php
+
+use app\SiteBreaking\model\Database;
+use app\SiteBreaking\model\Utilisateur;
+
+$db = Database::getInstance()->getConnexion()->query("SELECT * FROM Utilisateur");
+$index=0;
+while ($row = $db->fetch()) {
+   $index++;
+  if ($row["nom_utilisateur"]) {
+
+ 
+
+?>
 <!DOCTYPE html>
 <html lang="fr-FR">
     <head>
@@ -7,6 +21,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Tableau de bord – Administrateur</title>
+
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="./assets/css/compteAdmin.css">
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -120,7 +135,10 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Tableau de bord Administrateur</h1>
+                        <h1 class="mt-4">Tableau de bord Administrateur<?php echo " connecter:".$row['nom_utilisateur'].' '.$row['prenom_utilisateur'] ?></h1>
+                        <?php }else {
+        echo "utilisateur non connu";
+      }}?>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Tableau de bord</li>
                         </ol>

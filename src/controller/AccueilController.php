@@ -112,19 +112,28 @@ public function update($id) {
 }
 
 public function updateAccueil($id) {
-    if (isset($_POST["evenementRealiser"]) && isset($_POST["titre"]) && isset($_POST["nom"]) && isset($_POST["text"])) {
+    if (isset($_POST["evenementRealiser"]) && isset($_POST["titre"]) && isset($_POST["nom"]) && isset($_FILES['image']['name']) && isset($_POST["text"])) {
         $evenementRealiser = $_POST["evenementRealiser"];
         $titre = $_POST["titre"];
         $nom = $_POST["nom"];
+        $image = $_FILES['image']['name'];
         $text = $_POST["text"];
         $id_client = $_POST["id"];
-    
+        
+                
+        if(isset($_FILES['image']) && preg_match("#jpeg|jpg|png|avif|pdf#", $_FILES['image']['type'])) {
+            $path = "./assets/logo/";
+            $photoName = $_FILES['image']['name'];
+            // Déplacer le fichier téléchargé vers le répertoire de destination
+            move_uploaded_file($_FILES['image']["tmp_name"], $path . $photoName); } 
+
         $db = Database::getInstance()->getConnexion();
-        $requete = $db->prepare("UPDATE Accueil SET evenementRealiser=:evenementRealiser, titre=:titre, nom=:nom, text=:text WHERE id=:id");
+        $requete = $db->prepare("UPDATE Accueil SET evenementRealiser=:evenementRealiser, titre=:titre, nom=:nom, image=:image, text=:text WHERE id=:id");
     
         $requete->bindValue(":evenementRealiser", $evenementRealiser);
         $requete->bindValue(':titre', $titre);
         $requete->bindValue(':nom', $nom);
+        $requete->bindValue(':image', $image);
         $requete->bindValue(':text', $text);
         $requete->bindValue(':id', $id_client);
     

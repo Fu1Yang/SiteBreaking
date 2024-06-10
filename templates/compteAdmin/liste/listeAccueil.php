@@ -32,7 +32,7 @@ function afficherImages(){
        echo  '<div class="card">';
        echo    '<div class="card-body">';
        echo     '<h5 class="card-title">'.$row["nom"].'</h5>';
-       echo      '<img src="./assets/logo/'.$row["image"].'" alt="">';
+       echo      '<img src="./assets/logo/'.$row["image"].'" alt="image de profile">';
        echo    '</div>';
        echo  '</div>';
        echo '</div>';
