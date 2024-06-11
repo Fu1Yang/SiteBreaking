@@ -21,7 +21,7 @@ class Authentification {
     public function login(Utilisateur $utilisateur) {
 
         $_SESSION["UTILISATEUR_ID"]=$utilisateur->getId();
-        $_SESSION["UTILISATEUR_RANK"]=$utilisateur->getRole();
+        $_SESSION["UTILISATEUR_RANK"]=$utilisateur->getRoles();
     }
 
     public function logout()

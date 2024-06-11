@@ -135,7 +135,7 @@ while ($row = $db->fetch()) {
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Tableau de bord Administrateur<?php echo " connecter:".$row['nom_utilisateur'].' '.$row['prenom_utilisateur'] ?></h1>
+                        <h1 class="mt-4">Tableau de bord Administrateur<?php echo " connecter:".$row['nom_utilisateur'] .' '.$row['prenom_utilisateur'] ?></h1>
                         <?php }else {
         echo "utilisateur non connu";
       }}?>
@@ -185,7 +185,7 @@ while ($row = $db->fetch()) {
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        Exemple de graphique aréolaire
+                                       Nombre de visite en graphique aréolaire
                                     </div>
                                     <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                                 </div>
@@ -194,7 +194,7 @@ while ($row = $db->fetch()) {
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar me-1"></i>
-                                        Exemple de diagramme à barres
+                                        Nombre de visite en  diagramme à barres
                                     </div>
                                     <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                                 </div>

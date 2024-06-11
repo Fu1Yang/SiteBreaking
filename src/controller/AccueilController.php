@@ -5,10 +5,12 @@ namespace app\SiteBreaking\controller;
 use app\SiteBreaking\model\Photo;
 use app\SiteBreaking\model\Accueil;
 use app\SiteBreaking\model\Database;
+use app\SiteBreaking\model\Visiteur;
 
 
 class AccueilController extends BaseController {
     public function index():void {
+        Visiteur::cookie();
         $this->view("accueil/index");
     }
 

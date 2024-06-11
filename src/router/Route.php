@@ -23,7 +23,7 @@ class Route
         $this->_action = $route->action;
         $this->_method = $route->method;
         $this->_params = $route->params;
-        $this->_roles = $route->role;
+        $this->_roles = $route->roles;
     }
     public function getPath():string
     {
@@ -67,7 +67,7 @@ class Route
             }
             
             // Vérifie si le rôle de l'utilisateur n'est pas autorisé, lance une exception d'interdiction.
-            if (!in_array($utilisateur->getRole(), $this->_roles)) {
+            if (!in_array($utilisateur->getRoles(), $this->_roles)) {
                 throw new NotAllowedException();
             }
         }

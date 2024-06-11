@@ -14,23 +14,26 @@ class ConnexionController extends BaseController {
     }
 
     public function connecter($email,$mot_de_passe){
-        $utilisateur = Utilisateur::verifConnexion($email,$mot_de_passe);
-        if ($utilisateur != null) {
-            Authentification::getInstance()->login($utilisateur);
-            // Supposons que tu as déjà inclus le fichier de configuration et la classe Database
-
-           // Vérifier le rôle de l'utilisateur connecté
-           if ($utilisateur->getRole() === 'administrateur') {
-            // Rediriger vers la page d'administration si l'utilisateur est un administrateur
-            $this->redirectTo("./compteAdmin");
-            } else {
-              
-                echo "Accès refusé";
+        try {
+            $utilisateur = Utilisateur::verifConnexion($email,$mot_de_passe);
+            if ($utilisateur != null) {
+               if ($utilisateur->getRoles() == 'administrateur'&& $utilisateur->getValidationEmail() == 1) {
+                $this->redirectTo("./compteAdmin");
+                } else {
+                  
+                    echo "Accès refusé";
+                }
             }
-        }
-        else{
+            else{
+                $this->redirectTo("./connexion");
+            }
+        } catch (\Throwable $th) {
+            
             $this->redirectTo("./connexion");
+            $message = "Valider votre email";
+            echo $message;
         }
+       
     }
 
     public function deconnexion(){

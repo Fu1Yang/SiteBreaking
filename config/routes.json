@@ -1,28 +1,27 @@
 [
     {
-        "path" : "/api",
-        "controller" : "Api",
-        "action" : "index",
-        "method" : "GET",
-        "params" : [],
-        "role": []
-    }
-    ,
-    {
         "path" : "/",
         "controller" : "Accueil",
         "action" : "index",
         "method" : "GET",
         "params" : [],
-        "role": []
+        "roles": []
     }, 
+    {
+        "path": "/cookie",
+        "controller": "Visiteur",
+        "action": "cookie",
+        "method": "POST",
+        "params": [],
+        "roless": []
+    },
     {
         "path" : "/accueil",
         "controller" : "Accueil",
         "action" : "accueilAdmin",
         "method" : "GET",
         "params" : [],
-        "role": []
+        "roles": []
     },
     {
         "path" : "/photo-carousel",
@@ -30,7 +29,7 @@
         "action" : "accueilPhotoCarousel",
         "method" : "POST",
         "params" : [],
-        "role": []
+        "roles": []
     },
     {
         "path" : "/accueil-carte",
@@ -38,7 +37,7 @@
         "action" : "accueilCarte",
         "method" : "POST",
         "params" : [],
-        "role": []
+        "roles": []
     },
     {
         "path": "/accueil-deletePhoto",
@@ -46,7 +45,7 @@
         "action": "deletePhoto",
         "method": "POST",
         "params": [{"name": "id", "type": "int"}],
-        "role": []
+        "roles": []
     },
     {
         "path": "/accueil-delete",
@@ -54,7 +53,7 @@
         "action": "delete",
         "method": "POST",
         "params": [{"name": "id", "type": "int"}],
-        "role": []
+        "roles": []
     },
     {
         "path": "/accueil-update",
@@ -62,7 +61,7 @@
         "action": "update",
         "method": "POST",
         "params": [{"name": "id", "type": "int"}],
-        "role": []
+        "roles": []
     },
     {
         "path": "/accueil-modifier",
@@ -70,7 +69,7 @@
         "action": "updateAccueil",
         "method": "POST",
         "params": [{"name": "id", "type": "int"}],
-        "role": []
+        "roles": []
     },
     {
         "path" : "/evenement",
@@ -78,7 +77,7 @@
         "action" : "index",
         "method" : "GET",
         "params" : [],
-        "role": []
+        "roles": []
     },
     {
         "path" : "/evenementAdmin",
@@ -86,7 +85,7 @@
         "action" : "evenementAdmin",
         "method" : "GET",
         "params" : [],
-        "role": []
+        "roles": []
     },
     {
         "path" : "/evenementCreer",
@@ -94,7 +93,7 @@
         "action" : "nouvelleEvenement",
         "method" : "POST",
         "params" : [],
-        "role": []
+        "roles": []
     },
     {
         "path" : "/evenementDelete",
@@ -102,7 +101,7 @@
         "action" : "delete",
         "method" : "POST",
         "params" : [{"name": "id", "type": "int"}],
-        "role": []
+        "roles": []
     },
     {
         "path" : "/apropos",
@@ -110,7 +109,7 @@
         "action" : "index",
         "method" : "GET",
         "params" : [],
-        "role": []
+        "roles": []
     }, 
     {
         "path" : "/aproposAdmin",
@@ -118,7 +117,7 @@
         "action" : "aproposAdmin",
         "method" : "GET",
         "params" : [],
-        "role": []
+        "roles": []
     }, 
     {
         "path" : "/aproposPage",
@@ -126,7 +125,7 @@
         "action" : "logoApropos",
         "method" : "POST",
         "params" : [],
-        "role": []
+        "roles": []
     },  
     {
         "path" : "/aproposPartenairesPage",
@@ -134,7 +133,7 @@
         "action" : "partenairesApropos",
         "method" : "POST",
         "params" : [],
-        "role": []
+        "roles": []
     }, 
     {
         "path" : "/contact",
@@ -142,7 +141,7 @@
         "action" : "index",
         "method" : "GET",
         "params" : [],
-        "role": []
+        "roles": []
     },
     {
         "path" : "/connexion",
@@ -150,7 +149,7 @@
         "action" : "index",
         "method" : "GET",
         "params" : [],
-        "role": []
+        "roles": []
     },   
     {
         "path" : "/deconnexion",
@@ -158,7 +157,7 @@
         "action" : "deconnexion",
         "method" : "GET",
         "params" : [],
-        "role": []
+        "roles": []
     }, 
     {
         "path" : "/connexion",
@@ -166,7 +165,7 @@
         "action" : "connecter",
         "method" : "POST",
         "params" : [{"name":"email","type":"email"},{"name":"mot_de_passe","type":"password","lenght":5}],
-        "role": []
+        "roles": []
     }, 
     {
         "path" : "/inscription",
@@ -174,7 +173,7 @@
         "action" : "index",
         "method" : "GET",
         "params" : [],
-        "role": []
+        "roles": []
     }, 
     {
         "path" : "/inscription",
@@ -182,7 +181,7 @@
         "action" : "inscription",
         "method" : "POST",
         "params" : [],
-        "role": []
+        "roles": []
     }, 
     {
         "path": "/inscriptionVerif/{token}/{email}",
@@ -190,7 +189,7 @@
         "action": "inscriptionVerification",
         "method": "GET",
         "params": [{"name": "token", "type": "string"}, {"name": "email", "type": "email"}],
-        "role": []
+        "roles": []
     },
     {
         "path" : "/compteAdmin",
@@ -198,7 +197,7 @@
         "action" : "index",
         "method" : "GET",
         "params" : [],
-        "role": []
+        "roles": []
     }, 
     {
         "path": "/compteAdmin",
@@ -206,7 +205,7 @@
         "action": "delete",
         "method": "POST",
         "params": [{"name": "id", "type": "int"}],
-        "role": []
+        "roles": []
     }
     
 ]
