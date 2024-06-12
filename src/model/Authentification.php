@@ -20,21 +20,21 @@ class Authentification {
 
     public function login(Utilisateur $utilisateur) {
 
-        $_SESSION["UTILISATEUR_ID"]=$utilisateur->getId();
-        $_SESSION["UTILISATEUR_RANK"]=$utilisateur->getRoles();
+        $_SESSION["id"]=$utilisateur->getId();
+        $_SESSION["role"]=$utilisateur->getRoles();
     }
 
     public function logout()
     {
-        unset($_SESSION['UTILISATEUR_ID']);
-        unset($_SESSION['UTILISATEUR_RANK']);
+        unset($_SESSION['id']);
+        unset($_SESSION['role']);
         session_destroy();
     }
     public function getUtilisateurConnecte():?Utilisateur
     {
-        if (isset($_SESSION['UTILISATEUR_ID'])&&is_numeric($_SESSION['UTILISATEUR_ID']))
+        if (isset($_SESSION['id'])&&is_numeric($_SESSION['id']))
         {
-            return Utilisateur::read($_SESSION['UTILISATEUR_ID']);
+            return Utilisateur::read($_SESSION['id']);
         }
         return null;
     }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\SiteBreaking\router;
 
 use app\SiteBreaking\model\Authentification;
+use app\SiteBreaking\model\Database;
 
 
 class Route
@@ -45,7 +46,7 @@ class Route
     {
         return $this->_params;
     }
-    public function getRole(): array
+    public function getRoles(): array
     {
         // Retourne le tableau des rôles.
         return $this->_roles;
@@ -58,12 +59,17 @@ class Route
         
         // Vérifie s'il y a des rôles spécifiés.
         if (count($this->_roles) > 0) {
+            
+        
             // Obtient l'utilisateur connecté.
             $utilisateur = Authentification::getInstance()->getUtilisateurConnecte();
-            
+            var_dump($utilisateur);
+
             // Vérifie si l'utilisateur est null, s'il l'est, lance une exception d'interdiction.
             if ($utilisateur == null){
+                
                 throw new NotAllowedException();
+
             }
             
             // Vérifie si le rôle de l'utilisateur n'est pas autorisé, lance une exception d'interdiction.

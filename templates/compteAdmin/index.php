@@ -2,7 +2,7 @@
 
 use app\SiteBreaking\model\Database;
 use app\SiteBreaking\model\Utilisateur;
-
+session_start();
 $db = Database::getInstance()->getConnexion()->query("SELECT * FROM Utilisateur");
 $index=0;
 while ($row = $db->fetch()) {

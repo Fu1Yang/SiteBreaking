@@ -3,7 +3,7 @@ use app\SiteBreaking\model\Database;
 use app\SiteBreaking\model\Visiteur;
 // Assurez-vous que vous avez une route définie pour accepter POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  
+  session_start();
   Database::getInstance()->getConnexion();
   Visiteur::cookie();
 } else {
@@ -11,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   http_response_code(405);
  
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">

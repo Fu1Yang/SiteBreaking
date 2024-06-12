@@ -197,7 +197,7 @@
         "action" : "index",
         "method" : "GET",
         "params" : [],
-        "roles": []
+        "roles": ["administrateur"]
     }, 
     {
         "path": "/compteAdmin",

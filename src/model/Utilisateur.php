@@ -104,7 +104,7 @@ class Utilisateur {
     public static function create(Utilisateur $utilisateur):int {
 
   
-        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Utilisateur (nom_utilisateur, prenom_utilisateur, mot_de_passe, email, roles, date_inscription) VALUES(:nom_utilisateur, :prenom_utilisateur, :mot_de_passe,:email,:roles,:date_inscription);");
+        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Utilisateur (nom_utilisateur, prenom_utilisateur, mot_de_passe, email, role, date_inscription) VALUES(:nom_utilisateur, :prenom_utilisateur, :mot_de_passe,:email,:roles,:date_inscription);");
         $statement->execute([
             "nom_utilisateur"=>$utilisateur->getNomUtilisateur(), 
             "prenom_utilisateur"=>$utilisateur->getPrenomUtilisateur(), 
