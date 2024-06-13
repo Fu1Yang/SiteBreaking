@@ -8,7 +8,7 @@ use app\SiteBreaking\model\Message;
 
 class CompteAdminController extends BaseController {
     public function index():void {
-        $this->view("compteAdmin/index");
+            $this->view("compteAdmin/index");    
     }
     
     public function delete($id) {
