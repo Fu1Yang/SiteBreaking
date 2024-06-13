@@ -13,7 +13,7 @@
         "action": "cookie",
         "method": "POST",
         "params": [],
-        "roless": []
+        "roles": []
     },
     {
         "path" : "/accueil",
@@ -21,7 +21,7 @@
         "action" : "accueilAdmin",
         "method" : "GET",
         "params" : [],
-        "roles": []
+        "roles": ["administrateur"]
     },
     {
         "path" : "/photo-carousel",
@@ -29,7 +29,7 @@
         "action" : "accueilPhotoCarousel",
         "method" : "POST",
         "params" : [],
-        "roles": []
+        "roles": ["administrateur"]
     },
     {
         "path" : "/accueil-carte",
@@ -37,7 +37,7 @@
         "action" : "accueilCarte",
         "method" : "POST",
         "params" : [],
-        "roles": []
+        "roles": ["administrateur"]
     },
     {
         "path": "/accueil-deletePhoto",
@@ -45,7 +45,7 @@
         "action": "deletePhoto",
         "method": "POST",
         "params": [{"name": "id", "type": "int"}],
-        "roles": []
+        "roles": ["administrateur"]
     },
     {
         "path": "/accueil-delete",
@@ -53,7 +53,7 @@
         "action": "delete",
         "method": "POST",
         "params": [{"name": "id", "type": "int"}],
-        "roles": []
+        "roles": ["administrateur"]
     },
     {
         "path": "/accueil-update",
@@ -61,7 +61,7 @@
         "action": "update",
         "method": "POST",
         "params": [{"name": "id", "type": "int"}],
-        "roles": []
+        "roles": ["administrateur"]
     },
     {
         "path": "/accueil-modifier",
@@ -69,7 +69,7 @@
         "action": "updateAccueil",
         "method": "POST",
         "params": [{"name": "id", "type": "int"}],
-        "roles": []
+        "roles": ["administrateur"]
     },
     {
         "path" : "/evenement",
@@ -85,7 +85,7 @@
         "action" : "evenementAdmin",
         "method" : "GET",
         "params" : [],
-        "roles": []
+        "roles": ["administrateur"]
     },
     {
         "path" : "/evenementCreer",
@@ -93,7 +93,7 @@
         "action" : "nouvelleEvenement",
         "method" : "POST",
         "params" : [],
-        "roles": []
+        "roles": ["administrateur"]
     },
     {
         "path" : "/evenementDelete",
@@ -101,7 +101,7 @@
         "action" : "delete",
         "method" : "POST",
         "params" : [{"name": "id", "type": "int"}],
-        "roles": []
+        "roles": ["administrateur"]
     },
     {
         "path" : "/apropos",
@@ -117,7 +117,7 @@
         "action" : "aproposAdmin",
         "method" : "GET",
         "params" : [],
-        "roles": []
+        "roles": ["administrateur"]
     }, 
     {
         "path" : "/aproposPage",
@@ -125,7 +125,7 @@
         "action" : "logoApropos",
         "method" : "POST",
         "params" : [],
-        "roles": []
+        "roles": ["administrateur"]
     },  
     {
         "path" : "/aproposPartenairesPage",
@@ -133,7 +133,7 @@
         "action" : "partenairesApropos",
         "method" : "POST",
         "params" : [],
-        "roles": []
+        "roles": ["administrateur"]
     }, 
     {
         "path" : "/contact",
@@ -205,7 +205,7 @@
         "action": "delete",
         "method": "POST",
         "params": [{"name": "id", "type": "int"}],
-        "roles": []
+        "roles": ["administrateur"]
     }
     
 ]

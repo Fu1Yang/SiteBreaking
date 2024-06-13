@@ -2,7 +2,6 @@
 use app\SiteBreaking\model\Database;
 use app\SiteBreaking\model\Evenement;
 use app\SiteBreaking\model\Visiteur;
-session_start();
 // Assurez-vous que vous avez une route définie pour accepter POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
