@@ -3,7 +3,6 @@ use app\SiteBreaking\model\Database;
 use app\SiteBreaking\model\Visiteur;
 // Assurez-vous que vous avez une route définie pour accepter POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  session_start();
   Database::getInstance()->getConnexion();
   Visiteur::cookie();
 } else {
@@ -18,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Découvrez le meilleur du breaking à Vierzon avec notre site ! Retrouvez les dernières actualités, événements, cours et performances de breakdance dans la région. Ne manquez pas notre agenda complet et rejoignez la communauté passionnée du hip-hop à Vierzon.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
