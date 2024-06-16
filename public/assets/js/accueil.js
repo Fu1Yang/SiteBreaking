@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const button_prev = document.querySelector(".carousel-control-prev-icon");
     const evenementEffectuer = document.querySelector(".evenementEffectuer");
     const carousel_item = document.querySelector(".carousel-item");
-
+    const connexion = document.querySelector(".rentrerCompte");
   
     // afficher la taille de l'écran
   function afficherTailleEcran(largeurEcran, hauteurEcran ) {
@@ -39,7 +39,16 @@ document.addEventListener("DOMContentLoaded", function(){
     evenementEffectuer.remove()
   }
   
-  
+  document.addEventListener("keydown",(e)=>{
+    console.log(e);
+    if (e.ctrlKey && e.altKey && e.key === "m") {
+      console.log(e);
+      connexion.style.visibility = "visible";
+    }
+    if (e.ctrlKey && e.altKey && e.key === "i") {
+      connexion.style.visibility = "hidden";
+    }
+  })
 
 ///////////////////////////////////////////////////////////    AJAX       ////////////////////
 

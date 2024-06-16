@@ -11,7 +11,10 @@
       <a href="../evenement">Événement</a>
       <a href="../contact">Contact</a>
     </div>
+
     <button class="rentrerCompte"><a href="../connexion">Inscription/Connexion</a></button>
+
+    
   </nav>
 
   <div id="carouselExampleIndicators" class="carousel slide">

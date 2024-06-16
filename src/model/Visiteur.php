@@ -46,19 +46,19 @@ class Visiteur {
 
     public static function cookie() {
         $db = Database::getInstance()->getConnexion();
-
+    
         if (!isset($_COOKIE['id'])) {
-            // Génération d'un nouvel identifiant unique pour le visiteur
+            // Générer un nouvel identifiant unique pour le visiteur
             $session_id = uniqid();
-            // Création d'un cookie pour stocker l'identifiant unique du visiteur
+            // Créer un cookie pour stocker l'identifiant unique du visiteur
             setcookie('id', $session_id, time() + 3600 * 24 * 365); // valable pendant un an
-            // Enregistrement du nouveau visiteur dans la base de données
+            // Enregistrement d'un nouveau visiteur dans la base de données
             $stmt = $db->prepare("INSERT INTO Visiteur (session_id, visites) VALUES (?, 1)");
             $stmt->execute([$session_id]);
         } else {
             // Récupération de l'identifiant du visiteur à partir du cookie
             $session_id = $_COOKIE['id'];
-            // Vérification si le visiteur existe déjà dans la base de données
+            // Vérifier si le visiteur existe déjà dans la base de données
             $stmt = $db->prepare("SELECT id FROM Visiteur WHERE session_id = ?");
             $stmt->execute([$session_id]);
             if ($stmt->rowCount() > 0) {
@@ -66,15 +66,16 @@ class Visiteur {
                 $stmt = $db->prepare("UPDATE Visiteur SET visites = visites + 1 WHERE session_id = ?");
                 $stmt->execute([$session_id]);
             } else {
-                // Si le visiteur n'existe pas, insérez une nouvelle entrée
+                // Si le visiteur n'existe pas, insérer une nouvelle entrée
                 $stmt = $db->prepare("INSERT INTO Visiteur (session_id, visites) VALUES (?, 1)");
                 $stmt->execute([$session_id]);
             }
         }
-
+    
         // Affichage du nombre total de visites
         $stmt = $db->query("SELECT SUM(visites) FROM Visiteur");
         $total_visites = $stmt->fetchColumn();
         echo "Total des visites : " . $total_visites;
     }
+    
 }
