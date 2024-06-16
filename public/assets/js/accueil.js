@@ -39,6 +39,16 @@ document.addEventListener("DOMContentLoaded", function(){
     evenementEffectuer.remove()
   }
   
+  document.addEventListener("keydown",(e)=>{
+    console.log(e);
+    if (e.ctrlKey && e.altKey && e.key === "m") {
+      console.log(e);
+      connexion.style.visibility = "visible";
+    }
+    if (e.ctrlKey && e.altKey && e.key === "i") {
+      connexion.style.visibility = "hidden";
+    }
+  })
   
 
 ///////////////////////////////////////////////////////////    AJAX       ////////////////////
