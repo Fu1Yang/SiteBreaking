@@ -3,8 +3,8 @@
 
   <nav>
     <div class="logo">
-      <img class="fb1" src="./assets/logo/logo.png" alt="">
-      <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/logo/logo_fb.png" alt=""></a>
+      <img class="fb1" src="./assets/logo/logo.png" alt="logo de facebook">
+      <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/logo/logo_fb.png" alt="logo du site"></a>
     </div>
     <div class="menu">
       <a href="../apropos">A propos</a>
@@ -15,14 +15,6 @@
   </nav>
 
   <div id="carouselExampleIndicators" class="carousel slide">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-        aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-        aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-        aria-label="Slide 3"></button>
-    </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
         

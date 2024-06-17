@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const button_prev = document.querySelector(".carousel-control-prev-icon");
     const evenementEffectuer = document.querySelector(".evenementEffectuer");
     const carousel_item = document.querySelector(".carousel-item");
-
+    const connexion = document.querySelector(".rentrerCompte");
   
     // afficher la taille de l'écran
   function afficherTailleEcran(largeurEcran, hauteurEcran ) {
