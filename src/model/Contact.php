@@ -13,7 +13,7 @@ class Contact {
     private string $_niveauEtStyle;
   
 
-    public function __construct(int $id, string $adresse, int $numeroDeTel, string $email, string $description, string $jour, string $niveauEtStyle)
+    public function __construct(int $id, string $adresse, string $numeroDeTel, string $email, string $description, string $jour, string $niveauEtStyle)
     {
         $this->_id = $id;
         $this->_adresse = $adresse;
@@ -52,15 +52,15 @@ class Contact {
     }
  
     
-    public static function create(Contact $contact):int{
+    public static function create(array $contact):int{
         $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Contact (adresse,numeroDeTel, email,description, jour, niveauEtStyle) VALUES (:adresse, :numeroDeTel, :email,:description, :jour,:niveauEtStyle) ");
         $statement->execute([
-            "adresse"=>$contact->getAdresse(),
-            "numeroDeTel"=>$contact->getNumeroDetel(),
-            "email"=>$contact->getEmail(),
-            "description"=>$contact->getDescription(),
-            "jour"=>$contact->getJour(),
-            "niveauEtStyle"=>$contact->getNiveauEtStyle(),
+            "adresse"=>$contact["adresse"],
+            "numeroDeTel"=>$contact['numeroDeTel'],
+            "email"=>$contact["email"],
+            "description"=>$contact["description"],
+            "jour"=>$contact["jour"],
+            "niveauEtStyle"=>$contact["niveauEtStyle"],
             
         ]);
         return (int) Database::getInstance()->getConnexion()->lastInsertId();
@@ -75,7 +75,7 @@ class Contact {
             // Étape 4: Création d'un nouvel objet Administrateur avec les données récupérées de la base de données
             $contact = new Contact(
                 id: $row['id'],
-                adresse:$row(["adresse"]),
+                adresse:$row["adresse"],
                 numeroDeTel: $row['numeroDeTel'],
                 email: $row['email'],
                 description: $row['description'],

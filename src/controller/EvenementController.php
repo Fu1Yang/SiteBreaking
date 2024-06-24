@@ -61,7 +61,7 @@ class EvenementController extends BaseController {
             // Récupérer l'ID de l'utilisateur à supprimer
             $userId = intval($_POST["id"]); // Convertir en entier
     
-            // Supprimer l'accueil qui est égale a id
+            // Supprimer l'événement qui est égale a id
             $evenement = Evenement::read($userId);
             if ($evenement) {
                 $evenement->delete($evenement);

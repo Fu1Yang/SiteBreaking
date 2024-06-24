@@ -160,6 +160,46 @@
         "roles": []
     },
     {
+        "path" : "/contactUpdate",
+        "controller" : "Contact",
+        "action" : "update",
+        "method" : "POST",
+        "params" : [],
+        "roles": ["administrateur"]
+    },
+    {
+        "path" : "/contactModifier",
+        "controller" : "Contact",
+        "action" : "modifier",
+        "method" : "POST",
+        "params": [{"name": "id", "type": "int"}],
+        "roles": ["administrateur"]
+    },    
+    {
+        "path" : "/contactAdmin",
+        "controller" : "Contact",
+        "action" : "contactAdmin",
+        "method" : "GET",
+        "params" : [],
+        "roles": ["administrateur"]
+    },
+    {
+        "path" : "/contactCreer",
+        "controller" : "Contact",
+        "action" : "nouveauContact",
+        "method" : "POST",
+        "params" : [],
+        "roles": ["administrateur"]
+    },
+    {
+        "path" : "/contactDelete",
+        "controller" : "Contact",
+        "action" : "delete",
+        "method" : "POST",
+        "params" : [{"name": "id", "type": "int"}],
+        "roles": ["administrateur"]
+    },
+    {
         "path" : "/connexion",
         "controller" : "Connexion",
         "action" : "index",
