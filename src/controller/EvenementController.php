@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace app\SiteBreaking\controller;
 use app\SiteBreaking\model\Evenement;
+use app\SiteBreaking\model\Database;
+
 class EvenementController extends BaseController {
    
     public function index():void {
@@ -73,6 +75,47 @@ class EvenementController extends BaseController {
         else{
             return "Votre Id est vide";
         }
-}
+    }
 
+    public function update($id) {
+        $this->view("compteAdmin/modifier/modifierEvenement");
+    }
+
+    public function updateEvenement($id) {
+        if (isset($_POST["titre"]) && isset($_POST["description"]) && isset($_POST["date"]) && isset($_POST["lieu"]) && isset($_FILES['image']['name']) ) {
+            $titre = $_POST["titre"];
+            $description = $_POST["description"];
+            $date = $_POST["date"];
+            $lieu = $_POST["lieu"];
+            $image = $_FILES['image']['name'];
+            $id_evenement = $_POST["id"];
+           
+            
+                    
+            if(isset($_FILES['image']) && preg_match("#jpeg|jpg|png|avif|pdf#", $_FILES['image']['type'])) {
+                $path = "./assets/imageEvenement/";
+                $photoName = $_FILES['image']['name'];
+                // Déplacer le fichier téléchargé vers le répertoire de destination
+                move_uploaded_file($_FILES['image']["tmp_name"], $path . $photoName); } 
+    
+            $db = Database::getInstance()->getConnexion();
+            $requete = $db->prepare("UPDATE Evenement SET titre=:titre, description=:description, date_evenement=:date_evenement, lieu=:lieu, image=:image WHERE id=:id");
+        
+            $requete->bindValue(":titre", $titre);
+            $requete->bindValue(':description', $description);
+            $requete->bindValue(':date_evenement', $date);
+            $requete->bindValue(':lieu', $lieu);
+            $requete->bindValue(':image', $image);
+            $requete->bindValue(':id', $id_evenement);
+        
+            $result = $requete->execute();
+            if (!$result) {
+                echo "Un problème est survenu, les modifications n'ont pas été faites!";
+            } else {
+                $this->redirectTo("/compteAdmin");
+            }
+        } else {
+            echo "Modifier vos coordonnées";
+        }
+    }
 }

@@ -104,6 +104,22 @@
         "roles": ["administrateur"]
     },
     {
+        "path" : "/evenement-update",
+        "controller" : "Evenement",
+        "action" : "update",
+        "method" : "POST",
+        "params" : [{"name": "id", "type": "int"}],
+        "roles": ["administrateur"]
+    },
+    {
+        "path": "/evenement-modifier",
+        "controller": "Evenement",
+        "action": "updateEvenement",
+        "method": "POST",
+        "params": [{"name": "id", "type": "int"}],
+        "roles": ["administrateur"]
+    },
+    {
         "path" : "/apropos",
         "controller" : "Apropos",
         "action" : "index",
@@ -184,11 +200,11 @@
         "roles": []
     }, 
     {
-        "path": "/inscriptionVerif/{token}/{email}",
+        "path": "/inscriptionVerif",
         "controller": "Inscription",
         "action": "inscriptionVerification",
         "method": "GET",
-        "params": [{"name": "token", "type": "string"}, {"name": "email", "type": "email"}],
+        "params": [{"name": "token", "type": "string"}, {"name": "email", "type": "string"}],
         "roles": []
     },
     {
@@ -206,8 +222,15 @@
         "method": "POST",
         "params": [{"name": "id", "type": "int"}],
         "roles": ["administrateur"]
+    },
+    {
+        "path" : "/utilisateurModifier",
+        "controller" : "CompteAdmin",
+        "action" : "utilisateurModifier",
+        "method" : "GET",
+        "params" : [],
+        "roles": ["administrateur"]
     }
-    
 ]
 
 

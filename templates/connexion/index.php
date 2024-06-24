@@ -25,7 +25,7 @@
 </div>
 </div>
 <div class="card-footer text-center py-3">
-<div class="small"><a href="../inscription">Avez vous besoin d'un compte? Enregistrez-vous!</a></div>
+<!-- <div class="small"><a href="../inscription">Avez vous besoin d'un compte? Enregistrez-vous!</a></div> -->
 </div>
 </fieldset>
 </form>

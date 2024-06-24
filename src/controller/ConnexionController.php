@@ -14,15 +14,12 @@ class ConnexionController extends BaseController {
             $utilisateur = Utilisateur::verifConnexion($email, $mot_de_passe);
             
             if ($utilisateur != null) {
-                // Attribuer le rôle de l'utilisateur à la session
+                // le rôle de l'utilisateur à la session
                
                 $_SESSION["id"] = $utilisateur->getId();
-                // Vérifier si l'email de l'utilisateur est validé
                 if ($utilisateur->getValidationEmail() == 1) {
-                    // Rediriger vers la page compteAdmin si l'email est validé
                     $this->redirectTo("./compteAdmin");
                 } else {
-                    // Sinon, afficher un message d'accès refusé
                     echo "Accès refusé email pas encore valider";
                 }
             } else {

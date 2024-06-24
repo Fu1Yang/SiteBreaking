@@ -39,10 +39,12 @@ class CompteAdminController extends BaseController {
         }
     }
     
-    
+   public function utilisateurModifier(){
+      $this->redirectTo("modifier/utilisateurModifier");
+   } 
     
     
     
     
 
-    }
+}

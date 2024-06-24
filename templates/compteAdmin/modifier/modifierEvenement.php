@@ -1,10 +1,10 @@
 <?php
 use app\SiteBreaking\model\Database;
 
-$id_accueil = $_POST["id"];
+$id_evenement = $_POST["id"];
 
-$statement = Database::getInstance()->getConnexion()->prepare("SELECT * FROM Accueil WHERE id = :id");
-$statement->bindValue(':id', $id_accueil);
+$statement = Database::getInstance()->getConnexion()->prepare("SELECT * FROM Evenement WHERE id = :id");
+$statement->bindValue(':id', $id_evenement);
 $statement->execute();
 
 if (!isset($_POST["modif"])) {
@@ -30,30 +30,30 @@ if (!isset($_POST["modif"])) {
   <link style="width: 30px;" rel="icon" href="../assets/logo/icon.ico" type="image/ico">
 </head>
 
-<form action="accueil-modifier" method="post" enctype="multipart/form-data">
+<form action="evenement-modifier" method="post" enctype="multipart/form-data">
     <fieldset>
-    <legend>Modifiez vos information de la page Accueil</legend>
+    <legend>Modifiez vos information de la page Evenement</legend>
         
-    <label for="evenementRealiser">Le nombre d'événements réalisés</label>
-    <input type="text" name="evenementRealiser" id="evenementRealiser" value="<?= htmlspecialchars($row["evenementRealiser"]) ?>" placeholder="Le nombre d'événements réalisés">
+    <label for="titre">Titre</label>
+    <input type="text" name="titre" id="titre" value="<?= htmlspecialchars($row["titre"]) ?>">
 
-    <label for="titre">Le titre</label>
-    <input type="text" name="titre" id="titre" value="<?= htmlspecialchars($row["titre"]) ?>" placeholder="Donner un titre">
+    <label for="description">Description</label>
+    <input type="text" name="description" id="description" value="<?= htmlspecialchars($row["description"]) ?>">
 
-    <label for="nom">Le nom de la photo</label>
-    <input type="text" name="nom" id="nom" value="<?= htmlspecialchars($row["nom"]) ?>" placeholder="Donne un nom">
+    <label for="date">La date exemple: 2024-08-09 08:00:00</label>
+    <input type="text" name="date" id="date" value="<?= ($row["date_evenement"]) ?>">
 
-    <label for="image">Modifiez votre photos de présentation</label>
+    <label for="lieu">Le lieu</label>
+    <input type="text" name="lieu" id="lieu" value="<?= htmlspecialchars($row["lieu"]) ?>">
+
+    <label for="image">Modifiez votre image</label>
     <p>Le nom du fichier image: <?= htmlspecialchars($row["image"]) ?></p>
     <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
     <input type="file" name="image" id="image">
 
-    <label for="text">Ecrire la description ici</label>
-    <textarea name="text" id="text" rows="4" cols="50" placeholder="Ecrire le texte ici"><?= htmlspecialchars($row["text"]) ?></textarea>
-
     <input type="submit" name="envoyer" id="envoyer" value="Modifier les informations">
     </fieldset>
-    <input type="hidden" name="id" value="<?= $id_accueil ?>">
+    <input type="hidden" name="id" value="<?= htmlspecialchars($id_evenement) ?>">
 </form>
 
 <?php
