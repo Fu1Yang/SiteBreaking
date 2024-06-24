@@ -10,7 +10,9 @@ function MesCoordonnees(){
         echo "<td>".$row["adresse"]."</td>";
         echo "<td>".$row["numeroDeTel"]."</td>";
         echo "<td>".$row["email"]."</td>";
-        echo "<td>".$row["horaire"]."</td>";
+        echo "<td>".$row["description"]."</td>";
+        echo "<td>".$row["jour"]."</td>";
+        echo "<td>".$row["niveauEtStyle"]."</td>";
         // Vérifier si la colonne "photo" est vide
         echo "<td width=300px>";
         echo "<form method='POST' action='update.php'>";

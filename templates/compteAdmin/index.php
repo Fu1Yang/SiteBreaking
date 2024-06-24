@@ -318,7 +318,9 @@ use app\SiteBreaking\model\Utilisateur;
                                             <th>adresse</th>
                                             <th>numeroDeTel</th>
                                             <th>email</th>
-                                            <th>horaire</th>
+                                            <th>description</th>
+                                            <th>jour</th>
+                                            <th>niveauEtStyle</th>
                                             <th>action</th>
                                         </tr>
                                     </thead>

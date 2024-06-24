@@ -8,16 +8,20 @@ class Contact {
     private string $_adresse;
     private string $_numeroDeTel;
     private string $_email;
-    private string $_horaire;
+    private string $_description;
+    private string $_jour;
+    private string $_niveauEtStyle;
   
 
-    public function __construct(int $id, string $adresse, int $numeroDeTel, string $email, string $horaire)
+    public function __construct(int $id, string $adresse, int $numeroDeTel, string $email, string $description, string $jour, string $niveauEtStyle)
     {
         $this->_id = $id;
         $this->_adresse = $adresse;
         $this->_numeroDeTel = $numeroDeTel;
         $this->_email = $email;
-        $this->_horaire = $horaire;
+        $this->_description = $description;
+        $this->_jour = $jour;
+        $this->_niveauEtStyle = $niveauEtStyle;
      
      
    
@@ -36,18 +40,27 @@ class Contact {
         return $this->_email;
     }
 
-    public function getHoraire():string{
-        return $this->_horaire;
+    public function getDescription():string{
+        return $this->_description;
+    }
+    public function getJour():string{
+        return $this->_jour;
+    }
+
+    public function getNiveauEtStyle():string{
+        return $this->_niveauEtStyle;
     }
  
     
     public static function create(Contact $contact):int{
-        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Contact (adresse,numeroDeTel, email,horaire) VALUES (:adresse, :numeroDeTel, :email,horaire) ");
+        $statement = Database::getInstance()->getConnexion()->prepare("INSERT INTO Contact (adresse,numeroDeTel, email,description, jour, niveauEtStyle) VALUES (:adresse, :numeroDeTel, :email,:description, :jour,:niveauEtStyle) ");
         $statement->execute([
             "adresse"=>$contact->getAdresse(),
             "numeroDeTel"=>$contact->getNumeroDetel(),
             "email"=>$contact->getEmail(),
-            "horaire"=>$contact->getHoraire(),
+            "description"=>$contact->getDescription(),
+            "jour"=>$contact->getJour(),
+            "niveauEtStyle"=>$contact->getNiveauEtStyle(),
             
         ]);
         return (int) Database::getInstance()->getConnexion()->lastInsertId();
@@ -65,7 +78,9 @@ class Contact {
                 adresse:$row(["adresse"]),
                 numeroDeTel: $row['numeroDeTel'],
                 email: $row['email'],
-                horaire: $row['horaire'],
+                description: $row['description'],
+                jour: $row["jour"],
+                niveauEtStyle: $row["niveauEtStyle"]
             );
             // Étape 5: Retour de l'objet Administrateur
             return $contact;
@@ -75,12 +90,14 @@ class Contact {
     }
 
     public static function update(Contact $contact):void{
-        $statement = Database::getInstance()->getConnexion()->prepare("UPDATE Contact SET logo=:logo, description=:description, nosPartenaire=:nosPartenaire WHERE id=:id");
+        $statement = Database::getInstance()->getConnexion()->prepare("UPDATE Contact SET adresse=:adresse, numeroDeTel=:numeroDeTel, email=:email, description=:description, jour=:jour, niveauEtStyle=:niveauEtStyle WHERE id=:id");
         $statement->execute([
             "adresse"=>$contact->getAdresse(),
             "numeroDeTel"=>$contact->getNumeroDetel(),
             "email"=>$contact->getEmail(),
-            "horaire"=>$contact->getHoraire(),
+            "description"=>$contact->getDescription(),
+            "jour"=>$contact->getJour(),
+            "niveauEtStyle"=>$contact->getNiveauEtStyle(),
         ]);
     }
 

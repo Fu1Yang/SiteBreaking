@@ -31,10 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
   <header>
-  <div class="logo1">
-    <img  src="./assets/logo/logo.png" alt="">
-    <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/logo/logo_fb.png" alt=""></a>
-  </div>
-  <h1>Breaking Journey</h1>
-  <button class="compteSmartephone">Inscription/Connexion</button>
-</header>
+    <div class="logo1">
+      <img  src="./assets/logo/logo.png" alt="">
+      <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/logo/logo_fb.png" alt=""></a>
+    </div>
+    <h1>Breaking Journey</h1>
+    <button class="compteSmartephone">Inscription/Connexion</button>
+  </header>

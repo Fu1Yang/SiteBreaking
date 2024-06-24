@@ -39,9 +39,35 @@ class CompteAdminController extends BaseController {
         }
     }
     
-   public function utilisateurModifier(){
-      $this->redirectTo("modifier/utilisateurModifier");
+   public function update($id){
+         $this->view("compteAdmin/modifier/modifierUtilisateur");
    } 
+
+   public function modifier($id){
+    if (isset($_POST["role"]) && isset($_POST["validationEmail"])) {
+        $role = $_POST["role"];
+        $validationEmail = $_POST["validationEmail"];
+
+
+        $db = Database::getInstance()->getConnexion();
+        $requete = $db->prepare("UPDATE Utilisateur SET role=:role, validation_email=:validation_email WHERE id=:id");
+    
+        $requete->bindValue(":role", $role);
+        $requete->bindValue(':validation_email', $validationEmail);
+        $requete->bindValue(":id", $id);
+    
+        $result = $requete->execute();
+        if (!$result) {
+            echo "Un problème est survenu, les modifications n'ont pas été faites!";
+        } else {
+            $this->redirectTo("/compteAdmin");
+        }
+    } else {
+        echo "Modifier vos coordonnées";
+    }
+}
+
+  
     
     
     

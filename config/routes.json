@@ -224,11 +224,19 @@
         "roles": ["administrateur"]
     },
     {
+        "path" : "/utilisateurUpdate",
+        "controller" : "CompteAdmin",
+        "action" : "update",
+        "method" : "POST",
+        "params": [{"name": "id", "type": "int"}],
+        "roles": ["administrateur"]
+    },
+    {
         "path" : "/utilisateurModifier",
         "controller" : "CompteAdmin",
-        "action" : "utilisateurModifier",
-        "method" : "GET",
-        "params" : [],
+        "action" : "modifier",
+        "method" : "POST",
+        "params": [{"name": "id", "type": "int"}],
         "roles": ["administrateur"]
     }
 ]
