@@ -20,7 +20,7 @@ class ConnexionController extends BaseController {
                 if ($utilisateur->getValidationEmail() == 1) {
                     $this->redirectTo("./compteAdmin");
                 } else {
-                    echo "Accès refusé email pas encore valider";
+                    echo "Accès refusé attendre la validation de votre email. ";
                 }
             } else {
                 // Rediriger vers la page de connexion si l'utilisateur n'existe pas ou les informations sont incorrectes

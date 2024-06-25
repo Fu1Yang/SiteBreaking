@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 <?php require_once(__DIR__ . '/../includes/headerAccueilAdmin.php'); ?>
-<h1>Page Apropos Administrateur</h1>
+<h1 class="text-white">Page Apropos Administrateur</h1>
 
 <form class="aproposAdm" action="/aproposPage" method="POST" enctype="multipart/form-data">
     <fieldset>
@@ -52,3 +52,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </fieldset>
     <input type="submit" name="envoyer" id="envoyer" value="Ajouter le partenaire">
 </form>
+<a href="../compteAdmin" class="btn btn-danger">Revenir sur l'interface Admin</a>

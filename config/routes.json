@@ -142,13 +142,37 @@
         "method" : "POST",
         "params" : [],
         "roles": ["administrateur"]
-    },  
+    }, 
+    {
+        "path" : "/aproposUpdate",
+        "controller" : "Apropos",
+        "action" : "update",
+        "method" : "POST",
+        "params" : [],
+        "roles": ["administrateur"]
+    },
+    {
+        "path" : "/aproposModifier",
+        "controller" : "Apropos",
+        "action" : "modifier",
+        "method" : "POST",
+        "params": [{"name": "id", "type": "int"}],
+        "roles": ["administrateur"]
+    },   
     {
         "path" : "/aproposPartenairesPage",
         "controller" : "Apropos",
         "action" : "partenairesApropos",
         "method" : "POST",
         "params" : [],
+        "roles": ["administrateur"]
+    },
+    {
+        "path": "/aproposDelete",
+        "controller": "Apropos",
+        "action": "delete",
+        "method": "POST",
+        "params": [{"name": "id", "type": "int"}],
         "roles": ["administrateur"]
     }, 
     {

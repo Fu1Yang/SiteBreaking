@@ -1,6 +1,6 @@
 <?php require_once(__DIR__ . '/../includes/headerAccueilAdmin.php'); ?>
 
-<h1>Page contact Administrateur</h1>
+<h1 class="text-white">Page contact Administrateur</h1>
 
 <form class="presentation" action="/contactCreer" method="POST">
         <legend>Ajouter un contact</legend>
@@ -25,6 +25,6 @@
 
         <input type="submit" name="envoyer" id="envoyer" value="Créer un contact">
     </form>
-
+    <a href="../compteAdmin" class="btn btn-danger">Revenir sur l'interface Admin</a>
 
 

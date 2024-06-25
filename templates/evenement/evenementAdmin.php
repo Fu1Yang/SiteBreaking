@@ -1,6 +1,6 @@
 <?php require_once(__DIR__ . '/../includes/headerAccueilAdmin.php'); ?>
 
-<h1>Page d'événement Administrateur</h1>
+<h1 class="text-white">Page d'événement Administrateur</h1>
 
 <form class="presentation" action="/evenementCreer" method="POST" enctype="multipart/form-data">
 <legend>Ajouter un événement</legend>
@@ -24,5 +24,4 @@
 
 <input type="submit" name="envoyer" id="envoyer" value="Créer un événement">
 </form>
-
-
+<a href="../compteAdmin" class="btn btn-danger">Revenir sur l'interface Admin</a>

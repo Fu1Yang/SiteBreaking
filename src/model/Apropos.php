@@ -10,7 +10,7 @@ class Apropos {
     private string $_images;
   
 
-    public function __construct(int $id, string $logo, int $description, string $images)
+    public function __construct(int $id, string $logo, string $description, string $images)
     {
         $this->_id = $id;
         $this->_logo = $logo;
@@ -57,7 +57,7 @@ class Apropos {
             // Étape 4: Création d'un nouvel objet Administrateur avec les données récupérées de la base de données
             $apropos = new Apropos(
                 id: $row['id'],
-                logo:$row(["logo"]),
+                logo:$row["logo"],
                 description: $row['description'],
                 images: $row['images'],
             );
@@ -69,7 +69,7 @@ class Apropos {
     }
 
     public static function update(Apropos $apropos):void{
-        $statement = Database::getInstance()->getConnexion()->prepare("UPDATE Accueil SET logo=:logo, description=:description, nosPartenaire=:nosPartenaire, images=:images WHERE id=:id");
+        $statement = Database::getInstance()->getConnexion()->prepare("UPDATE Apropos SET logo=:logo, description=:description, nosPartenaire=:nosPartenaire, images=:images WHERE id=:id");
         $statement->execute([
             "logo"=>$apropos->getLogo(),
             "description"=>$apropos->getDescription(),

@@ -1,6 +1,6 @@
 
 <?php require_once(__DIR__ . '/../includes/headerAccueilAdmin.php'); ?>
-<h1>Page d'accueil Administrateur</h1>
+<h1 class="text-white">Page d'accueil Administrateur</h1>
 
 <form class="photoCarousel" action="/photo-carousel" method="POST" enctype="multipart/form-data">
     <fieldset>
@@ -34,6 +34,6 @@
 <label for="text">Ecrire le text ici</label>
 <textarea type="text" name="text" id="text" rows="4" cols="50" placeholder="Ecrire le text ici"></textarea>
 
-<input type="submit" name="envoyer" id="envoyer" value="Transmettre les information">
+<input type="submit" name="envoyer" id="envoyer" class="btn btn-primary" value="Transmettre les information">
 </form>
-
+<a href="../compteAdmin" class="btn btn-danger">Revenir sur l'interface Admin</a>

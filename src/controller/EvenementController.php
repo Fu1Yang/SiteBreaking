@@ -66,7 +66,7 @@ class EvenementController extends BaseController {
             if ($evenement) {
                 $evenement->delete($evenement);
             } else {
-                echo "l'élément qui corresponde a l'accueil non trouvé.";
+                echo "l'élément qui corresponde a l'événement non trouvé.";
             }
     
             // Rediriger vers la page du compte admin après la suppression
