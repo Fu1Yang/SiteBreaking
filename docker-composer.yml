@@ -12,10 +12,12 @@ services:
   mysql-srv:
     image: mysql:8.3
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: /run/secrets/mot_de_passe
       MYSQL_DATABASE: SiteBreaking
       MYSQL_USER: root
-      MYSQL_PASSWORD: password
+      MYSQL_PASSWORD: /run/secrets/mot_de_passe
+    secrets:
+      - mot_de_passe
     ports:
       - "3306:3306"
   phpmyadmin:
@@ -25,3 +27,6 @@ services:
       - 8080:80 
     environment:
       - PMA_ARBITRARY=1
+secrets:
+  mot_de_passe:
+    file: mot_de_passe.txt    

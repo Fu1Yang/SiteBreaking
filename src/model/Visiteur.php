@@ -75,6 +75,6 @@ class Visiteur {
         // Affichage du nombre total de visites
         $stmt = $db->query("SELECT SUM(visites) FROM Visiteur");
         $total_visites = $stmt->fetchColumn();
-        echo "Total des visites : " . $total_visites;
+       return "Total des visites sur le site : " . $total_visites;
     }
 }

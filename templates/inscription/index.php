@@ -4,7 +4,7 @@
 <?php require_once(__DIR__ . '/../includes/navContact.php'); ?>
 
 <form action="inscription" method="POST">
-
+  
     <fieldset>
         <legend>Inscription</legend>
 

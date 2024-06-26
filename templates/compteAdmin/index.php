@@ -1,7 +1,16 @@
 <?php
-
 use app\SiteBreaking\model\Database;
-use app\SiteBreaking\model\Utilisateur;
+use app\SiteBreaking\model\Visiteur;
+// Assurez-vous que vous avez une route définie pour accepter POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+ 
+  Database::getInstance()->getConnexion();
+
+} else {
+  // Réponse d'erreur si la méthode n'est pas autorisée
+  http_response_code(405);
+ 
+}
 
 ?>
 <!DOCTYPE html>
@@ -10,8 +19,8 @@ use app\SiteBreaking\model\Utilisateur;
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta name="description" content="Tableau de bord administrateur pour la gestion des contenus du site Web." />
+        <meta name="author" content="Yang fu" />
         <title>Tableau de bord – Administrateur</title>
 
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
@@ -111,36 +120,27 @@ use app\SiteBreaking\model\Utilisateur;
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area me-1"></i>
-                                       Nombre de visite en graphique aréolaire
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
+                            <div class="col-xl-12">
+                                <div class="card mb-4" class="d-flex">
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar me-1"></i>
-                                        Nombre de visite en  diagramme à barres
+                                        Nombre de visite 
                                     </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                                    <div class="card-body" style='text-align:center; font-weight:bold; font-size: 305%; color:black'><?= htmlspecialchars(Visiteur::cookie())?></div>
                                 </div>
                             </div>
-                        </div>
-
-
+                    </div>
+                    
+                </main>
+                <main>
+                    <div class="container-fluid px-4">
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
                                 Tableau des Utilisateurs
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
+                                <table class="datatable-table">
                                         <tr>
                                             <th>id</th>
                                             <th>nom_utilisateur</th>
@@ -152,15 +152,11 @@ use app\SiteBreaking\model\Utilisateur;
                                             <th>token</th>
                                             <th>validation_email</th>
                                             <th>action</th>
-                                        </tr>
-                                    </thead>
-                    
-                                    <?php require_once(__DIR__ . '/../compteAdmin/affichage/afficherUtilisateur.php');?>
-                                   
+                                        </tr>                
+                                            <?php require_once(__DIR__ . '/../compteAdmin/affichage/afficherUtilisateur.php');?>
                                 </table>
                             </div>
                         </div>
-
                     </div>
                 </main>
 

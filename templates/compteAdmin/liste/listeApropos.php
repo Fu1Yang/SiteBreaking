@@ -11,8 +11,8 @@ function afficherApropos(){
         echo '<img src="./assets/imageApropos/'.$row["images"].'" alt="photo de profile">';
         echo '</div>';
         
-        echo '<div id="description">';
-        echo'<p>'.$row["description"].'</p>';
+        echo '<div id="description" >';
+        echo'<p">'.$row["description"].'</p>';
         echo '</div>';
 
 }

@@ -42,3 +42,28 @@ body {
     width: 240px;
     height: 170px;
 }
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Ajoutez un espacement entre les éléments si nécessaire */
+}
+
+.flex-container a {
+    flex: 1 1 18%; /* Ajustez cette valeur pour le nombre d'éléments par ligne */
+    text-align: center; /* Centrez les éléments, si nécessaire */
+    margin-bottom: 10px; /* Ajoutez un espacement en bas des éléments si nécessaire */
+}
+@media screen and (max-width: 1500px) {
+    #nosPartenaires {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 5%;
+    }
+    #nosPartenaires  img{
+        width: 200px;
+        height: 120px;
+    }
+  }
+
+  
