@@ -11,10 +11,10 @@ function affichagePartenaire(){
         echo "<td>".$photo."</td>";
         echo "<td>".$row['partner_url']."</td>";
         echo "<td width=300px>";
-        echo "<form method='POST' action='update.php'>";
+        echo "<form method='POST' >";
         echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
         echo "<button type='submit' name='action' value='update' class='btn btn-primary'>";
-        echo "<span class='glyphicon glyphicon-align-left' aria-hidden='true'></span> Modifier";
+        echo "<span class='glyphicon glyphicon-align-left' aria-hidden='true'></span><a href='../aproposAdmin' style='color:white'> ajouter un patenaire</a>";
         echo "</button>";
         echo "</form>";
         echo "<form method='POST' action='/compteAdmin'>";
