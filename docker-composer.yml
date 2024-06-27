@@ -29,4 +29,4 @@ services:
       - PMA_ARBITRARY=1
 secrets:
   mot_de_passe:
-    file: mot_de_passe.txt    
+    file: ./secrets/mot_de_passe.txt    

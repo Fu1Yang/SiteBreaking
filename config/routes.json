@@ -268,7 +268,7 @@
         "controller": "Inscription",
         "action": "inscriptionVerification",
         "method": "GET",
-        "params": [{"name": "token", "type": "string"}, {"name": "email", "type": "string"}],
+        "params": [],
         "roles": []
     },
     {

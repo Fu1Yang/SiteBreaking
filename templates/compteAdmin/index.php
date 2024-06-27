@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </ul>
         </nav>
         <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
+            <div >
                 
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>

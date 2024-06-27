@@ -45,8 +45,9 @@ class Visiteur {
     }
 
     public static function cookie() {
+        $message = "erreur survenu";
         $db = Database::getInstance()->getConnexion();
-
+        try {
         if (!isset($_COOKIE['id'])) {
             // Génération d'un nouvel identifiant unique pour le visiteur
             $session_id = uniqid();
@@ -76,5 +77,8 @@ class Visiteur {
         $stmt = $db->query("SELECT SUM(visites) FROM Visiteur");
         $total_visites = $stmt->fetchColumn();
        return "Total des visites sur le site : " . $total_visites;
+    } catch (\Throwable $message) {
+        return $message;
+    }
     }
 }

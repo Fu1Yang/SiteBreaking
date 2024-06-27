@@ -3,10 +3,9 @@ declare(strict_types=1);
 
 namespace app\SiteBreaking\controller;
 use app\SiteBreaking\model\Database;
-use app\SiteBreaking\model\Utilisateur;
 use app\SiteBreaking\model\MailService;
-use DateTime;
-use app\core\EmailService;
+
+
 
 class InscriptionController extends BaseController {
     public function index(): void {
@@ -72,39 +71,53 @@ class InscriptionController extends BaseController {
         }
     }
 
-    public function inscriptionVerification(){
-  
-    if (isset($_GET["email"]) && !empty($_GET["email"]) && isset($_GET["token"]) && !empty($_GET["token"])) {
-
-        $email = $_GET["email"];
-        $token = $_GET["token"];
-        $db = Database::getInstance()->getConnexion();
-        $requete = $db->prepare('SELECT * FROM SiteBreaking.Utilisateur WHERE email=:email AND token=:token');
-
-        $requete->bindValue(":email", $email);
-        $requete->bindValue(":token", $token);
-
-        $requete->execute();
-
-        $nombre = $requete->rowCount();
-        if ($nombre == 1) {
-
-            $update = $db->prepare("UPDATE SiteBreaking.Utilisateur SET validation_email=:validation, token=:token WHERE email=:email");
-
-            $update->bindValue(":email", $email);
-            $update->bindValue(":token", "EmailValide");
-            $update->bindValue(":validation_email",1);
-
-            $resultUpdate = $update->execute();
-
-            if($resultUpdate){
-                    echo "<script type=\"text/javascript\">alert('Votre adresse email est confirmée!');";
-                    $this->redirectTo("/connexion");
-                
+    public function inscriptionVerification() 
+    {   
+        $message = "Une erreur est apparue";
+        try {
+   
+        if (isset($_GET["email"]) && !empty($_GET["email"]) && isset($_GET["token"]) && !empty($_GET["token"])) {
+    
+            $email = $_GET["email"];
+            $token = $_GET["token"];
+            $db = Database::getInstance()->getConnexion();
+    
+            // Vérification de l'utilisateur avec l'email et le token
+            $requete = $db->prepare('SELECT * FROM SiteBreaking.Utilisateur WHERE email=:email AND token=:token');
+            $requete->bindValue(":email", $email);
+            $requete->bindValue(":token", $token);
+            $requete->execute();
+    
+            $nombre = $requete->rowCount();
+            if ($nombre == 1) {
+                // Mise à jour de l'utilisateur pour valider l'email
+                $update = $db->prepare("UPDATE SiteBreaking.Utilisateur SET validation_email=:validation, token=:newToken WHERE email=:email");
+                $update->bindValue(":email", $email);
+                $update->bindValue(":newToken", "EmailValide");
+                $update->bindValue(":validation", 1);
+    
+                $resultUpdate = $update->execute();
+    
+                if ($resultUpdate) {
+                    // Redirection après la mise à jour réussie
+                    header("Location: /connexion");
+                    exit(); // Assurez-vous de terminer le script après la redirection
+                } else {
+                    echo "La mise à jour a échoué.";
+                }
+            } else {
+                echo "Utilisateur non trouvé ou token incorrect.";
             }
+        } else {
+            echo "Email ou token manquant.";
         }
-    };
+           
+    } catch (\Throwable $message) {
+        echo $message;
     }
+    }
+    
+
 }
 
 ?>
