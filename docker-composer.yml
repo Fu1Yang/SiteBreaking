@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   webservice:
     container_name: 'PHP-SERVER-SITE-BREAKING'
@@ -6,27 +7,28 @@ services:
     volumes:
       - .:/var/www/html
     ports:
-      - 80:80
+      - "80:80"
     depends_on:
       - mysql-srv
+
   mysql-srv:
     image: mysql:8.3
     environment:
-      MYSQL_ROOT_PASSWORD: /run/secrets/mot_de_passe
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mot_de_passe
       MYSQL_DATABASE: SiteBreaking
-      MYSQL_USER: root
-      MYSQL_PASSWORD: /run/secrets/mot_de_passe
     secrets:
       - mot_de_passe
     ports:
       - "3306:3306"
+
   phpmyadmin:
     image: phpmyadmin
     restart: always
     ports:
-      - 8080:80 
+      - "8080:80"
     environment:
       - PMA_ARBITRARY=1
+
 secrets:
   mot_de_passe:
-    file: ./secrets/mot_de_passe.txt    
+    file: ./secrets/mot_de_passe.txt
