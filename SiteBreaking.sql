@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : mysql-srv
--- Généré le : ven. 28 juin 2024 à 08:47
+-- Généré le : ven. 28 juin 2024 à 14:10
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.19
 
@@ -41,8 +41,20 @@ CREATE TABLE `Accueil` (
 --
 
 INSERT INTO `Accueil` (`id`, `image`, `evenementRealiser`, `titre`, `nom`, `text`) VALUES
-(1, 'images.jpg', 5, 'La présidente de l\'association', 'Soares da Silva Paola', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare neque vel lectus sollicitudin, nec scelerisque enim vulputate. In consequat ante id libero fringilla, ac lacinia risus luctus. Fusce vitae bibendum tortor. Nulla facilisi. Phasellus sed tellus non diam iaculis hendrerit. Integer suscipit posuere elit, eu finibus arcu dapibus eu. Vivamus eleifend lacinia diam, nec malesuada sem laoreet at. Sed auctor velit nec velit euismod, sit amet tincidunt orci convallis. Nullam non consequat velit. Vivamus maximus ex a quam euismod, sed efficitur lorem malesuada. Maecenas sit amet felis ut lorem tempor molestie vel id lorem.\r\n\r\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam ultrices, risus nec consequat rutrum, velit felis tristique ipsum, in laoreet eros tortor ac justo. Nunc id quam varius, feugiat ligula sit amet, tincidunt risus. Mauris dignissim quam at lacinia rutrum. Aliquam a luctus turpis. Morbi dictum venenatis elit, sit amet pretium lectus mollis eget. Sed eu felis sed tortor tincidunt laoreet. Integer varius ligula id risus ultrices, nec fringilla enim ullamcorper. Suspendisse potenti. Curabitur sed nibh risus. Phasellus malesuada felis id aliquet aliquam. Cras commodo pretium justo, non dapibus nisi vulputate id.'),
+(1, 'images.jpg', 15, 'La présidente de l\'association', 'Soares da Silva Paola', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare neque vel lectus sollicitudin, nec scelerisque enim vulputate. In consequat ante id libero fringilla, ac lacinia risus luctus. Fusce vitae bibendum tortor. Nulla facilisi. Phasellus sed tellus non diam iaculis hendrerit. Integer suscipit posuere elit, eu finibus arcu dapibus eu. Vivamus eleifend lacinia diam, nec malesuada sem laoreet at. Sed auctor velit nec velit euismod, sit amet tincidunt orci convallis. Nullam non consequat velit. Vivamus maximus ex a quam euismod, sed efficitur lorem malesuada. Maecenas sit amet felis ut lorem tempor molestie vel id lorem.\r\n\r\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam ultrices, risus nec consequat rutrum, velit felis tristique ipsum, in laoreet eros tortor ac justo. Nunc id quam varius, feugiat ligula sit amet, tincidunt risus. Mauris dignissim quam at lacinia rutrum. Aliquam a luctus turpis. Morbi dictum venenatis elit, sit amet pretium lectus mollis eget. Sed eu felis sed tortor tincidunt laoreet. Integer varius ligula id risus ultrices, nec fringilla enim ullamcorper. Suspendisse potenti. Curabitur sed nibh risus. Phasellus malesuada felis id aliquet aliquam. Cras commodo pretium justo, non dapibus nisi vulputate id.'),
 (2, 'imagee.jpg', 2, 'Directeur artistique de l\'association ', 'Barbosa lopes Matheus', 'Donec eget urna in magna convallis vestibulum. Curabitur non tincidunt lacus, a interdum eros. Maecenas ut mi velit. Aliquam interdum velit id magna mollis consequat. Nullam auctor augue sed arcu tincidunt, non consectetur eros feugiat. Nam a metus vitae arcu suscipit vehicula. Nam ullamcorper augue ut lorem vestibulum, at sollicitudin mi venenatis. Etiam non ligula vel eros hendrerit accumsan. Phasellus hendrerit risus non nisl dapibus, nec interdum lorem accumsan. Vivamus et ex auctor, consequat quam vel, tristique neque. Vivamus rutrum malesuada quam, eget lacinia urna elementum at.\r\n\r\nInteger vel eros eget turpis consectetur vestibulum. Nam in est vitae est cursus commodo. Quisque nec neque eu ligula consequat dictum. Fusce consequat feugiat sapien vitae laoreet. Morbi dictum at mi sit amet dictum. Nunc ac turpis eros. In gravida at erat ac malesuada. Sed volutpat justo vel elit dignissim, eget faucibus metus tempor. Phasellus at risus eget ipsum placerat congue. Curabitur ac vehicula enim. Sed luctus nisl quis elit eleifend, a sodales libero tincidunt. Vivamus ac ante et lorem pharetra pharetra. Sed non purus vel purus maximus pellentesque vitae in dolor.');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Administrateur`
+--
+
+CREATE TABLE `Administrateur` (
+  `id` int NOT NULL,
+  `utilisateur_id` int DEFAULT NULL,
+  `permissions` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -141,6 +153,18 @@ CREATE TABLE `Messagerie` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `Moderateur`
+--
+
+CREATE TABLE `Moderateur` (
+  `id` int NOT NULL,
+  `utilisateur_id` int DEFAULT NULL,
+  `permissions` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `Partners`
 --
 
@@ -177,7 +201,6 @@ CREATE TABLE `PhotosCarrousel` (
 --
 
 INSERT INTO `PhotosCarrousel` (`id`, `nom`) VALUES
-(1, 'breakingJourney.jpg'),
 (2, '870x489_red_bull_bc_one--jpg.jpg'),
 (3, 'dans.jpg'),
 (4, 'e23f197d1fc1118afa9ddfcd21c3d85a.jpeg'),
@@ -229,7 +252,16 @@ CREATE TABLE `Visiteur` (
 --
 
 INSERT INTO `Visiteur` (`id`, `session_id`, `nom_utilisateur`, `mot_de_passe`, `email`, `visites`) VALUES
-(1, '667d884059d78', NULL, NULL, NULL, 37);
+(1, '667d884059d78', NULL, NULL, NULL, 71),
+(2, '667eac8ebf65a', NULL, NULL, NULL, 6),
+(3, '667eacd8120ba', NULL, NULL, NULL, 10),
+(4, '667eb010e8d42', NULL, NULL, NULL, 8),
+(5, '667eb273d1c63', NULL, NULL, NULL, 4),
+(6, '667eb32880ad8', NULL, NULL, NULL, 14),
+(7, '667eb56f63365', NULL, NULL, NULL, 5),
+(8, '667eb5dde0738', NULL, NULL, NULL, 22),
+(9, '667eb8bbb1e7e', NULL, NULL, NULL, 17),
+(10, '667ec08a922d8', NULL, NULL, NULL, 8);
 
 --
 -- Index pour les tables déchargées
@@ -240,6 +272,13 @@ INSERT INTO `Visiteur` (`id`, `session_id`, `nom_utilisateur`, `mot_de_passe`, `
 --
 ALTER TABLE `Accueil`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `Administrateur`
+--
+ALTER TABLE `Administrateur`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `utilisateur_id` (`utilisateur_id`);
 
 --
 -- Index pour la table `Apropos`
@@ -273,6 +312,13 @@ ALTER TABLE `Message`
 ALTER TABLE `Messagerie`
   ADD PRIMARY KEY (`id`),
   ADD KEY `utilisateur_id` (`utilisateur_id`);
+
+--
+-- Index pour la table `Moderateur`
+--
+ALTER TABLE `Moderateur`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `utilisateur_id` (`utilisateur_id`);
 
 --
 -- Index pour la table `Partners`
@@ -311,6 +357,12 @@ ALTER TABLE `Accueil`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT pour la table `Administrateur`
+--
+ALTER TABLE `Administrateur`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `Apropos`
 --
 ALTER TABLE `Apropos`
@@ -341,6 +393,12 @@ ALTER TABLE `Messagerie`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT pour la table `Moderateur`
+--
+ALTER TABLE `Moderateur`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `Partners`
 --
 ALTER TABLE `Partners`
@@ -362,11 +420,17 @@ ALTER TABLE `Utilisateur`
 -- AUTO_INCREMENT pour la table `Visiteur`
 --
 ALTER TABLE `Visiteur`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `Administrateur`
+--
+ALTER TABLE `Administrateur`
+  ADD CONSTRAINT `Administrateur_ibfk_1` FOREIGN KEY (`utilisateur_id`) REFERENCES `Utilisateur` (`id`);
 
 --
 -- Contraintes pour la table `Message`
@@ -380,6 +444,12 @@ ALTER TABLE `Message`
 --
 ALTER TABLE `Messagerie`
   ADD CONSTRAINT `Messagerie_ibfk_1` FOREIGN KEY (`utilisateur_id`) REFERENCES `Utilisateur` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `Moderateur`
+--
+ALTER TABLE `Moderateur`
+  ADD CONSTRAINT `Moderateur_ibfk_1` FOREIGN KEY (`utilisateur_id`) REFERENCES `Utilisateur` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

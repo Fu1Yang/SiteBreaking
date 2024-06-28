@@ -42,5 +42,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/logo/logo_fb.png" alt="logo de l'association "></a>
   </div>
   <h1>Breaking Journey</h1>
-  <button class="compteSmartephone"><a href="./connexion">Inscription/Connexion</a></button>
+  <button class="compteSmartephone"><a href="./connexion">Administrateur</a></button>
 </header>

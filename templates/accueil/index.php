@@ -11,13 +11,13 @@
       <a href="../evenement">Événement</a>
       <a href="../contact">Contact</a>
     </div>
-    <button class="rentrerCompte"><a href="../connexion">Inscription/Connexion</a></button>
+    <button class="rentrerCompte"><a href="../connexion">Administrateur</a></button>
   </nav>
 
   <div id="carouselExampleIndicators" class="carousel slide">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        
+      <img src="../assets/images/dans.jpg" loading="lazy" alt="Une liste d\nimage"></img>
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"

@@ -20,12 +20,12 @@
 <label class="form-check-label" for="sesouvenir">Se souvenir de moi</label>
 </div>
 <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
- <a class="small" href="password.php">Mot de passe oublié?</a>
+ <!-- <a class="small" href="password.php">Mot de passe oublié?</a> -->
  <input type="submit"  name="connection" class="btn btn-primary" value="Connection">
 </div>
 </div>
 <div class="card-footer text-center py-3">
-<div class="small"><a href="../inscription">Avez vous besoin d'un compte? Enregistrez-vous!</a></div>
+<!-- <div class="small"><a href="../inscription">Avez vous besoin d'un compte? Enregistrez-vous!</a></div> -->
 </div>
 </fieldset>
 </form>

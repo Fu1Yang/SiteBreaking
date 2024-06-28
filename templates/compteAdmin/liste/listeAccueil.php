@@ -14,7 +14,7 @@ function afficherImages(){
             echo   '<h1>Les événement effectué du puits sa création</h1>';
             echo '</div>';
             echo '<div id="paragraphe">';
-            echo  ' <p>'.$row["evenementRealiser"].'</p>';
+            echo  ' <p class="evenementRealiser"><b>'.$row["evenementRealiser"].'</b></p>';
             echo '</div>';
             echo '</div>';
         }

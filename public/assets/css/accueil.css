@@ -112,7 +112,10 @@
   .rentrerCompte {
     visibility: hidden;
   }
- 
+ .rentrerCompte a{
+  font-size: 12px;
+  font-weight: bold;
+ }
   @media screen and (max-width: 770px) {
     .menu {
       width: 600px;
@@ -255,15 +258,19 @@
     color: #9c3391;
   }
   #paragraphe p {
+    display: inline-block;
     width: 150px;
     height: 150px;
-    border: 1px solid;
+    border: 5px solid;
     border-radius: 50%;
+    transition: all 0.3s ease; /* Pour une transition douce lors du changement de taille */
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 250px;
+    font-size: 10vh;
   }
+ 
   
   @media screen and (max-width: 500px) {
     #paragraphe p {

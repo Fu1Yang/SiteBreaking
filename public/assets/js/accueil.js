@@ -9,7 +9,37 @@ document.addEventListener("DOMContentLoaded", function(){
     const evenementEffectuer = document.querySelector(".evenementEffectuer");
     const carousel_item = document.querySelector(".carousel-item");
     const connexion = document.querySelector(".rentrerCompte");
-  
+    const evenementRealiser = document.querySelector(".evenementRealiser");
+    const paragraphe = document.querySelector("#paragraphe");
+    const b = document.querySelector("b")
+
+
+  // changer la couleur du border des événement
+  couleurBackground=["pink","red","blue"];
+  couleurBorder=["green","black","white"];
+  couleurEvenement=["black","pink","red"];
+    let element = 0
+    let interval = 1000
+    setInterval(() => {
+      element++
+      if (element>couleurBorder.length) {
+        element = 0
+        evenementRealiser.style.background = couleurBackground[element];
+        paragraphe.style.color = couleurBorder[element];
+        b.style.color = couleurEvenement[element];
+      }
+      else{
+        evenementRealiser.style.background = couleurBackground[element];
+        paragraphe.style.color = couleurBorder[element];
+        b.style.color = couleurEvenement[element];
+      }
+     
+    }, interval);
+
+
+
+
+
     // afficher la taille de l'écran
   function afficherTailleEcran(largeurEcran, hauteurEcran ) {
     // la largeur de l'écran
@@ -86,11 +116,11 @@ fetch('./get_images.php')
     // console.log(index);
     if (index < listImages.length) {
      
-      carousel_item.innerHTML = '<img src="'+listImages[index] +'" alt=""></img>' ;
+      carousel_item.innerHTML = '<img src="'+listImages[index] +'" loading="lazy" alt="Une liste d\nimage"></img>' ;
     }
     else {
       index = 0; 
-      carousel_item.innerHTML = '<img src="'+listImages[index] +'" alt=""></img>' ;
+      carousel_item.innerHTML = '<img src="'+listImages[index] +'" loading="lazy" alt="Une liste d\nimage"></img>' ;
       // console.log(listImages[index]);
     }
     index++

@@ -8,5 +8,5 @@
       <a href="../">Accueil</a>
       <a href="../evenement">Evenement</a>
     </div>
-    <button class="rentrerCompte"><a href="../connexion">Inscription/Connexion</a></button>
+    <button class="rentrerCompte"><a href="../connexion">Administrateur</a></button>
   </nav>

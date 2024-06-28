@@ -57,6 +57,7 @@ class CompteAdminController extends BaseController {
         $requete->bindValue(":id", $id);
     
         $result = $requete->execute();
+        
         if (!$result) {
             echo "Un problème est survenu, les modifications n'ont pas été faites!";
         } else {
