@@ -15,23 +15,21 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
   // changer la couleur du border des événement
-  couleurBackground=["pink","red","blue"];
-  couleurBorder=["green","black","white"];
-  couleurEvenement=["black","pink","red"];
+  
+  couleurBorder=["#AA1717","#000000"];
+
     let element = 0
-    let interval = 1000
+    let interval = 300
     setInterval(() => {
       element++
       if (element>couleurBorder.length) {
         element = 0
-        evenementRealiser.style.background = couleurBackground[element];
         paragraphe.style.color = couleurBorder[element];
-        b.style.color = couleurEvenement[element];
       }
       else{
-        evenementRealiser.style.background = couleurBackground[element];
         paragraphe.style.color = couleurBorder[element];
-        b.style.color = couleurEvenement[element];
+
+      
       }
      
     }, interval);
@@ -159,6 +157,7 @@ fetch('./get_images.php')
     .catch(error => {
         console.error(error.message);
     });
+
 
 
 

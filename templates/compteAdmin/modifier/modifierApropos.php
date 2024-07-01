@@ -50,7 +50,7 @@ if (!isset($_POST["modif"])) {
     </fieldset>
     <input type="hidden" name="id" value="<?= htmlspecialchars($id_apropos) ?>">
 </form>
-
+<a href="../compteAdmin" class="btn btn-danger">Revenir sur l'interface Admin</a>
 <?php
     }
     $db->closeCursor();
