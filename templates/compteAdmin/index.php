@@ -1,6 +1,7 @@
 <?php
 use app\SiteBreaking\model\Database;
 use app\SiteBreaking\model\Visiteur;
+use app\SiteBreaking\model\Utilisateur;
 // Assurez-vous que vous avez une route définie pour accepter POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  
@@ -69,8 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Connecté en tant que:</div>
-                        Administrateur
+                        <div class="small">Connecté</div>
+                        Administrateur 
                     </div>
                 </nav>
             </div>

@@ -17,9 +17,12 @@ class ConnexionController extends BaseController {
                 // le rôle de l'utilisateur à la session
                
                 $_SESSION["id"] = $utilisateur->getId();
-                if ($utilisateur->getValidationEmail() == 1) {
+                if ($utilisateur->getRoles()!= "administrateur") {
+                    $this->redirectTo("./");
+                } elseif ($utilisateur->getValidationEmail() == 1) {
                     $this->redirectTo("./compteAdmin");
-                } else {
+                }
+                 else {
                     echo "Accès refusé attendre la validation de votre email. ";
                 }
             } else {
