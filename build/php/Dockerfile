@@ -7,14 +7,17 @@ RUN apt-get install nano -y
 RUN a2enmod rewrite
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
+# Changer les permissions pour permettre à PHP de lire les fichiers nécessaires
+RUN chown -R www-data:www-data /var/www/html
+
 # # Copie des fichiers de l'application dans le conteneur
-# COPY . /var/www/html
+#COPY . /var/www/html
 
 # # Définition du répertoire de travail
-# WORKDIR /var/www/html
+#WORKDIR /var/www/html
 
 # # Exposition du port 80 pour accéder à l'application web
-# EXPOSE 80
+#EXPOSE 80
 
 # # Commande pour exécuter le serveur web (ici, PHP-FPM)
-# CMD ["php-fpm"]
+#CMD ["php-fpm"]

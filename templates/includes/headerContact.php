@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="./assets/css/accueil.css">
     <link rel="stylesheet" href="./assets/css/contact.css">
   <script src="./assets/js/accueil.js"></script>
+  <script src="./assets/js/cookies.js"></script>
   <title>Breaking Journey</title>
 </head>
 
@@ -38,3 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1>Breaking Journey</h1>
     <button class="compteSmartephone">Administrateur</button>
   </header>
+<div id="cookieBanner">
+        <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. 
+           <a href="cookie-policy.html" style="color: #00f;">En savoir plus</a>.
+        </p>
+        <button class="cookie-button" onclick="acceptCookies()">Accepter</button>
+        <button class="cookie-button" onclick="rejectCookies()">Refuser</button>
+    </div>

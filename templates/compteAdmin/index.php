@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="../">Retoure a page, l'accueil</a>
+            <a class="navbar-brand ps-3" href="../">Retour à la page, d'accueil</a>
             <!-- Sidebar Toggle-->
         
             <!-- Navbar Search-->

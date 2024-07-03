@@ -26,9 +26,6 @@ function getCookie(name) {
     return null;
 }
 
-function eraseCookie(name) {
-    document.cookie = name + '=; Max-Age=-99999999;';
-}
 
 function acceptCookies() {
     setCookie("cookieConsent", "accepted", 365);
@@ -40,10 +37,7 @@ function rejectCookies() {
     hideBanner();
 }
 
-function customizeCookies() {
-    // Implémenter la logique de personnalisation des cookies
-    alert("Personnalisation des cookies à implémenter.");
-}
+
 
 function hideBanner() {
     document.getElementById("cookieBanner").style.display = "none";
