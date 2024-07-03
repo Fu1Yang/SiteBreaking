@@ -12,7 +12,7 @@ function afficherApropos(){
         echo '</div>';
         
         echo '<div id="description" >';
-        echo'<p">'.$row["description"].'</p>';
+        echo'<p>'.$row["description"].'</p>';
         echo '</div>';
 
 }

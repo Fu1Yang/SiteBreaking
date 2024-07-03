@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const evenementEffectuer = document.querySelector(".evenementEffectuer");
     const carousel_item = document.querySelector(".carousel-item");
     const connexion = document.querySelector(".rentrerCompte");
+    const compteSmartephone =document.querySelector(".compteSmartephone")
     const evenementRealiser = document.querySelector(".evenementRealiser");
     const paragraphe = document.querySelector("#paragraphe");
     const b = document.querySelector("b")
@@ -18,21 +19,19 @@ document.addEventListener("DOMContentLoaded", function(){
   
   couleurBorder=["#AA1717","#000000"];
 
-    let element = 0
-    let interval = 300
-    setInterval(() => {
-      element++
-      if (element>couleurBorder.length) {
-        element = 0
-        paragraphe.style.color = couleurBorder[element];
-      }
-      else{
-        paragraphe.style.color = couleurBorder[element];
+    // let element = 0
+    // let interval = 300
+    // setInterval(() => {
+    //   element++
+    //   if (element>=couleurBorder.length) {
+    //     element = 0
+    //     paragraphe.style.color = couleurBorder[element];
+    //   }
+    //   paragraphe.style.color = couleurBorder[element];
 
-      
-      }
+
      
-    }, interval);
+    // }, interval);
 
 
 
@@ -68,13 +67,15 @@ document.addEventListener("DOMContentLoaded", function(){
   }
   
   document.addEventListener("keydown",(e)=>{
-    console.log(e);
+  
     if (e.ctrlKey && e.altKey && e.key === "m") {
       console.log(e);
       connexion.style.visibility = "visible";
+      compteSmartephone.style.visibility = "visible";
     }
     if (e.ctrlKey && e.altKey && e.key === "i") {
       connexion.style.visibility = "hidden";
+      compteSmartephone.style.visibility = "hidden";
     }
   })
   

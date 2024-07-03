@@ -24,7 +24,6 @@ function afficherImages(){
        echo     '<div class="card-body">';
        echo      '<h5 class="card-title">'.$row["titre"].'</h5>';
        echo      '<p class="card-text">'.$row["text"].'</p>';
-              
        echo   '</div>';
        echo '</div>';
        echo '</div>';

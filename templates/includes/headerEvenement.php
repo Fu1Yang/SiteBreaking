@@ -37,8 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <a href="https://www.facebook.com/bboybgirljourney/"><img src="./assets/logo/logo_fb.png" alt=""></a>
   </div>
   <h1>Breaking Journey</h1>
-  <button class="compteSmatrephone">Administrateur</button>
+  <button class="compteSmartephone"><a href="./connexion">Administrateur</a></button>
 </header>
+
 <div id="cookieBanner">
         <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. 
            <a href="cookie-policy.html" style="color: #00f;">En savoir plus</a>.

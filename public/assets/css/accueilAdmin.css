@@ -66,3 +66,9 @@ h1{
     display: flex;
    flex-direction: column;
 }
+@media screen and (max-width:400px) {
+   main tr{
+      width: 775px;
+    }
+    
+    }

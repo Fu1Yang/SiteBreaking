@@ -55,7 +55,7 @@ h1 {
 
 }
 .cartes .carte {
-    width: 702px;
+    width: 775px;
     height: 339px;
     padding: 1%;
     border: 1px solid black;
@@ -84,8 +84,86 @@ h1 {
 }
 
 
+@media screen and (max-width: 770px) {
+    .p p{
+        font-size: 25px;
+    }
+    .carte p {
+        margin-top: 2%;
+        font-size: 24px;
+    }
+    .cartes .carte {
+        width: 606.05px;
+        height: 339px;
+        padding: 1%;
+        border: 1px solid black;
+        display: inline-block;
+        font-size: 24px;
+       
+    }
+    
+}
 
+@media screen and (max-width: 700px) {
+    .p p{
+        font-size: 18px;
+    }
+    .carte p {
+        margin-top: 2%;
+        font-size: 20px;
+    }
+    .cartes .carte {
+        width: 439.84px;
+        height: 339px;
+        padding: 1%;
+        border: 1px solid black;
+        display: inline-block;
+        font-size: 20px;
+       
+    }
+    
+}
+@media screen and (max-width: 478px) {
+    .p p{
+        font-size: 18px;
+    }
+    .carte p {
+        margin-top: 2%;
+        font-size: 16px;
+    }
+    .cartes .carte {
+        width: 392px;
+        height: 211px;
+        padding: 1%;
+        border: 1px solid black;
+        display: inline-block;
+        font-size: 16px;
+       
+    }
+    
+}
 
+@media screen and (max-width: 400px) {
+    .p{
+        width: 392px;
+    }
+    .p p{
+        font-size: 18px;
+    }
+    .carte p {
+        margin-top: 2%;
+        font-size: 16px;
+    }
+    .cartes .carte {
+        width: 392px;
+        height: 211px;
+        padding: 1%;
+        border: 1px solid black;
+        display: inline-block;
+        font-size: 16px;
+       
+    }
+}
 
 
 

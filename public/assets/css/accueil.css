@@ -44,6 +44,7 @@
     height: 13px;
     border-radius: 10px;
     color: #9c3391;
+    visibility: hidden;
   }
   
   /*nav*/
@@ -319,11 +320,10 @@
     .row {
       display: flex;
       flex-direction: column-reverse;
-  
     }
     .card {
-      height: 180px;
-    }
+      height: auto;
+  }
    .card-body {
     padding: none;
     flex: none;
@@ -335,7 +335,7 @@
     }
     .card-text {
       padding: 0px;
-     font-size: 7px;
+     font-size: 10px;
     }
   }
   
@@ -386,4 +386,10 @@
 }
 .cookie-button:hover {
     background-color: #ddd;
+}
+@media screen and (max-width:400px) {
+.politique a {
+  font-size: 7px;
+}
+
 }

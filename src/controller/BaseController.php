@@ -31,8 +31,9 @@ use app\SiteBreaking\router\ViewNotFoundException;
                 
 // Inclusion du fichier de vue
                 include($viewFile);
-// Récupération du contenu de la temporisation de sortie et nettoyage                
-                $content = ob_get_clean();
+// Récupération du contenu de la temporisation de sortie et nettoyage  
+                $headContent = ob_get_clean();
+                $bodyContent = ob_get_clean();
 // Inclusion du fichier de mise en page et passage du contenu                
                 include("./../templates/layout.php");
             }

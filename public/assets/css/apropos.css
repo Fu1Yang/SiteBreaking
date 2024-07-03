@@ -21,14 +21,14 @@ body {
     margin-top: 4%;
     padding-left: 1%;
     padding-right: 1%;
-    height: 439px;
+    height: auto;
 }
 
 
 
 .associative {
     background-color: #d9d9d9;
-    height: 427px;
+    height: auto;
 }
 #h1 h1 {
     text-align: center;
@@ -68,5 +68,46 @@ body {
         height: 120px;
     }
   }
+@media screen and (max-width: 770px) {
+    #image img {
+        margin-top: 4%;
+        width: 250px;
+        height: 171px;
+    }
+    #description p{
+        font-size: 16px;
+    }
 
-  
+}
+@media screen and (max-width: 600px) {
+    #image img {
+        margin-top: 4%;
+        width: 200px;
+        height: 140px;
+    }
+    #description p{
+        font-size: 14px;
+    }
+
+}
+@media screen and (max-width: 470px) {
+    #image img {
+        margin-top: 4%;
+        width: 190px;
+        height: 120px;
+    }
+    #description p{
+        font-size: 12px;
+    }
+
+}
+@media screen and (max-width: 390px) {
+    #nosPartenaires  img{
+        width: 190px;
+        height: 120px;
+    }
+    #description p{
+        font-size: 12px;
+    }
+
+}
