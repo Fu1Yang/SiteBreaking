@@ -21,3 +21,6 @@ RUN chown -R www-data:www-data /var/www/html
 
 # # Commande pour exécuter le serveur web (ici, PHP-FPM)
 #CMD ["php-fpm"]
+
+# Lancer Apache en mode foreground
+CMD ["apache2-foreground"]

@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function(){
   const screnSize = afficherTailleEcran();
   console.log(`largeur de l'écran :${screnSize.largeur} et la hauteur de l'écran :${screnSize.hauteur}`);
   
-  if (screnSize.largeur>400) {
+  if (screnSize.largeur>500) {
       header.remove();
   }else {
     console.log("activer");

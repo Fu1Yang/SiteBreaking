@@ -43,13 +43,14 @@ article img {
         margin-bottom: 1%;
     }
 }
-@media screen and (max-width: 400px){
+@media screen and (max-width: 500px){
     article img {
-        margin-left: 25%;
+        margin-left: 28%;
         width: 200px;
         height: auto;
         margin-bottom: 1%;
     }
+    
 }
 article img:hover {
     box-shadow: 60px -16px rgb(139, 129, 129);
