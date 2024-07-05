@@ -360,18 +360,20 @@
   /*Cookie*/
   #cookieBanner {
     position: fixed;
-    bottom: 20px;
-    right: 750px;
+    top: 50%;  /* Positionne le haut du banner au milieu de l'écran */
+    left: 50%;  /* Positionne la gauche du banner au milieu de l'écran */
+    transform: translate(-50%, -50%);  /* Centre le banner parfaitement */
     width: 300px;
+    max-width: 80%;  /* Limite la largeur du banner à 80% de la largeur de l'écran */
     background-color: #000;
     color: #fff;
     padding: 20px;
     text-align: center;
-    display: none;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    z-index: 1
+    z-index: 1;
 }
+
 #cookieBanner a {
   font-weight: bold;
   text-decoration: none;
@@ -391,6 +393,36 @@
 @media screen and (max-width:500px) {
 .politique a {
   font-size: 7px;
+}
+#cookieBanner {
+  position: fixed;
+  bottom: 20px;
+  left: 90px;
+  width: 300px;
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  display: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1
+}
+#cookieBanner a {
+font-weight: bold;
+text-decoration: none;
+}
+.cookie-button {
+  margin: 5px;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.cookie-button:hover {
+  background-color: #ddd;
 }
 
 }

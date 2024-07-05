@@ -14,7 +14,7 @@ function affichagePartenaire(){
         echo "<button type='submit' name='action' value='update' class='btn btn-primary'>";
         echo "<span class='glyphicon glyphicon-align-left' aria-hidden='true'></span><a href='../aproposAdmin' style='color:white'> ajouter un partenaire</a>";
         echo "</button>";
-        echo "<form method='POST' action='/compteAdmin'>";
+        echo "<form method='POST' action='/partenaireDelete'>";
         echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
         echo "<button type='submit' name='action' value='delete' class='btn btn-danger'>";
         echo "<span class='glyphicon glyphicon-remove'></span> Supprimer";

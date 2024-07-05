@@ -19,19 +19,19 @@ document.addEventListener("DOMContentLoaded", function(){
   
   couleurBorder=["#AA1717","#000000"];
 
-    // let element = 0
-    // let interval = 300
-    // setInterval(() => {
-    //   element++
-    //   if (element>=couleurBorder.length) {
-    //     element = 0
-    //     paragraphe.style.color = couleurBorder[element];
-    //   }
-    //   paragraphe.style.color = couleurBorder[element];
+    let element = 0
+    let interval = 300
+    setInterval(() => {
+      element++
+      if (element>=couleurBorder.length) {
+        element = 0
+        paragraphe.style.color = couleurBorder[element];
+      }
+      paragraphe.style.color = couleurBorder[element];
 
 
      
-    // }, interval);
+    }, interval);
 
 
 

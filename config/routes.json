@@ -168,6 +168,14 @@
         "roles": ["administrateur"]
     },
     {
+        "path": "/partenaireDelete",
+        "controller": "Apropos",
+        "action": "deletePartenaire",
+        "method": "POST",
+        "params": [{"name": "id", "type": "int"}],
+        "roles": ["administrateur"]
+    }, 
+    {
         "path": "/aproposDelete",
         "controller": "Apropos",
         "action": "delete",

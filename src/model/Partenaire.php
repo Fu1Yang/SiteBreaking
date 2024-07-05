@@ -60,7 +60,7 @@ class Partenaire{
         if ($row = $statement->fetch()) {
             $partenaire = new Partenaire(
                 id:$row["id"],
-                partner_name:$row["partner_nom"],
+                partner_name:$row["partner_name"],
                 partner_url:$row["partner_url"],   
             );
             return $partenaire;

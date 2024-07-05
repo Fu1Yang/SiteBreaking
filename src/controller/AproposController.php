@@ -168,6 +168,31 @@ class AproposController extends BaseController {
             return $message;
         }
     }
+    public function deletePartenaire($id){
+        
+        $message = "L'élément selectionner na pas peu étre supprimer";
+        try {
+            if (!empty($_POST["id"])) {
+                
+                $idUser = intval($_POST["id"]);
+                
+                $partenaire = Partenaire::read($idUser);
+                if ($partenaire) {
+                    $partenaire->delete($partenaire);
+                }else {
+                   return "l'élément qui corresponde a Apropos non trouvé.";
+                }
+                $this->redirectTo("/compteAdmin");
+            }
+            else {
+                return "Votre Id est vide";
+            }
+           
+        } 
+        catch (\Throwable $th) {
+            return $message;
+        }
+    }
 
     
 }
