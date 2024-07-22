@@ -5,7 +5,7 @@ use app\SiteBreaking\model\Database;
 function affichagePartenaire(){
     $statement = Database::getInstance()->getConnexion()->query("SELECT * FROM Partners");
     while ($row = $statement->fetch()) {
-        $photo = !empty($row["partner_name"]) ? $row["partner_name"] : null;        // Vérifie si la colonne "photo" est vide
+        $photo = !empty($row["partner_name"]) ? $row["partner_name"] : null;        
         echo "<tr>";
         echo "<td>".$row["id"]."</td>";
         echo "<td>".$photo."</td>";

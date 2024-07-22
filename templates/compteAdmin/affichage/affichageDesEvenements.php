@@ -11,7 +11,6 @@ function affichageEvenements(){
         echo "<td>".$row["description"]."</td>";
         echo "<td>".$row["date_evenement"]."</td>";
         echo "<td>".$row["lieu"]."</td>"; 
-        // Vérifier si la colonne "photo" est vide
         $image = !empty($row["image"]) ? $row["image"] : null;
         echo "<td>".$image."</td>";
         echo "<td width=300px>";

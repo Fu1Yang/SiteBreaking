@@ -1,0 +1,13 @@
+body {
+    background-image: url("https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230809155358/Error-403-Forbidden-Error.png");
+    background-repeat: no-repeat;
+    text-align: center;
+     background-size: cover;
+}   
+
+
+p{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 25px;
+}

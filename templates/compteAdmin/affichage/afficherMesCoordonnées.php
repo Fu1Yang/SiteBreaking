@@ -13,7 +13,6 @@ function MesCoordonnees(){
         echo "<td>".$row["description"]."</td>";
         echo "<td>".$row["jour"]."</td>";
         echo "<td>".$row["niveauEtStyle"]."</td>";
-        // Vérifier si la colonne "photo" est vide
         echo "<td width=300px>";
         echo "<form method='POST' action='contactUpdate'>";
         echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";

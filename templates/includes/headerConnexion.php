@@ -1,13 +1,12 @@
 <?php
 use app\SiteBreaking\model\Database;
 use app\SiteBreaking\model\Visiteur;
-// Assurez-vous que vous avez une route définie pour accepter POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
   Database::getInstance()->getConnexion();
   Visiteur::cookie();
 } else {
-  // Réponse d'erreur si la méthode n'est pas autorisée
+  // erreur si la méthode n'est pas autorisée
   http_response_code(405);
  
 }
@@ -39,10 +38,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <h1>Breaking Journey</h1>
   <button class="compteSmartephone">Administrateur</button>
 </header>
-<div id="cookieBanner">
-        <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. 
-           <a href="cookie-policy.html" style="color: #00f;">En savoir plus</a>.
-        </p>
-        <button class="cookie-button" onclick="acceptCookies()">Accepter</button>
-        <button class="cookie-button" onclick="rejectCookies()">Refuser</button>
-    </div>

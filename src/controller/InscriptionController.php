@@ -101,7 +101,7 @@ class InscriptionController extends BaseController {
                 if ($resultUpdate) {
                     // Redirection après la mise à jour réussie
                     header("Location: /connexion");
-                    exit(); // Assurez-vous de terminer le script après la redirection
+                    exit(); // terminer le script après la redirection
                 } else {
                     echo "La mise à jour a échoué.";
                 }

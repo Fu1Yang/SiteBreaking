@@ -77,11 +77,7 @@ class HttpRequest
          // Retourne le tableau des paramètres.        
         return $params;
     }
-    //path :/api/quiz | params:[0=>'id'] (provient du fichier routes.json)
-     // uri: "/api/quiz/5" (url demandé par le client)
-   // preg_mach: "#^/api/quiz/\d$#" (expression réguliere construite pour reconnaitre la route)
-    //$route: [0=>"",1=>"api",2=>"quiz"] (explode $this->_route->getPath())
-   // $url: [0=>"",1=>"api",2=>"quiz",3=>5] (explode $this->_uri))
+
     private function bindParamFromGet():array
     {
         $route=explode('/',$this->_route->getPath());// la route ne contient pas les parametres

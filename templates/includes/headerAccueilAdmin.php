@@ -1,13 +1,12 @@
 <?php
 use app\SiteBreaking\model\Database;
 use app\SiteBreaking\model\Visiteur;
-// Assurez-vous que vous avez une route définie pour accepter POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
   Database::getInstance()->getConnexion();
   Visiteur::cookie();
 } else {
-  // Réponse d'erreur si la méthode n'est pas autorisée
+  // erreur si la méthode n'est pas autorisée
   http_response_code(405);
  
 }

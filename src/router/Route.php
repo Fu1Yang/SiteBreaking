@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace app\SiteBreaking\router;
 use app\SiteBreaking\model\Authentification;
-use app\SiteBreaking\model\Database;
 
 
 class Route
@@ -64,9 +63,7 @@ class Route
             // Vérifie si l'utilisateur est null, s'il l'est, lance une exception d'interdiction.
 
             if ($utilisateur == null){
-                
                 throw new NotAllowedException();
-
             }
             
             // Vérifie si le rôle de l'utilisateur n'est pas autorisé, lance une exception d'interdiction.

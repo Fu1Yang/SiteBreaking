@@ -8,7 +8,6 @@ function afficherListeDesPhotos(){
         echo "<tr>";
         echo "<td>".$row["id"]."</td>";
         echo "<td>".$row["nom"]."</td>";
-        // Vérifier si la colonne "photo" est vide
         echo "<td width=300px>";
         echo "<form method='POST' action='/accueil-deletePhoto'>";
         echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
