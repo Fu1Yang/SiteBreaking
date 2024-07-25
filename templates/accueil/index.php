@@ -1,6 +1,5 @@
 
 <?php require_once(__DIR__ . '/../includes/headerAccueil.php'); ?>
-
   <nav>
     <div class="logo">
       <img class="fb1" src="./assets/logo/logo.png" alt="logo de facebook">
@@ -31,13 +30,5 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-
-
-
   <?php require_once(__DIR__ . '/../compteAdmin/liste/listeAccueil.php');?>
-
-
-
-
- 
   <?php require_once(__DIR__ . '/../includes/footer.php') ?>

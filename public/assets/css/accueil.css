@@ -97,6 +97,11 @@
     color: #9c3391;
     font-size: 8px;
   }
+  nav button a:hover {
+    text-decoration: none;
+    color:white;
+    
+  }
   nav button:hover {
     background-color: blue;
     color: white;
@@ -116,13 +121,9 @@
   .rentrerCompte {
     visibility: hidden;
     box-shadow: 10px 10px 5px rgb(20, 21, 22);
-
+    margin-right: 3%;
   }
-  .rentrerCompte:hover {
-    color: white;
-    box-shadow: none;
 
-  }
  .rentrerCompte a{
   font-size: 12px;
   font-weight: bold;

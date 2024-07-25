@@ -25,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="./assets/css/accueil.css">
     <link rel="stylesheet" href="./assets/css/evenement.css">
   <script src="./assets/js/accueil.js"></script>
-  <script src="./assets/js/cookies.js"></script>
   <title>Breaking Journey</title>
 </head>
 

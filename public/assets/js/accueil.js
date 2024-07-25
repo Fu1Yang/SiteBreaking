@@ -84,21 +84,20 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 function displayCarousel(images) {
-    let imageList = []; // Crée une liste vide pour stocker les images
+  // Crée une liste vide pour stocker les images
+    let imageList = []; 
     
     // Boucle à travers les images pour les traiter
     images.forEach(function(image) {
 
-      imageList.push(image); // Ajoute l'image à la liste 
+      // Ajoute l'image à la liste 
+      imageList.push(image); 
       
     });
     
     // Retourne la liste complète des images après traitement
     return imageList;
 }
-
-
-
 let index = 0
 // AJAX pour récupérer la liste des images depuis PHP
 fetch('./get_images.php')
@@ -109,7 +108,8 @@ fetch('./get_images.php')
         return response.json();
     })
     .then(images => {
-        const listImages = displayCarousel(images); // displayCarousel pour traiter les images
+      //traite les images
+        const listImages = displayCarousel(images); 
 
           setInterval( ()=>{
     // console.log(index);

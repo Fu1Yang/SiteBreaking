@@ -116,5 +116,10 @@ CREATE TABLE Message (
 CREATE TABLE Messagerie (
     id INT AUTO_INCREMENT PRIMARY KEY,
     utilisateur_id INT,
-    FOREIGN KEY (utilisateur_id) REFERENCES Utilisateur(id) ON DELETE CASCADE -- Supprimer automatiquement la boîte de messagerie si l'utilisateur est supprimé
+    -- Supprimer automatiquement la boîte de messagerie si l'utilisateur est supprimé
+    FOREIGN KEY (utilisateur_id) REFERENCES Utilisateur(id) ON DELETE CASCADE 
 );
+
+
+
+

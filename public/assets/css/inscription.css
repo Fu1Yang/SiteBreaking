@@ -15,16 +15,16 @@ form {
     color: #9c3391;
     background-color: #d9d9d9;
 }
-@media screen and (max-width: 1536px){
+@media screen and (max-width: 1546px){
     form {
         display: flex;
         flex-direction: column;
         border: 1px solid black;
         border-radius: 10%;
-        width: 967px;
-        height: 600px;
+        width: 867px;
+        height: 470px;
         justify-content: center;
-        padding: 10%;
+        padding: 3%;
         margin-left: 18%;
         margin-right: 18%;
         margin-top: 3%;
@@ -32,6 +32,11 @@ form {
         color: #9c3391;
         background-color: #d9d9d9;
     }
+    form legend {
+        padding: 10%;
+        font-weight: bold;
+    }
+    
 }
 
 form fieldset {
