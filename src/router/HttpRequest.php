@@ -93,7 +93,7 @@ class HttpRequest
                     $params[$this->getRoute()->getParams()[$i]->name] =(int) $valeursParams[$i];  
                     break;
                 case 'email':
-                        // il faut vérifier que c'est bien un email avec la fonction filter_var
+                        // il faut vérifier que c'est bien un email avec la fonction filter
                         if (!$email = filter_input(INPUT_GET, $this->getRoute()->getParams()[$i]->name, FILTER_VALIDATE_EMAIL))
                             throw new \InvalidArgumentException("not a valid email", 1);
                         $params[$this->getRoute()->getParams()[$i]->name] =(int) $valeursParams[$i];  

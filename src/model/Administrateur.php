@@ -36,11 +36,11 @@ class Administrateur{
     }
     
 
-    public function getPrenomUtilisaeur():Utilisateur{
+    public function getPrenomUtilisateur():Utilisateur{
         return $this->_prenom_utilisateur;
     }
 
-    public function getPermisions():string{
+    public function getPermissions():string{
         return $this->_permissions;
     }
 
@@ -52,8 +52,8 @@ class Administrateur{
         $statement->execute([
             'nom_utilisateur' => $administrateur->getNomUtilisateur(),
             'utilisateur_id' => $administrateur->getUtilisateurId(),
-            'prenom_utilisateur' => $administrateur->getPrenomUtilisaeur(),
-            'permissions' => $administrateur->getPermisions()
+            'prenom_utilisateur' => $administrateur->getPrenomUtilisateur(),
+            'permissions' => $administrateur->getPermissions()
         ]);
     
         // Étape 3: Retour de l'identifiant du dernier enregistrement inséré dans la base de données
@@ -90,8 +90,8 @@ class Administrateur{
         $statement->execute([
             'nom_utilisateur'=>$administrateur->getNomUtilisateur(),
             "utilisateur_id"=>$administrateur->getUtilisateurId(),
-            'prenom_utilisateur'=>$administrateur->getPrenomUtilisaeur(),
-            'permissions'=>$administrateur->getPermisions()
+            'prenom_utilisateur'=>$administrateur->getPrenomUtilisateur(),
+            'permissions'=>$administrateur->getPermissions()
         ]);
     }
 

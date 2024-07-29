@@ -10,6 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   http_response_code(405);
  
 }
+require_once(__DIR__ . '/../../public/token.php');
+$_SESSION['csrf'] = $token;
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">

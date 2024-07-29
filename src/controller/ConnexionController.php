@@ -14,9 +14,16 @@ class ConnexionController extends BaseController {
             $utilisateur = Utilisateur::verifConnexion($email, $mot_de_passe);
             
             if ($utilisateur != null) {
+                
+               $csrf  = $_POST['csrf'] ?? null;
+                $sessionCSRF = $_SESSION['csrf']  ?? "";
+                // echo "Le POST Token = ". $csrf."<br>";
+                // echo "La SESSION Token = ".$sessionCSRF;
+                if ($csrf != $sessionCSRF) {
+                    $error = "Token CSRF invalide";
+                }
+                $_SESSION["id"] = $utilisateur->getId();  
                 // le rôle de l'utilisateur à la session
-               
-                $_SESSION["id"] = $utilisateur->getId();
                 if ($utilisateur->getRoles()!= "administrateur") {
                     $this->redirectTo("./");
                 } elseif ($utilisateur->getValidationEmail() == 1) {

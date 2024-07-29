@@ -19,8 +19,6 @@ class AccueilController extends BaseController {
     }
 
     public function accueilPhotoCarousel() {
-     
-
         if (isset($_FILES['PhotosCarrousel']) && preg_match("#jpeg|jpg|png|avif|pdf#", $_FILES['PhotosCarrousel']['type'])) {
          
             $path = "./assets/images/";
@@ -32,7 +30,7 @@ class AccueilController extends BaseController {
           
             $photo->setNom($photoName);
           
-            // Appeler la méthode create avec l'instance de Photo en paramètre
+            // Appeler la méthode create avec l'instance de Photo
             Photo::create($photo);
           
             // Déplacer le fichier téléchargé vers le répertoire de destination
@@ -44,8 +42,6 @@ class AccueilController extends BaseController {
             $message = "La photo doit être de type jpeg, jpg, png, avif ou pdf";
           echo $message;
         }
-    
-    
     }
 
     public function  accueilCarte(){

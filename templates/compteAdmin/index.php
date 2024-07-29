@@ -5,7 +5,7 @@ use app\SiteBreaking\model\Utilisateur;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  
-  Database::getInstance()->getConnexion();
+ Database::getInstance()->getConnexion();
 
 } else {
   // erreur si la méthode n'est pas autorisée
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="fr-FR">
     <head>
       
-        <title>Tableau de bord – Administrateur</title>
+        <title>Tableau de bord – Administrateur<?=$row["nom_utilisateur"]?></title>
 
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="./assets/css/compteAdmin.css">

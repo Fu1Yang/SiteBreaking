@@ -99,7 +99,7 @@ function displayCarousel(images) {
     return imageList;
 }
 let index = 0
-// AJAX pour récupérer la liste des images depuis PHP
+// pour récupérer la liste des images depuis PHP
 fetch('./get_images.php')
     .then(response => {
         if (!response.ok) {

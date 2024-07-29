@@ -11,7 +11,7 @@ function afficherImages(){
         if ($index < 2) {
             echo '<div class="evenementEffectuer">';
             echo '<div id="h1">';
-            echo   '<h1>Les événement effectué du puits sa création</h1>';
+            echo   '<h1>Les événement effectué de puits sa création</h1>';
             echo '</div>';
             echo '<div id="paragraphe">';
             echo  ' <p class="evenementRealiser"><b>'.$row["evenementRealiser"].'</b></p>';
