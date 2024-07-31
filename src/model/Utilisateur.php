@@ -15,6 +15,7 @@ class Utilisateur {
     private ?DateTime $_date_inscription;
     private string $_token;
     private int $_validationEmail;
+    private static $mockMethods = [];
 
     public function __construct(string $nom_utilisateur, string $prenom_utilisateur, string $mot_de_passe , int $validationEmail , string $token, string $email, string $roles = 'utilisateur', ?DateTime $date_inscription = null,int $id=0)
     {
@@ -173,6 +174,16 @@ class Utilisateur {
     return null;
 }
 
+public static function staticMethod($methodName, callable $mockImplementation): void {
+    self::$mockMethods[$methodName] = $mockImplementation;
+}
+
+public static function __callStatic($methodName, $arguments) {
+    if (isset(self::$mockMethods[$methodName])) {
+        return call_user_func_array(self::$mockMethods[$methodName], $arguments);
+    }
+    throw new \BadMethodCallException("Method $methodName does not exist and no mock implementation is set.");
+}
 
 
 

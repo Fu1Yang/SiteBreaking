@@ -2,8 +2,15 @@
 declare(strict_types=1);
 namespace app\SiteBreaking\controller;
 use app\SiteBreaking\model\Utilisateur;
+use app\SiteBreaking\router\HttpRequest;
 
 class ConnexionController extends BaseController {
+
+    public function __construct(HttpRequest $httpRequest)
+    {
+        parent::__construct($httpRequest);
+    }
+
     public function index():void {
         $this->view("connexion/index");
     }
