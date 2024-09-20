@@ -1,3 +1,4 @@
+<!-- templates/include/headerConnexion -->
 <?php
 use app\SiteBreaking\model\Database;
 use app\SiteBreaking\model\Visiteur;

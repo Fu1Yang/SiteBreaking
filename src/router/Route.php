@@ -60,8 +60,8 @@ class Route
 
             // Obtient l'utilisateur connecté.
             $utilisateur = Authentification::getInstance()->getUtilisateurConnecte();
+            
             // Vérifie si l'utilisateur est null, s'il l'est, lance une exception d'interdiction.
-
             if ($utilisateur == null){
                 throw new NotAllowedException();
             }

@@ -46,7 +46,7 @@ class ConnexionController extends BaseController {
         } catch (\Throwable $th) {
             // En cas d'erreur, rediriger vers la page de connexion et afficher un message
             $this->redirectTo("./connexion");
-            $message = "Valider votre email";
+            $message = "une erreur est survenue";
             echo $message;
         }
     }

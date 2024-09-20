@@ -16,7 +16,7 @@
   <div id="carouselExampleIndicators" class="carousel slide">
     <div class="carousel-inner">
       <div class="carousel-item active">
-      <img src="../assets/images/dans.jpg" loading="lazy" alt="Une liste d\nimage"></img>
+      <img src="../assets/images/dans.jpg"  alt="Une liste d\nimage"></img>
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"

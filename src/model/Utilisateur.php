@@ -30,12 +30,16 @@ class Utilisateur {
         $this->_validationEmail = $validationEmail;
     }
 
-    public function getId():int{
-        return $this->_id;
-    }
-
     public function getNomUtilisateur():string{
         return  $this->_nom_utilisateur;
+    }
+    
+    public function setNomUtilisateur($nom_utilisateur):void{
+        $this->_nom_utilisateur = $nom_utilisateur;
+     }
+     
+    public function getId():int{
+        return $this->_id;
     }
 
     public function getPrenomUtilisateur(): string{
@@ -71,9 +75,7 @@ class Utilisateur {
         $this->_mot_de_passe = password_hash($password, PASSWORD_DEFAULT);
     }
  
-    public function setNomUtilisateur($nom_utilisateur):void{
-       $this->_nom_utilisateur = $nom_utilisateur;
-    }
+  
 
     public function setRoles($roles):void{
         $this->_roles = $roles;

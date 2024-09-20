@@ -1,4 +1,6 @@
-<?php
+
+<!-- public/token.php -->
+ <?php
 function token_random_string($len = 20)
 {
     $str = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";

@@ -82,8 +82,6 @@ class Apropos {
         $statement->execute(['id'=>$apropos->getId()]);
     }
 
-
-
     
     //  les Partenaires
     public static function createPartenaire($nom_partenaire, $url_partenaire) {

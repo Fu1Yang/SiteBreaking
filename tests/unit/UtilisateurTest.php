@@ -1,5 +1,5 @@
 <?php
-
+// la commande a faire pour teste le code ./vendor/bin/phpunit tests
 declare(strict_types=1);
 namespace tests\SiteBreaking\model;
 
@@ -15,72 +15,72 @@ class UtilisateurTest extends TestCase {
     }
 
     public function testGetId() {
-        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'laure@gmail.com');
+        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'yang@gmail.com');
         $this->assertSame(0, $utilisateur->getId());
     }
 
     public function testGetNomUtilisateur() {
-        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'laure@gmail.com');
+        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'yang@gmail.com');
         $this->assertSame('nom', $utilisateur->getNomUtilisateur());
     }
 
     public function testGetPrenomUtilisateur() {
-        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'laure@gmail.com');
+        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'yang@gmail.com');
         $this->assertSame('prenom', $utilisateur->getPrenomUtilisateur());
     }
 
     public function testGetMotDePasse() {
-        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'laure@gmail.com');
+        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'yang@gmail.com');
         $this->assertSame('motDePasse', $utilisateur->getMotDePasse());
     }
 
     public function testGetEmail() {
-        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'laure@gmail.com');
-        $this->assertSame('laure@gmail.com', $utilisateur->getEmail());
+        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'yang@gmail.com');
+        $this->assertSame('yang@gmail.com', $utilisateur->getEmail());
     }
 
     public function testGetRoles() {
-        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'laure@gmail.com');
+        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'yang@gmail.com');
         $this->assertSame('utilisateur', $utilisateur->getRoles());
     }
 
     public function testGetToken() {
-        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'laure@gmail.com');
+        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'yang@gmail.com');
         $this->assertSame('token', $utilisateur->getToken());
     }
 
     public function testGetValidationEmail() {
-        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'laure@gmail.com');
+        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'yang@gmail.com');
         $this->assertSame(1, $utilisateur->getValidationEmail());
     }
 
     public function testGetDateInscription() {
         $date = new DateTime();
-        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'laure@gmail.com', 'utilisateur', $date);
+        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'yang@gmail.com', 'utilisateur', $date);
         $this->assertSame($date, $utilisateur->getDateInscription());
     }
 
     public function testSetMotDePasse() {
-        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'laure@gmail.com');
+        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'yang@gmail.com');
         $utilisateur->setMotDePasse('new_password');
         $this->assertTrue(password_verify('new_password', $utilisateur->getMotDePasse()));
     }
 
     public function testSetNomUtilisateur() {
-        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'laure@gmail.com');
+        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'yang@gmail.com');
         $utilisateur->setNomUtilisateur('new_nom');
         $this->assertSame('new_nom', $utilisateur->getNomUtilisateur());
     }
 
     public function testSetRoles() {
-        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'laure@gmail.com');
+        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'yang@gmail.com');
         $utilisateur->setRoles('admin');
         $this->assertSame('admin', $utilisateur->getRoles());
     }
 
     // Tests pour les méthodes statiques avec Mockery
     public function testCreate() {
-        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'laure@gmail.com');
+        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'yang@gmail.com');
         
         $mockDb = Mockery::mock('overload:app\SiteBreaking\model\Database');
         $mockDb->shouldReceive('getInstance->getConnexion->prepare->execute')
@@ -105,7 +105,7 @@ class UtilisateurTest extends TestCase {
                    "nom_utilisateur" => "nom",
                    "prenom_utilisateur" => "prenom",
                    "mot_de_passe" => "motDePasse",
-                   "email" => "laure@gmail.com",
+                   "email" => "yang@gmail.com",
                    "role" => "utilisateur",
                    "date_inscription" => "2024-05-02 14:20:00",
                    "token" => "token",
@@ -117,7 +117,7 @@ class UtilisateurTest extends TestCase {
     }
 
     public function testUpdate() {
-        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'laure@gmail.com');
+        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'yang@gmail.com');
         
         $mockDb = Mockery::mock('overload:app\SiteBreaking\model\Database');
         $mockDb->shouldReceive('getInstance->getConnexion->prepare->execute')
@@ -129,7 +129,7 @@ class UtilisateurTest extends TestCase {
     }
 
     public function testDelete() {
-        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'laure@gmail.com');
+        $utilisateur = new Utilisateur('nom', 'prenom', 'motDePasse', 1, 'token', 'yang@gmail.com');
         
         $mockDb = Mockery::mock('overload:app\SiteBreaking\model\Database');
         $mockDb->shouldReceive('getInstance->getConnexion->prepare->execute')
@@ -154,14 +154,14 @@ class UtilisateurTest extends TestCase {
                    "nom_utilisateur" => "nom",
                    "prenom_utilisateur" => "prenom",
                    "mot_de_passe" => password_hash("motDePasse", PASSWORD_DEFAULT),
-                   "email" => "laure@gmail.com",
+                   "email" => "yang@gmail.com",
                    "role" => "utilisateur",
                    "date_inscription" => "2024-05-02 14:20:00",
                    "token" => "token",
                    "validation_email" => 1
                ]);
 
-        $utilisateur = Utilisateur::verifConnexion('laure@gmail.com', 'motDePasse');
+        $utilisateur = Utilisateur::verifConnexion('yang@gmail.com', 'motDePasse');
         $this->assertInstanceOf(Utilisateur::class, $utilisateur);
     }
 

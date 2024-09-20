@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr-FR">
         <meta charset="utf-8">
         <title>Breaking Journey</title>

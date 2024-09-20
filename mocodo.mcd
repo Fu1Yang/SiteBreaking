@@ -1,0 +1,23 @@
+peut_etre_1, ON Utilisateur_connecte, 11 Visiteur
+Visiteur:id, session_id, visite, date
+peut_modifier_3, 11 Administrateur, ON Page_contact
+Page_contact: id, adresse, numero_de_tel, email, horaire
+:
+:
+:
+
+Utilisateur_connecte: id, name, prenom, mot_de_passe, email, roles, date_inscription, token, validation_email
+peut_etre, ON Utilisateur_connecte, 11 Administrateur
+Administrateur: id, utilisateur_id, nom_utilisateur, mot_de_passe, permission
+peut_modifier_2, 11 Administrateur, ON Page_apropos
+Page_apropos: id, logo, description, nosPartenaire
+possede_1, ON Partenaire, 11 Page_apropos
+Partenaire: id, partenaire_url, partenaire_name
+
+:
+page_evenement: id, titre, description, date_evenement, lieu, image
+peut_modifier_1, 11 Administrateur, ON page_evenement
+peut_modifier, 11 Administrateur, ON Page_accueil
+Page_accueil: id, image, evenement_realiser, titre, nom, texte
+possede, ON Photo_diaporama, 11 Page_accueil
+Photo_diaporama: id, nom

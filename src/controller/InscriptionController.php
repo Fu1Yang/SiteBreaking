@@ -121,3 +121,8 @@ class InscriptionController extends BaseController {
 }
 
 ?>
+
+
+
+ALTER TABLE Contact
+ADD numbPhone VARCHAR(15);

@@ -1,3 +1,4 @@
+<!-- templates/connexion/index.php -->
 <?php require_once(__DIR__ . '/../includes/headerConnexion.php'); ?>
 <?php require_once(__DIR__ . '/../includes/navContact.php'); ?>
 
